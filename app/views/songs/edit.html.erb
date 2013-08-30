@@ -1,0 +1,70 @@
+<% provide(:title, "Add A Song") %>
+<div class="container">
+
+  <div id="sidebar">
+    <h4>The Sidebar Headline</h4>
+      <p>
+          Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod. 
+      </p>
+      <ul>
+          <li>Lorem ipsum Veniam sunt</li>
+          <li>velit in nisi incididunt</li>
+          <li>eu id minim dolore</li>
+          <li>aliqua commodo officia.</li>
+      </ul>
+      <p>
+          Lorem ipsum Dolore pariatur mollit et ullamco et esse velit.
+      </p>
+  </div>
+
+  <div id="content_main">
+    <div class="greywrap_form">
+      <div class="content_head">
+        <h3>EDIT SONG INFO</h3>
+      </div>
+
+      <div class="content_body">
+        <div id="editsong">
+            <% @song = Song.find(params[:id]) %>
+            <%= simple_form_for @song do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+
+            <div id="title">
+                <div id="title_input">
+                <%= f.input :title %>
+                </div>
+            </div>
+
+            <div id="editcomposer">
+                <div id="editcomposer_from_list">
+                    <%= f.input :composer_name, label: "Composer" %>
+                </div>
+            </div>
+
+            <div id="editalbum">
+                <div id="editalbum_from_list">
+                    <%= f.input :album_name, label: "Album" %>
+                </div>
+            </div>
+
+            <div id="editgenre">
+                <div id="editgenre_from_list">
+                    <%= f.input :genre_name, label: "Genre" %>
+                </div>
+            </div>
+
+            <!-- TAGS                            -->
+            <div class="field">
+                <%= f.input :tag_list, label: "Tags (separate by commas)" %>
+            </div>
+
+            <!-- SUBMIT                            -->
+            
+            <div><%= f.button :submit, "SAVE CHANGES" %></div>
+            <% end %>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

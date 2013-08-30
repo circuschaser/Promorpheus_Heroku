@@ -1,0 +1,33 @@
+<script>
+  jQuery('#addset_page').colorbox({top: "15%"});
+</script>
+
+<div id="none">
+
+  <!-- ADD A SETLIST                                            -->
+  <div id="addset">
+    <div class="greywrap_form">
+      <div class="colorbox_head">
+        <h4>CREATE A SETLIST</h4>
+      </div>
+      <div class="colorbox_body">
+
+          <% @setlist = Setlist.new %>
+
+          <%= simple_form_for @setlist do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+
+          <%= f.input :title %>
+
+          <%= f.input :description, as: :string %>
+          <%= f.input :performance_date, as: :date,
+                  order: [:month, :day, :year] %>
+          </br>
+          <div><%= f.button :submit, "CREATE THIS SETLIST" %><span>Hit ESCAPE to Cancel</span></div>
+          <% end %>
+
+      </div>
+    </div>    
+  </div>
+
+</div>

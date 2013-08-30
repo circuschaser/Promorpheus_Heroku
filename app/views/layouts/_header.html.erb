@@ -1,0 +1,64 @@
+<div id="header">
+    <div class="container">
+
+    <div id="logo">
+      <% if signed_in? %>
+      <%= link_to image_tag("logo_alpha.png"), "/home" %>
+      <% else %>
+      <%= link_to image_tag("logo_alpha.png"), "/" %>
+      <% end %>
+    </div>
+
+    <% if signed_in? %>
+
+    <div id="topbar">
+
+      <div id="navmenu">
+
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            MUSIC <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "All Music", songs_path %></li>
+            <li><%= link_to "New Song", new_song_path %></li>
+          </ul>
+        </div>
+
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            SETLISTS <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "All Setlists", setlists_path %></li>
+            <li><%= link_to "New Setlist", new_setlist_path %></li>
+          </ul>
+        </div>
+
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            MY ACCOUNT <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Profile", current_user %></li>
+            <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+          </ul>
+        </div>
+
+      </div>    
+      <span><%= link_to "SIGN OUT", signout_path, method: "delete" %></span>
+      
+    </div>
+
+    <% else %>
+
+    <div id="topbar">
+      <div id="topbar_right"
+        <%= link_to "SIGN IN HELP", "https://en.wikipedia.org/wiki/Login", :class => "btn-mini" %>
+      </div>
+    </div>
+
+    <% end %>
+
+  </div>
+</div>

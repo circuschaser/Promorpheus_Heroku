@@ -1,0 +1,90 @@
+<% if @setlist.tracks.count == 0 %>
+
+  <div class="nothing_found">
+    No songs found.
+  </div>
+
+<% else %>
+
+  <div id="item_counter">
+    Showing <%= pluralize(@setlist.tracks.count, "song") %>
+  </div>
+  <ul id="trackorder">
+    <% set = Setlist.find(params[:id]) %>
+    <% set.tracks.each do |t| %>
+      <% song = t.tracked %>
+      <% alb = song.album %>
+      <% com = song.composer %>
+      <% gen = song.genre %>
+      <% track = Track.find_by_tracked_id(song.id)%>
+      <li id="track_<%= t.id %>">
+        <div class="track">
+          <div>
+            <table class="setpiece">
+              <tr>
+                <td class="song_content_left">
+                  <p class="song_title"><%= song.title %></p>
+
+                  <p class="meta">
+                    <span>ALBUM: </span><%= link_to alb.album_name, album_path(alb) %>
+                  </p>
+                </td>
+
+                <td class="song_content_right">
+                  <p>
+                    <span>COMPOSER: </span><%= link_to com.name, composer_path(com) %>
+                  </p>
+                  <p class="meta">
+                    <span>GENRE: </span><%= link_to gen.name, genre_path(gen) %>
+                  </p>
+                </td>
+
+                <td class="song_button_block">
+                  <div id="button_blue">
+                    <%= link_to "EDIT", edit_song_path(song) %>
+                  </div>
+                  <div id="button">
+                    <%= link_to "DELETE", track, method: :delete,
+                          data: { confirm: "Do you really want to delete: #{song.title.upcase}?" } %>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div>
+            <ul class="tags">
+              <li><%= raw song.tag_list.map { |t| link_to t, tag_path(t) }.join(' ').upcase %></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <script>
+    $("#trackorder").sortable({ 
+      placeholder: "sort_highlight",
+      distance: 10,
+      opacity: 0.80,
+      axis: "y",
+      cursor: "move",
+      tolerance: "intersect",
+
+       update: function(){
+        $.ajax({
+          type: 'post',
+          beforeSend : function (xhr) {
+            xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+          },
+          data: $('#trackorder').sortable('serialize'),
+          dataType: 'script',
+          url: '<%= sort_tracks_path %>'})
+        }
+    });
+  </script>
+
+<% end %>
+
+
+
+

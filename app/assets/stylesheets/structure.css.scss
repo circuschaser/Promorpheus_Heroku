@@ -1,0 +1,488 @@
+@import "bootstrap";
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* DEBUG INFO CONTAINER                                 */
+.debug-dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* DELETE THIS AFTER DELETING CIRCUSCHASER LINK         */
+#content #circuschaser a {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  /*background: linear-gradient(to bottom, $linkGray, $grayGreen);*/
+background: #959186; /* Old browsers */
+background: -moz-linear-gradient(top,  #959186 0%, #626054 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#959186), color-stop(100%,#626054)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #959186 0%,#626054 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #959186 0%,#626054 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #959186 0%,#626054 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #959186 0%,#626054 100%); /* W3C */
+
+  font-family:Courier;
+  color: #fff;
+  border-radius: 4px;
+  text-align:center;
+  margin: 4px;
+  padding-left: 8px;
+  padding-top: 6px;
+  padding-right: 8px;
+  padding-bottom: 4px;
+}
+
+/* HTML main                                            */
+html {
+  min-height: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.container {
+  width: 1080px;
+  margin: 0 auto;
+}
+
+p {
+  margin-left: 6px;
+}
+
+/* HEADER                                               */
+
+#header {
+  height: 40px;
+}
+
+#logo {
+  width: 160px;
+  height: 22px;
+  float: left;
+  /*padding-top: 2px;*/
+  /*padding: 0;*/
+  margin-right: -2px;
+  padding-top: -3px;
+}
+
+/* NAVIGATION MENU                                      */
+
+#navmenu {
+  float: left;
+  margin-top: 4px;
+  margin-left: 4px;
+  padding-left: 18px;
+}
+
+#navmenu span a, #navmenu span a:visited {
+  margin: 0 12px 0 12px;
+  float: right;
+}
+
+#navmenu div.dropdown, #navmenu div.dropdown a {
+  display: inline;
+  margin: 0 12px 0 6px;
+}
+
+#navmenu div.hovering div {
+  display: block;
+}
+
+/* TOP BAR                                              */
+
+#topbar {
+  width: 918px;
+  float: right;
+  margin-left: -2px;
+}
+
+#topbar span a, #topbar span a:visited {
+  margin: 4px 12px 0 12px;
+  float: right;
+}
+
+#topbar_right {
+  float: right;
+}
+
+/* SIDEBAR                                              */
+
+#sidebar {
+  width: 230px;
+  float: right;
+  position: static;
+  /*margin-top: 10px;*/
+  border-radius: 5px;
+  padding: 0 10px 8px 10px;
+}
+
+#sidebar h4 {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+}
+
+/* SEARCH FORM                                      */
+
+#search_form a {
+  float: right;
+}
+
+#search_form p {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+#search_form form {
+  display: inline;
+}
+
+#search_form form input {
+  width: 300px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  margin-top: 1px;
+  padding-left: 14px;
+  padding-right: 10px;
+  box-shadow: inset 2px 3px 5px gray;
+}
+
+/* CONTENT                                              */
+
+.content_body #item_counter {
+  padding-bottom: 4px;
+}
+
+#content_main {
+  width: 820px;
+  float: left;
+  margin-top: 0;
+  padding-top: 2px;
+}
+
+.greywrap_top {
+  height: 9px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.greywrap, .greywrap_form {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  &.greywrap_form {
+    width: 630px;
+    padding-top: 4px;
+    margin-left: 170px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+}
+
+.content_head {
+  padding-left: 10px;
+  padding-right: 12px;
+}
+
+.content_head_left {
+  padding-left: 50px;
+  padding-right: 12px;
+}
+
+.content_body {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 12px;
+}
+
+/* LISTS                                        */
+
+.songlist_title h3, .setlist_title h3 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.songlist_title a {
+  float: left;
+}
+
+.setdesc {
+  /*width: 680px;*/
+  margin-bottom: 12px;
+}
+
+.setdesc p {
+  margin-left: 5px;
+  display: inline;
+}
+
+#setlist_info {
+  display: none;
+}
+
+.set_content_left, .set_content_right {
+  padding-top: 7px;
+  padding-bottom: 0px;
+  &.set_content_left {
+    width: 265px;
+  }
+  &.set_content_right {
+    width: 400px;
+  }
+}
+
+.set_button_block {
+  width: 188px;
+  padding-top: 3px;
+  vertical-align: top;
+}
+
+.song_button_block {
+  width: 115px;
+  padding-top: 3px;
+  vertical-align: top;
+}
+
+.track {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 3px;
+  margin-left: -4px;
+  margin-right: -4px;
+  margin-bottom: 3px;
+}
+
+#trackorder {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sort_highlight {
+  height: 80px;
+  border-radius: 3px;
+  margin: 8px;
+}
+
+.song_content_left, .song_content_right {
+  padding-top: 5px;
+  padding-bottom: 0px;
+  &.song_content_left {
+    width: 435px;
+  }
+  &.song_content_right {
+    width: 278px;
+  }
+}
+
+.song_content_left p.meta {
+  padding-left: 35px;
+}
+
+.song_content_right p {
+  padding-left: 53px;
+}
+
+.piece {
+  margin-bottom: 4px;
+  td {
+    padding-right: 10px;
+    }
+}
+
+.setpiece {
+  margin-bottom: 3px;
+  td {
+    padding-right: 10px;
+    }
+}
+
+.meta {
+  margin-top: -5px;
+  margin-bottom: 5px;
+}
+
+.nothing_found {
+  height: 50px;
+  margin: 15px;
+  padding-left: 20px;
+  padding-top: 12px;
+}
+
+/* FORMS                                                */
+
+form {
+  margin-top: 12px;
+}
+
+.formbox {
+  padding: 12px 50px 20px 50px;
+  border-radius: 5px;
+}
+
+.controls {
+  height: 32px;
+}
+
+input, textarea, select, .uneditable-input {
+  width: 90%;
+  /*padding: 10px;*/
+  height: auto !important;
+  margin-bottom: 15px;
+  margin-top: -5px;
+  @include box_sizing;
+}
+
+#title {
+  margin-bottom: 28px;
+}
+
+#composer, #album, #genre {
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+#editcomposer, #editalbum, #editgenre {
+  padding: 0;
+  margin-bottom: 28px;
+}
+
+a.add_fields, a.remove_fields.dynamic {
+  margin-left: 4px;
+}
+
+#composer a, #album a, #genre a {
+  padding-right: 65px;
+  float: right;
+}
+
+#setlist_performance_date_1i, #setlist_performance_date_3i {
+  width: 15%;
+}
+
+#setlist_performance_date_2i {
+  width: 25%;
+}
+
+/* BUTTONS                                                */
+
+#addbutton {
+  float: right;
+}
+
+.btn-small {
+  margin-top: 1px;
+}
+
+#link_button a, #button a, #button_blue a, #button_pine a {
+  border-radius: 2px;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+}
+
+#button a, #button_blue a, #button_pine a {
+  float: left;
+  margin-left: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+#link_button a {
+  margin: 4px;
+}
+
+.button_flat {
+  border-radius: 2px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+/* FOOTER                                               */
+#footer {
+  height: 40px;
+  opacity: 0.5;
+  margin-top: 20px;
+}
+
+#footer_logo {
+  margin-top: 4px;
+  float: left;
+}
+
+#footer_links {
+  float: right;
+  margin-top: 4px;
+}
+
+#footer_links span {
+  margin: 6px 0 6px 18px;
+}
+
+#footer_links span a, #footer_links span a:visited {
+  padding: 0 4px 0 4px;
+}
+
+#footer_links span img {
+  vertical-align: middle;
+  border: none;
+}
+
+/* MISCELLANEOUS                                        */
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+div.ui-dialog form label {
+  text-align: left;  
+}
+
+.clear {
+  clear:both;
+}
+
+/* MODAL                                        */
+
+#none {
+  display: none;
+}
+
+
+/* PAGINATION                                      */
+
+.pagination {
+  margin-top: -6px;
+  margin-bottom: 0; 
+}
+
+/* ERROR REPORTING                                      */
+#error_explanation {
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
+

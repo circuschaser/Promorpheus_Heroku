@@ -1,0 +1,47 @@
+<%= provide(:title, @user.name) %>
+
+<div class="container">
+
+    <div id="sidebar">
+      <h4>The Sidebar Headline</h4>
+        <p>
+            Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod. 
+        </p>
+        <ul>
+            <li>Lorem ipsum Veniam sunt</li>
+            <li>velit in nisi incididunt</li>
+            <li>eu id minim dolore</li>
+            <li>aliqua commodo officia.</li>
+        </ul>
+        <p>
+            Lorem ipsum Dolore pariatur mollit et ullamco et esse velit.
+        </p>
+    </div>
+
+    <div id="content_main">
+
+	  <div class="greywrap_top">
+	  </div>
+        <div class="greywrap">
+	        <div class="content_head">
+
+						<h3>
+							<%= gravatar_for @user %>
+							<%= @user.name %>
+						</h3><br>
+					</div>
+
+					<div class="content_body">
+						<p>This is your Account page.</p></br>
+							<p>
+								Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod.
+							</p><br>
+							<p id="link_button">
+								Go to the <%= link_to "MAIN", "/home" %> page.
+							</p>
+					</div>
+				
+				</div>
+		</div>
+</div>
+

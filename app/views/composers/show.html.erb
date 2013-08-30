@@ -1,0 +1,51 @@
+<% provide(:title, @composer.name) %>
+
+<div id="sidebar">
+  <h4>The Sidebar Headline</h4>
+    <p>
+      Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod. 
+    </p>
+    <ul>
+      <li>Lorem ipsum Veniam sunt</li>
+      <li>velit in nisi incididunt</li>
+      <li>eu id minim dolore</li>
+      <li>aliqua commodo officia.</li>
+    </ul>
+    <p>
+      Lorem ipsum Dolore pariatur mollit et ullamco et esse velit.
+    </p>
+</div>
+
+<div id="content_main">
+    <div class="setlist_title">
+      <h3><span><%= link_to "MUSIC", songs_path %>&ensp; &loz; &ensp;COMPOSER&ensp; &loz; &ensp;</span><%= @composer.name %></h3>
+    </div>
+
+  <div id="search_form">
+    <%= form_tag songs_path, method: 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <% end %>
+    <p>Search</p>
+  <%= link_to "ADD A SONG", new_song_path, :class => 'btn-small' %><br/>
+  </div>
+
+  <div class="greywrap_top">
+  </div>
+
+  <div class="greywrap">
+    <div class="content_head">
+      <%= will_paginate @songs %>
+    </div> 
+
+    <div class="content_body">
+
+      <%= render "composers/list" %>
+
+    </div>
+
+
+  </div>
+</div>
+
+
+

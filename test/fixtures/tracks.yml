@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tracker_id: 1
+  tracked_id: 1
+
+two:
+  tracker_id: 1
+  tracked_id: 1

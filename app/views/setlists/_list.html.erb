@@ -1,0 +1,50 @@
+<% if @setlists.size == 0 %>
+
+  <div class="nothing_found">
+    Sorry. Nothing found.
+  </div>
+
+<% else %>
+
+  <div id="item_counter">
+    Showing <%= pluralize(@setlists.all.count, "match") %>
+  </div>
+  <div>
+    <% @setlists.each do |set| %>
+
+    <table class="piece">
+      <tr>
+        <td class="set_content_left">
+          <p class="set_title"><%= set[:title] %><p>
+          <p class="meta">
+            <span>CONTAINS: </span><%= pluralize(set.tracks.count, "song") %>
+          </p>
+        </td>
+
+        <td class="set_content_right">
+          <p class="set_dsc"><%= set[:description] %></p>
+          <p class="meta">
+            <span>PERFORMANCE DATE: </span>
+            <%= set[:performance_date].strftime("%B %d, %Y") %>
+          </p>
+        </td>
+
+        <td class="set_button_block">
+          <div id="button_pine">
+            <%= link_to "_______", "#" %>
+          </div>
+          <div id="button_blue">
+            <%= link_to "EDIT", setlist_path(set) %>
+          </div>
+          <div id="button">
+            <%= link_to "DELETE", set, method: :delete,
+                  data: { confirm: "Do you really want to delete: #{set.title.upcase}?" } %>
+          </div>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+<% end %>
+

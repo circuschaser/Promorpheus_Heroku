@@ -1,0 +1,63 @@
+<% provide(:title, "Edit Setlist") %>
+
+<div id="sidebar">
+  <h4>The Sidebar Headline</h4>
+    <p>
+      Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod.
+    </p>
+    <ul>
+      <li>Lorem ipsum Veniam sunt</li>
+      <li>velit in nisi incididunt</li>
+      <li>eu id minim dolore</li>
+      <li>aliqua commodo officia.</li>
+    </ul>
+    <p>
+      Lorem ipsum Dolore pariatur mollit et ullamco et esse velit.
+    </p>
+</div>
+
+<div id="content_main">
+
+  <div class="setlist_title">
+    <h3><span><%= link_to "MY SETLISTS", setlists_path %>&ensp; &loz; &ensp;</span><%= @setlist.title %></h3>
+  </div>
+
+  <div class="setdesc">
+    <span>Description:</span> <%= @setlist.description %>
+    <p><%= link_to "EDIT SETLIST INFO", "#", id: "editset", :class => 'button_flat' %></p>
+    <div id="addbutton"><%= link_to "ADD A SONG", "#", id: 'addtrack', :class => 'btn-small' %><br/></div>
+  </div>
+
+
+    <div class="greywrap_top">
+    </div>
+
+    <div class="greywrap">
+    
+      <div class="content_head_left">
+        <div id="setlist_info">
+          <%= simple_form_for @setlist do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+          <%= f.input :title %>
+          <%= f.input :description, as: :string %>
+          <%= f.input :performance_date, as: :date,
+                  order: [:month, :day, :year] %>
+          <div><%= f.button :submit, "SAVE CHANGES", id: 'save_editset', class: "btn btn-small" %></div>
+          <% end %>   
+        </div>
+        <div id="newtrack">
+          <%= render 'tracks/track_form' %>
+        </div>
+      </div>
+
+      <div class="content_body">
+        <%= render 'setlists/tracked' %>
+      </div>
+
+    </div>
+
+</div>
+
+
+
+

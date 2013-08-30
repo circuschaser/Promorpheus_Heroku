@@ -1,0 +1,40 @@
+<div id="new_song">
+	<% @song = Song.new %>
+    <%= simple_form_for @song do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <div id="title">
+        <div id="title_input">
+        <%= f.input :title %>
+        </div>
+    </div>
+
+    <div id="composer">
+        <%= link_to_add_association "Add a new Composer", f, :composer %>
+        <div id="composer_from_list">
+            <%= f.association :composer, collection: Composer.all(order: "name"), prompt: "CHOOSE A COMPOSER - leave blank if unknown" %>
+        </div>
+    </div>
+
+    <div id="album">
+        <%= link_to_add_association "Add a new Album", f, :album %>
+        <div id="album_from_list">
+            <%= f.association :album, collection: Album.all(order: "album_name"), prompt: "CHOOSE AN ALBUM - leave blank if unknown" %>
+        </div>
+    </div>
+
+    <div id="genre">
+        <%= link_to_add_association "Add a new Genre", f, :genre %>
+        <div id="genre_from_list">
+            <%= f.association :genre, collection: Genre.all(order: "name"), prompt: "CHOOSE A GENRE - leave blank if unknown" %>
+        </div>
+    </div>
+    
+    <!-- TAGS                            -->
+    <div class="field">
+        <%= f.input :tag_list, label: "Tags (separate by commas)" %>
+    </div>
+
+    <div><%= f.button :submit, "ADD THIS SONG" %></div>
+    <% end %>
+</div>

@@ -1,0 +1,14 @@
+  <%= simple_form_for @setlist.tracks.build do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div id="create_track">
+    <div id="song_from_list">
+      <div id="none">
+        <%= f.input :tracker_id, as: :hidden %>
+      </div>
+      <%= f.input :tracked_id, label: "Add a Song to this Setlist", collection: Song.all(order: "title"),
+          prompt: "CHOOSE A SONG FROM THE LIST" %>
+    </div>
+  </div>
+  <div><%= f.button :submit, "ADD THIS SONG", id: 'save_addtrack', class: "btn btn-small" %></div>
+  <% end %>

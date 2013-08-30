@@ -1,0 +1,11 @@
+<%= simple_form_for @setlist.tracks.build do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+
+<div id="create_track">
+	<div id="song_from_list">
+	  <%= f.input :song, collection: Song.all(order: "title"),
+	      prompt: "CHOOSE A SONG FROM THE LIST" %>
+	</div>
+</div>
+<div><%= f.button :submit, "ASSIGN THIS SONG", class: "btn btn-small" %></div>
+<% end %>

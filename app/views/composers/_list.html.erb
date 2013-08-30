@@ -1,0 +1,46 @@
+<div id="item_counter">
+  This composer has <%= pluralize(@composer.songs.count, "song") %>
+</div>
+<div>
+  <% @songs.each do |song| %>
+    <% alb = Album.find(song.album_id) %>
+    <% com = Composer.find(song.composer_id) %>
+    <% gen = Genre.find(song.genre_id) %>
+
+  <table class="piece">
+
+    <tr>
+      <td class="song_content_left">
+        <p class="song_title"><%= song.title %></p>
+
+        <p class="meta">
+          <span>ALBUM: </span><%= link_to alb.album_name, album_path(alb) %>
+        </p>
+      </td>
+
+      <td class="song_content_right">
+        <p class="meta">
+          <span>GENRE: </span><%= link_to gen.name, genre_path(gen) %>
+        </p>
+      </td>
+
+      <td class="song_button_block">
+        <div>
+        <div id="button_blue">
+          <%= link_to "EDIT", edit_song_path(song) %>
+        </div>
+        <div id="button">
+          <%= link_to "DELETE", song, method: :delete,
+                data: { confirm: "Do you really want to delete: #{song.title.upcase}?\nYOU CANNOT UNDO THIS." } %>
+        </div>
+      </td>
+
+    </tr>
+  </table>
+</div>
+<div>
+  <ul class="tags">
+    <li><%= raw song.tag_list.map { |t| link_to t, tag_path(t) }.join(' ').upcase %></li>
+  </ul>
+    <% end %>
+</div>
