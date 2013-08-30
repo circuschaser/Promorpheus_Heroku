@@ -44,3 +44,7 @@ end
 		s.update_attribute(:tag_list, row)
 	end
 end
+
+# 1000.times do
+#   Person.create :name => "#{Faker::Name.first_name} #{Faker::Name.last_name}"
+# end

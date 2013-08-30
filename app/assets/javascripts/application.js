@@ -38,10 +38,10 @@ $(document).ready(function() {
     out: removeMega
   };
 
-  $("div.megamenu").hoverIntent(megaConfig);
+  // $("div.megamenu").hoverIntent(megaConfig);
   
-  $("#accordion").accordion();
-  $('#tabs').tabs();
-  $("button, input:submit, a.button").button();
+  // $("#accordion").accordion();
+  // $('#tabs').tabs();
+  // $("button, input:submit, a.button").button();
   
 });

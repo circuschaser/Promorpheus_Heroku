@@ -1,4 +1,5 @@
 class Song < ActiveRecord::Base
+
   attr_accessible :title,
                   :composer_name, :composer_id, :composer_attributes,
                   :album_name, :album_id, :album_attributes,
@@ -24,7 +25,6 @@ class Song < ActiveRecord::Base
   validates :title, presence: true
 
   default_scope order: 'title ASC'
-
 
   def self.search(search)
   	if search
