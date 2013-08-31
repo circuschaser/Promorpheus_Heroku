@@ -30,14 +30,14 @@
         </td>
 
         <td class="set_button_block">
-          <div id="button_pine">
-            <%= link_to "_______", "#" %>
+          <div class="icon">
+            <%= link_to image_tag("icon_blank.png"), "#" %>
           </div>
-          <div id="button_blue">
-            <%= link_to "EDIT", setlist_path(set) %>
+          <div class="icon_edit">
+            <%= link_to image_tag("icon_edit.png"), setlist_path(set) %>
           </div>
-          <div id="button">
-            <%= link_to "DELETE", set, method: :delete,
+          <div class="icon">
+            <%= link_to image_tag("icon_delete.png"), set, method: :delete,
                   data: { confirm: "Do you really want to delete: #{set.title.upcase}?" } %>
           </div>
         </td>

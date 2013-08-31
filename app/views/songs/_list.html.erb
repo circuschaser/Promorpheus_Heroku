@@ -35,11 +35,11 @@
 
         <td class="song_button_block">
           <div>
-          <div id="button_blue">
-            <%= link_to "EDIT", edit_song_path(song) %>
+          <div class="icon_edit">
+            <%= link_to image_tag("icon_edit.png"), edit_song_path(song) %>
           </div>
-          <div id="button">
-            <%= link_to "DELETE", song, method: :delete,
+          <div class="icon">
+            <%= link_to image_tag("icon_delete.png"), song, method: :delete,
                   data: { confirm: "Do you really want to delete: #{song.title.upcase}?" } %>
           </div>
         </td>

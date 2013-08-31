@@ -204,6 +204,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#433832', end
   text-align: left;
 }
 
+.content_body #item_counter #addtrack label {
+  color: $linkGray;
+  text-align: left;
+  line-height: 180%;
+  font-size: 16px;
+  font-family: Georgia, serif;
+}
+
+
 #content_main {
   /*border: 2px dotted yellow;*/
 }
@@ -448,9 +457,14 @@ a.btn-small, a.btn-small:visited {
   /*line-height: 120%;*/
 }
 
-.songlist_title span, .setlist_title span, .setdesc span {
+.songlist_title span, .setlist_title span {
   color: $liteBrown;
-  font-size: 80%
+  font-size: 70%
+}
+
+.setdesc span {
+  color: $liteBrown;
+  font-size: 90%;
 }
 
 .setdesc {
@@ -525,7 +539,7 @@ a.btn-small, a.btn-small:visited {
 }
 
 .song_button_block, .set_button_block {
-  background: $grayBorder;
+  /*background: $grayWrap;*/
   border-bottom: 1px solid $white;  
 }
 
@@ -560,6 +574,12 @@ td span {
 
 .gravatar {
   border: 1px solid $grayBorder;
+}
+
+.ui-icon { 
+  width: 16px; 
+  height: 16px; 
+  background-image: url(images/ui-icons_c47a23_256x240.png); 
 }
 
 /* ERROR REPORTING                                 */

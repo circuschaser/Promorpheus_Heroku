@@ -133,7 +133,7 @@ p {
 
 /* SEARCH FORM                                      */
 
-#search_form a {
+#search_form a, .setdesc a {
   float: right;
 }
 
@@ -161,6 +161,15 @@ p {
 
 .content_body #item_counter {
   padding-bottom: 4px;
+}
+
+.content_body #item_counter #addtrack {
+  float: right;
+  width: 142px;
+  height: 30px;
+  margin-top: -8px; 
+  margin-bottom: -6px; 
+  padding: 0 12px 0 0;
 }
 
 #content_main {
@@ -222,6 +231,7 @@ p {
 .setdesc {
   /*width: 680px;*/
   margin-bottom: 12px;
+  margin-top: -5px;
 }
 
 .setdesc p {
@@ -240,18 +250,18 @@ p {
     width: 265px;
   }
   &.set_content_right {
-    width: 400px;
+    width: 450px;
   }
 }
 
 .set_button_block {
-  width: 188px;
+  width: 98px;
   padding-top: 3px;
   vertical-align: top;
 }
 
 .song_button_block {
-  width: 115px;
+  width: 72px;
   padding-top: 3px;
   vertical-align: top;
 }
@@ -288,10 +298,10 @@ p {
   padding-top: 5px;
   padding-bottom: 0px;
   &.song_content_left {
-    width: 400px;
+    width: 450px;
   }
   &.song_content_right {
-    width: 275px;
+    width: 300px;
   }
 }
 
@@ -414,11 +424,39 @@ a.add_fields, a.remove_fields.dynamic {
 }
 
 .button_flat {
+  float: right;
   border-radius: 2px;
   padding-top: 1px;
   padding-bottom: 1px;
   padding-right: 4px;
   padding-left: 4px;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  float: left;
+  margin-left: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.icon_edit {
+  width: 24px;
+  height: 24px;
+  float: left;
+  margin-left: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.icon_add {
+  width: 24px;
+  height: 24px;
+  float: left;
+  margin-left: 8px;
+  margin-top: 3px;
+  padding-right: 12px;
 }
 
 /* FOOTER                                               */

@@ -8,7 +8,12 @@
 
   <div id="item_counter">
     Showing <%= pluralize(@setlist.tracks.count, "song") %>
+    <p id="addtrack">
+      <%= image_tag("icon_add.png", class: "icon_add") %>
+      <label>ADD A SONG</label>
+    </p><br/>
   </div>
+
   <ul id="trackorder">
     <% set = Setlist.find(params[:id]) %>
     <% set.tracks.each do |t| %>
@@ -43,11 +48,11 @@
                 </td>
 
                 <td class="song_button_block">
-                  <div id="button_blue">
-                    <%= link_to "EDIT", edit_song_path(song) %>
+                  <div class="icon_edit">
+                    <%= link_to image_tag("icon_edit.png"), edit_song_path(song) %>
                   </div>
-                  <div id="button">
-                    <%= link_to "DELETE", track, method: :delete,
+                  <div class="icon">
+                    <%= link_to image_tag("icon_delete.png"), track, method: :delete,
                           data: { confirm: "Do you really want to delete: #{song.title.upcase}?" } %>
                   </div>
                 </td>

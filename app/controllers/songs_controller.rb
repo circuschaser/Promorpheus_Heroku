@@ -10,6 +10,11 @@ class SongsController < ApplicationController
     else
       @songs = Song.search(params[:search]).paginate(per_page: 10, page: params[:page])
     end
+
+    respond_to do |format|  
+      format.html # index.html.erb  
+      format.json { render json: @songs }
+    end
   end
 
   def show
