@@ -265,6 +265,13 @@ p {
   margin-bottom: 3px;
 }
 
+.track_position {
+  float: left;
+  vertical-align: center;
+  width: 30px;
+  /*padding: 5px 4px 0 2px;*/
+}
+
 #trackorder {
   list-style-type: none;
   margin: 0;
@@ -281,10 +288,10 @@ p {
   padding-top: 5px;
   padding-bottom: 0px;
   &.song_content_left {
-    width: 435px;
+    width: 400px;
   }
   &.song_content_right {
-    width: 278px;
+    width: 275px;
   }
 }
 

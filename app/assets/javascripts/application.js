@@ -8,35 +8,39 @@
 //
 //= require cocoon
 
-jQuery.ajaxSetup({ 
-  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
-})
-
-jQuery.fn.submitWithAjax = function() {
-  this.submit(function() {
-    $.post(this.action, $(this).serialize(), null, "script");
-    return false;
-  })
-  return this;
-};
 
 
-$(document).ready(function() {
-  function addMega() {
-    $(this).addClass("hovering");
-  }
+// DON'T NEED ANY OF THE BELOW SO FAR
 
-  function removeMega() {
-    $(this).removeClass("hovering");
-  }
+// jQuery.ajaxSetup({ 
+//   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+// })
 
-  var megaConfig = {
-    interval: 300,
-    sensitivity: 4,
-    over: addMega,
-    timeout: 300,
-    out: removeMega
-  };
+// jQuery.fn.submitWithAjax = function() {
+//   this.submit(function() {
+//     $.post(this.action, $(this).serialize(), null, "script");
+//     return false;
+//   })
+//   return this;
+// };
+
+
+// $(document).ready(function() {
+//   function addMega() {
+//     $(this).addClass("hovering");
+//   }
+
+//   function removeMega() {
+//     $(this).removeClass("hovering");
+//   }
+
+//   var megaConfig = {
+//     interval: 300,
+//     sensitivity: 4,
+//     over: addMega,
+//     timeout: 300,
+//     out: removeMega
+//   };
 
   // $("div.megamenu").hoverIntent(megaConfig);
   
@@ -44,4 +48,4 @@ $(document).ready(function() {
   // $('#tabs').tabs();
   // $("button, input:submit, a.button").button();
   
-});
+// });

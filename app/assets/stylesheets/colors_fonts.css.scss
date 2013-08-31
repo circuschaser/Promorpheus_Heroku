@@ -384,8 +384,18 @@ a.btn-small, a.btn-small:visited {
   padding:-2px;
   list-style:none;
   width: 650px;
-  } 
-.tags li, .tags a{
+} 
+
+.tags_inset {
+  margin:6px;
+  margin-left: 38px;
+  margin-top: -3px;
+  padding:-2px;
+  list-style:none;
+  width: 650px;
+} 
+
+.tags li, .tags a, .tags_inset li, .tags_inset a{
   /*float:left;*/
   margin-bottom: -3px;
   margin-top: -5px;
@@ -396,7 +406,7 @@ a.btn-small, a.btn-small:visited {
     background-color: transparent;
     }
   } 
-.tags a{
+.tags a, .tags_inset a{
   border-top-left-radius:5px;
   border-top-right-radius:7px;
   border-bottom-left-radius:18px;
@@ -407,7 +417,7 @@ a.btn-small, a.btn-small:visited {
   text-decoration:none;
 } 
 
-.tags a:after{
+.tags a:after, .tags_inset a:after{
   content:"";
   position:absolute;
   top:4px;
@@ -421,8 +431,13 @@ a.btn-small, a.btn-small:visited {
   background:white;
 }
 
-.tags a:hover{background:#555;} 
-.tags a:hover:before{border-color:transparent #555 transparent transparent;}
+.tags a:hover, .tags_inset a:hover {
+  background:#555;
+} 
+
+.tags a:hover:before, .tags_inset a:hover:before {
+  border-color:transparent #555 transparent transparent;
+}
 
 /* LISTS                                        */
 
@@ -476,6 +491,15 @@ a.btn-small, a.btn-small:visited {
   &:hover {
     background: $grayCream;
   }
+}
+
+.track_position {
+  /*text-align: center;*/
+  /*border: 1px solid $liteBrown;*/
+  /*border-radius: 14px;*/
+  font-size: 20px;
+  color: $grayBorder;
+  font-family: Georgia, serif;
 }
 
 .song_title {

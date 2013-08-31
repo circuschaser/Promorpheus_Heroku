@@ -19,6 +19,9 @@
       <% track = Track.find_by_tracked_id(song.id)%>
       <li id="track_<%= t.id %>">
         <div class="track">
+          <div class="track_position">
+            <p><%= t.position %></p>
+          </div>
           <div>
             <table class="setpiece">
               <tr>
@@ -52,7 +55,7 @@
             </table>
           </div>
           <div>
-            <ul class="tags">
+            <ul class="tags_inset">
               <li><%= raw song.tag_list.map { |t| link_to t, tag_path(t) }.join(' ').upcase %></li>
             </ul>
           </div>

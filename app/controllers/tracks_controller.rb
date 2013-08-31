@@ -10,8 +10,13 @@ class TracksController < ApplicationController
 
 	def create
 		@setlist = Setlist.find(params[:track][:tracker_id])
+		last = @setlist.tracks.last.position
 		@song = Song.find(params[:track][:tracked_id])
+		
 		@setlist.track!(@song)
+		t = @setlist.tracks.last
+		t.update_attribute(:position, last + 1 )
+		
 		flash[:success] = "The song: \"#{@song.title.upcase}\" was successfully added to this Setlist"
 		redirect_to "/setlists/#{@setlist.id}"
 
