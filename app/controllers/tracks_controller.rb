@@ -2,6 +2,11 @@ class TracksController < ApplicationController
 
 	def index
 		@tracks = Track.order('tracks.position ASC')
+		respond_to do |format|
+	      format.html # index.html.erb
+	      format.json { render json: @tracks }
+	      format.js
+	    end
 	end
 
 	def new
