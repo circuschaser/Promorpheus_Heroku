@@ -1,11 +1,3 @@
-<% if @setlist.tracks.count == 0 %>
-
-  <div class="nothing_found">
-    No songs found.
-  </div>
-
-<% else %>
-
   <div id="item_counter">
     Showing <%= pluralize(@setlist.tracks.count, "song") %>
     <p id="addtrack">
@@ -90,9 +82,6 @@
         }
     });
   </script>
-
-<% end %>
-
 
 
 
