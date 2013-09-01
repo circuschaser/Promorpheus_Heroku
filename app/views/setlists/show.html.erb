@@ -17,14 +17,17 @@
 </div>
 
 <div id="content_main">
-
+  <div class="setlist_trail">
+    <%= link_to "MY SETLISTS", setlists_path %>&ensp; &loz; &ensp;<%= link_to "Active SETLIST", @setlist %>
+  </div>
   <div class="setlist_title">
-    <h3><span><%= link_to "MY SETLISTS", setlists_path %>&ensp; &loz; &ensp;</span><%= @setlist.title %></h3>
+    <h3><%= @setlist.title %>
+      <span>&ensp; &loz; &ensp;<%= link_to "EDIT DETAILS", "#", id: "editset" %></span>
+    </h3>
   </div>
 
   <div class="setdesc">
     <span>Description:</span> <%= @setlist.description %>
-    <%= link_to "EDIT SETLIST INFO", "#", id: "editset", :class => 'btn-small' %>
   </div>
 
 

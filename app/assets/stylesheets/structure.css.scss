@@ -228,10 +228,15 @@ p {
   float: left;
 }
 
+.setlist_trail {
+  margin-top: 8px;
+  margin-bottom: -2px;
+}
+
 .setdesc {
   /*width: 680px;*/
-  margin-bottom: 12px;
-  margin-top: -5px;
+  margin-bottom: 6px;
+  margin-top: -8px;
 }
 
 .setdesc p {
@@ -266,13 +271,19 @@ p {
   vertical-align: top;
 }
 
-.track {
+.track, .empty_track {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
-  padding: 3px;
+  &.track {
   margin-left: -4px;
   margin-right: -4px;
   margin-bottom: 3px;
+  padding: 3px;
+  }
+  &.empty_track {
+    height: 40px;
+    padding-top: 12px;
+  }
 }
 
 .track_position {

@@ -137,11 +137,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#433832', end
   font-size: 10px;
   text-decoration: none;
   font-weight: bold;
-}
-
-#navmenu span a:hover {
+  &:hover {
   color: $cream;
   text-decoration: none;
+  }
 }
 
 #topbar_right {
@@ -454,30 +453,46 @@ a.btn-small, a.btn-small:visited {
   color: $grayWrap;
   font-family: Georgia, serif;
   font-weight: normal;
-  /*line-height: 120%;*/
+  text-decoration: none;
 }
 
-.songlist_title span, .setlist_title span {
+.setlist_trail {
   color: $liteBrown;
-  font-size: 70%
+  font-family: Georgia, serif;
+  font-weight: normal;
+}
+
+.setlist_trail a, .songlist_title span a, .setlist_title span a {
+  color: $liteBrown;
+  font-family: Georgia, serif;
+  font-weight: normal;
+  &:hover {
+    color: $cream;
+    text-decoration: none;
+  }
+}
+
+.songlist_title span {
+  color: $liteBrown;
+  font-family: Georgia, serif;
+  font-size: 90%;
+}
+
+.setlist_title span {
+  color: $liteBrown;
+  font-family: Georgia, serif;
+  font-size: 50%;
 }
 
 .setdesc span {
   color: $liteBrown;
-  font-size: 90%;
+  font-size: 95%;
 }
 
 .setdesc {
   color: $grayBorder;
   font-size: 100%;
-}
-
-.songlist_title p, .setlist_title p {
-  color: $grayBorder;
-}
-
-.songlist_title span a, .setlist_title span a {
-  color: $cream;
+  line-height: 180%;
 }
 
 .set_title {
@@ -499,11 +514,15 @@ a.btn-small, a.btn-small:visited {
   border: 1px dashed $lgBrown;
 }
 
-.track {
+.track, .empty_track {
   border: 1px solid $grayBorder;
   background: white;
-  &:hover {
+  &.track:hover {
     background: $grayCream;
+  }
+  &.empty_track {
+    text-align: center;
+    color: $simpleBrown;
   }
 }
 
