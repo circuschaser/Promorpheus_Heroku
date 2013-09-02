@@ -58,6 +58,21 @@ p {
   margin-left: 6px;
 }
 
+#breadcrumb-sm {
+  height: 8px;
+  width: 8px;
+  margin-left: 4px;
+  margin-right: 3px;
+  margin-bottom: 2px;
+}
+
+#breadcrumb {
+  height: 13px;
+  width: 13px;
+
+  margin-bottom: 5px;
+}
+
 /* HEADER                                               */
 
 #header {
@@ -200,6 +215,27 @@ p {
   }
 }
 
+.tanwrap_top {
+  height: 9px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.tanwrap, .tanwrap_form {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  &.tanwrap_form {
+    width: 630px;
+    padding-top: 4px;
+    margin-left: 170px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+}
+
 .content_head {
   padding-left: 10px;
   padding-right: 12px;
@@ -229,8 +265,8 @@ p {
 }
 
 .setlist_trail {
-  margin-top: 8px;
-  margin-bottom: -2px;
+  margin-top: 6px;
+  margin-bottom: 4px;
 }
 
 .setdesc {
@@ -461,6 +497,15 @@ a.add_fields, a.remove_fields.dynamic {
   margin-bottom: 4px;
 }
 
+#icon_edit_sm {
+  width: 18px;
+  height: 18px;
+  /*float: left;*/
+  margin-left: 4px;
+  /*margin-top: 4px;*/
+  margin-bottom: 4px;
+}
+
 .icon_add {
   width: 24px;
   height: 24px;
@@ -525,8 +570,41 @@ div.ui-dialog form label {
 /* PAGINATION                                      */
 
 .pagination {
-  margin-top: -6px;
-  margin-bottom: 0; 
+  width: 780px;
+  margin-top: -2px;
+  margin-left: -17px;
+  margin-bottom: -1px; 
+  padding-left: 0;
+}
+
+.page_info {
+  font-size: 10px;
+  margin-bottom: .3em;
+  margin-left: 10px;
+  padding-bottom: 4px;
+}
+
+.pagination ul > li {
+  display: inline;
+}
+
+.pagination .prev.previous_page a,
+.pagination .prev.previous_page.disabled a {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination .next.next_page a,
+.pagination .next.next_page.disabled a {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.pagination ul > li > a,
+.pagination ul > li > span {
+  margin-right: -1px; 
+  padding: 6px 10px;
+  line-height: 18px;
 }
 
 /* ERROR REPORTING                                      */

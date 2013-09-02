@@ -7,7 +7,7 @@
 <% else %>
 
   <div id="item_counter">
-    Showing <%= pluralize(@setlists.all.count, "match") %>
+    <%= page_entries_info @setlists %>
   </div>
   <div>
     <% @setlists.each do |set| %>

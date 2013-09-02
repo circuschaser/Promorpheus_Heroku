@@ -1,7 +1,7 @@
 class TracksController < ApplicationController
 
 	def index
-		@tracks = Track.order('tracks.position ASC')
+		@tracks = Track.order('tracks.position ASC').paginate(per_page: 10, page: params[:page])
 	end
 
 	def new

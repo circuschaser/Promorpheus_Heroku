@@ -225,6 +225,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#433832', end
   border: 1px solid $grayWrap;  
 }
 
+.tanwrap, .tanwrap_form {
+  background-color: $grayCream;
+  border: 1px solid $grayCream;  
+}
+
+.tanwrap_top, .tanwrap_top_form {
+  background-color: $grayCream;
+}
+
 .content_head h2, .content_head h3 {
   font-family: Georgia, serif;
   font-weight: normal;
@@ -456,20 +465,17 @@ a.btn-small, a.btn-small:visited {
   text-decoration: none;
 }
 
-.setlist_trail {
-  color: $liteBrown;
-  font-family: Georgia, serif;
-  font-weight: normal;
-}
-
 .setlist_trail a, .songlist_title span a, .setlist_title span a {
   color: $liteBrown;
-  font-family: Georgia, serif;
   font-weight: normal;
   &:hover {
     color: $cream;
     text-decoration: none;
   }
+}
+
+.setlist_trail a {
+  font-size: 90%;
 }
 
 .songlist_title span {
@@ -478,12 +484,11 @@ a.btn-small, a.btn-small:visited {
   font-size: 90%;
 }
 
-.setlist_title span {
-  color: $liteBrown;
-  font-family: Georgia, serif;
-  font-size: 50%;
-}
-
+/*.setlist_title span a {
+  font-size: 40%;
+  font-family: Lucida Grande, Lucida Sans Unicode, sans-serif;
+  }
+*/
 .setdesc span {
   color: $liteBrown;
   font-size: 95%;
@@ -511,7 +516,7 @@ a.btn-small, a.btn-small:visited {
 
 .sort_highlight {
   background: $grayWrap;
-  border: 1px dashed $lgBrown;
+  border: 1px dashed $linkGray;
 }
 
 .track, .empty_track {
@@ -559,7 +564,7 @@ a.btn-small, a.btn-small:visited {
 
 .song_button_block, .set_button_block {
   /*background: $grayWrap;*/
-  border-bottom: 1px solid $white;  
+  /*border-bottom: 1px solid $white;  */
 }
 
 .piece {
@@ -595,12 +600,6 @@ td span {
   border: 1px solid $grayBorder;
 }
 
-.ui-icon { 
-  width: 16px; 
-  height: 16px; 
-  background-image: url(images/ui-icons_c47a23_256x240.png); 
-}
-
 /* ERROR REPORTING                                 */
 #error_explanation {
   color: red;
@@ -612,11 +611,49 @@ li.error input, li.error textarea, li.error select {
 
 /* PAGINATION                                      */
 
-.pagination {
+.pagination > .page_info {
+  font-size: 10px;
+  color: $linkGray;
+}
+
+.pagination ul > li {
+  font-size: 10px;
+}
+
+.pagination ul > li > a,
+.pagination ul > li > span {
+  line-height: 16px;
+  color: $linkGray;
+  text-decoration: none;
+  background-color: #ffffff;
+  border: 1px solid $grayBorder;
+}
+
+.pagination ul > li > a:hover,
+.pagination ul > li > a:focus,
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+  background-color: $grayBorder;
+  color: $white;
+}
+
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+  background: $lgBrown;
+  border: 1px solid $linkGray;
+  color: $white;
+  font-weight: bold;
   font-size: 10px;
   cursor: default;
 }
 
-.pagination a {
-  color: $linkGray;
+.pagination ul > .disabled > span,
+.pagination ul > .disabled > a,
+.pagination ul > .disabled > a:hover,
+.pagination ul > .disabled > a:focus {
+  color: $grayBorder;
+  border: 1px solid $grayBorder;
+  cursor: default;
+  background-color: transparent;
 }
+

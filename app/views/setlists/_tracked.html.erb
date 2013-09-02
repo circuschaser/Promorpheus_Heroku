@@ -1,5 +1,5 @@
   <div id="item_counter">
-    Showing <%= pluralize(@setlist.tracks.count, "song") %>
+    Displaying all <%= pluralize(@setlist.tracks.count, "song") %>
     <p id="addtrack">
       <%= image_tag("icon_add.png", class: "icon_add") %>
       <label>ADD A SONG</label>
@@ -74,6 +74,7 @@
   </ul>
 
   <script>
+    $("#trackorder").disableSelection();
     $("#trackorder").sortable({ 
       placeholder: "sort_highlight",
       distance: 10,
@@ -82,7 +83,7 @@
       cursor: "move",
       tolerance: "intersect",
 
-       update: function(){
+      update: function(){
         $.ajax({
           type: 'post',
           beforeSend : function (xhr) {
@@ -91,7 +92,15 @@
           data: $('#trackorder').sortable('serialize'),
           dataType: 'script',
           url: '<%= sort_tracks_path %>'})
-        }
+      }
+      // stop: function(){
+      // $.ajax({
+      //   url: '<%= setlist_path %>',
+      //   success: function(data) {
+      //     $('.result').html(data);
+      //     alert('Load was performed.');
+      //   }
+      // });
     });
   </script>
 

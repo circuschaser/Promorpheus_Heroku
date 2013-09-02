@@ -7,7 +7,7 @@
 <% else %>
 
   <div id="item_counter">
-    Showing <%= pluralize(@songs.all.count, "match") %>
+    <%= page_entries_info @songs %>
   </div>
   <div>
     <% @songs.each do |song| %>

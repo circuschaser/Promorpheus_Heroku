@@ -18,7 +18,7 @@
 
 <div id="content_main">
     <div class="songlist_title">
-      <h3><span><%= link_to "MUSIC", songs_path %>&ensp; &loz; &ensp;ALBUM&ensp; &loz; &ensp;</span><%= @album.album_name %></h3>
+      <h3><span><%= link_to "MUSIC", songs_path %>&ensp; <%= image_tag("breadcrumb.png", id: "breadcrumb") %> &ensp;ALBUM&ensp; <%= image_tag("breadcrumb.png", id: "breadcrumb") %> &ensp;</span><%= @album.album_name %></h3>
     </div>
 
   <div id="search_form">
@@ -29,10 +29,15 @@
   <%= link_to "ADD A SONG", new_song_path, :class => 'btn-small' %><br/>
   </div>
 
-  <div class="greywrap_top">
+  <div class="tanwrap_top">
   </div>
 
-  <div class="greywrap">
+  <div class="tanwrap">
+    <div class="content_head">
+      <div class='pagination'>
+        <%= will_paginate @songs %>
+      </div>
+    </div> 
 
     <div class="content_body">
 
