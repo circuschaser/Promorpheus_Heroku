@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130830212130) do
+ActiveRecord::Schema.define(:version => 20130817022239) do
 
   create_table "albums", :force => true do |t|
     t.string   "album_name"
@@ -45,9 +45,10 @@ ActiveRecord::Schema.define(:version => 20130830212130) do
     t.string   "title"
     t.text     "description"
     t.datetime "performance_date"
+    t.boolean  "active",           :default => true
     t.integer  "user_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   add_index "setlists", ["user_id", "performance_date"], :name => "index_setlists_on_user_id_and_performance_date"

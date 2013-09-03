@@ -74,7 +74,6 @@
   </ul>
 
   <script>
-    $("#trackorder").disableSelection();
     $("#trackorder").sortable({ 
       placeholder: "sort_highlight",
       distance: 10,
@@ -93,15 +92,8 @@
           dataType: 'script',
           url: '<%= sort_tracks_path %>'})
       }
-      // stop: function(){
-      // $.ajax({
-      //   url: '<%= setlist_path %>',
-      //   success: function(data) {
-      //     $('.result').html(data);
-      //     alert('Load was performed.');
-      //   }
-      // });
     });
+    $("#trackorder").disableSelection();
   </script>
 
 <% end %>

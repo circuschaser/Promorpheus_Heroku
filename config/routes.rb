@@ -18,6 +18,7 @@ PromorpheusHeroku::Application.routes.draw do
   resources :setlists do
     member do
       get :tracked
+      get :archive
     end
   end
 

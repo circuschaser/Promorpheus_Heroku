@@ -4,6 +4,7 @@ class CreateSetlists < ActiveRecord::Migration
     	t.string :title
     	t.text :description
     	t.datetime :performance_date
+      t.boolean :active, default: true
 
     	t.integer :user_id
 

@@ -38,6 +38,18 @@ class SetlistsController < ApplicationController
 	    end
 	end
 
+	def archive
+		@setlist = Setlist.find(params[:id])
+		@setlist.active = false
+		if @setlist.save
+			flash[:success] = "The setlist: \"#{@setlist.title.upcase}\" was succesfully archived"
+			redirect_to setlists_path
+		else
+			flash.now[:error] = "Whoops. SOMETHING WHEN WRONG.\nArchive failed."
+			redirect_to setlists_path
+		end
+	end
+
 	def tracking
 		@title = "Tracking"
 		@setlist = Setlist.find(params[:id])

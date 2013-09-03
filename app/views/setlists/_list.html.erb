@@ -7,7 +7,8 @@
 <% else %>
 
   <div id="item_counter">
-    <%= page_entries_info @setlists %>
+    <!-- counts ACTIVE setlists -->
+    <%= page_entries_info @setlists.active %>
   </div>
   <div>
     <% @setlists.each do |set| %>
@@ -31,7 +32,7 @@
 
         <td class="set_button_block">
           <div class="icon">
-            <%= link_to image_tag("icon_blank.png"), "#" %>
+            <%= link_to image_tag("icon_blank.png"), archive_setlist_path(set) %>
           </div>
           <div class="icon_edit">
             <%= link_to image_tag("icon_edit.png"), setlist_path(set) %>
