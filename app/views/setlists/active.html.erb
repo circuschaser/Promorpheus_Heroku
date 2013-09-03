@@ -1,4 +1,4 @@
-<% provide(:title, "All Setlists") %>
+<% provide(:title, "Active Setlists") %>
 
 <div id="sidebar">
   <h4>The Sidebar Headline</h4>
@@ -17,8 +17,12 @@
 </div>
 
 <div id="content_main">
+  <div class="setlist_trail">
+    <%= link_to "ALL SETLISTS", setlists_path %>
+    <%= image_tag("breadcrumb.png", id: "breadcrumb-sm") %>
+  </div>
   <div class="setlist_title">
-      <h3><%= link_to "ALL SETLISTS", setlists_path %> &ensp; &loz; &ensp;</h3>
+      <h3><%= link_to "ACTIVE SETLISTS", active_setlists_path %> &ensp; &loz; &ensp;</h3>
   </div>
 
   <div id="search_form">
@@ -36,13 +40,13 @@
     <div class="content_head">
   
       <div class='pagination'>
-        <%= will_paginate @setlists %>
+        <%= will_paginate @setlists.active %>
       </div>
     </div>
 
     <div class="content_body">
 
-      <%= render "setlists/all" %>
+      <%= render "setlists/active" %>
 
     </div>
 

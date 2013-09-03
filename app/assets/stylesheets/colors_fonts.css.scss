@@ -110,6 +110,10 @@ html, body {
   }
 }
 
+.mainlink h3 {
+  line-height: 140%;
+}
+
 #search_form {
   color: $liteBrown;
   font-weight: bold;
@@ -256,6 +260,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#433832', end
 .content_body, .colorbox_body {
   background-color: $white;
   border: 1px solid $grayBorder;
+}
+
+.content_body #item_counter {
+  color: $tagBlue;
+  font-size: 80%;
+  text-align: left;
+}
+
+.nothing_found {
+  background: LightYellow;
 }
 
 /* FORMS                                           */
@@ -456,16 +470,73 @@ a.btn-small, a.btn-small:visited {
   border-color:transparent #555 transparent transparent;
 }
 
-/* LISTS                                        */
+/* SONG LISTS                                        */
 
-.songlist_title h3, .songlist_title a, .setlist_title h3, .setlist_title a {
+.songlist_title h3, .songlist_title a {
   color: $grayWrap;
   font-family: Georgia, serif;
   font-weight: normal;
   text-decoration: none;
 }
 
-.setlist_trail a, .songlist_title span a, .setlist_title span a {
+.songlist_title span a {
+  color: $liteBrown;
+  font-weight: normal;
+  &:hover {
+    color: $cream;
+    text-decoration: none;
+  }
+}
+
+.songlist_title span {
+  color: $liteBrown;
+  font-family: Georgia, serif;
+  font-size: 90%;
+}
+
+.song_title {
+  font-weight: bold;
+}
+
+.song_content_left p.meta {
+  text-indent: -35px;
+}
+
+.song_content_right p {
+  text-indent: -53px;
+}
+
+.piece {
+  border-top: 1px solid $grayBorder;
+}
+
+td p {
+  line-height: 110%;
+  font-size: 90%;
+}
+
+td span {
+  color: $linkGray;
+  font-size: 75%;
+}
+
+.meta {
+  font-size: 90%;
+}
+
+.meta span {
+  font-size: 75%
+}
+/* SET LISTS                                        */
+
+.setlist_title h3, .setlist_title a {
+  color: $grayWrap;
+  font-family: Georgia, serif;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.setlist_trail a, .setlist_title span a {
   color: $liteBrown;
   font-weight: normal;
   &:hover {
@@ -484,11 +555,6 @@ a.btn-small, a.btn-small:visited {
   font-size: 90%;
 }
 
-/*.setlist_title span a {
-  font-size: 40%;
-  font-family: Lucida Grande, Lucida Sans Unicode, sans-serif;
-  }
-*/
 .setdesc span {
   color: $liteBrown;
   font-size: 95%;
@@ -502,10 +568,6 @@ a.btn-small, a.btn-small:visited {
 
 .set_title {
   font-weight: bold;
-}
-
-.set_dsc {
-  color: $simpleBrown;
 }
 
 #trackorder li {
@@ -532,67 +594,15 @@ a.btn-small, a.btn-small:visited {
 }
 
 .track_position {
-  /*text-align: center;*/
-  /*border: 1px solid $liteBrown;*/
-  /*border-radius: 14px;*/
   font-size: 20px;
   color: $grayBorder;
   font-family: Georgia, serif;
 }
 
-.song_title {
-  font-weight: bold;
-}
-
-.song_content_left p.meta {
-  text-indent: -35px;
-}
-
-.song_content_right p {
-  text-indent: -53px;
-}
-
-.nothing_found {
-  background: LightYellow;
-}
-
-.content_body #item_counter {
-  color: $tagBlue;
-  font-size: 80%;
-  text-align: left;
-}
-
-.song_button_block, .set_button_block {
-  /*background: $grayWrap;*/
-  /*border-bottom: 1px solid $white;  */
-}
-
-.piece {
+.arc_set {
   border-top: 1px solid $grayBorder;
-}
-
-td p{
-  line-height: 110%;
-  font-size: 90%;
-}
-
-td a:visited {
-  /*color: $tagBlue;*/
-}
-
-td span {
   color: $linkGray;
-  font-size: 75%;
 }
-
-.meta {
-  font-size: 90%;
-}
-
-.meta span {
-  font-size: 75%
-}
-
 
 /* MISCELLANEOUS                                   */
 

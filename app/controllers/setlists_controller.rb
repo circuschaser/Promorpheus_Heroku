@@ -3,7 +3,16 @@ class SetlistsController < ApplicationController
 	def index
 		sets = current_user.setlists
 		@setlists = sets.search(params[:search]).paginate(per_page: 10, page: params[:page])
-		# @setlists = sets.paginate(per_page: 10, page: params[:page])
+	end
+
+	def active
+		sets = current_user.setlists.active
+		@setlists = sets.search(params[:search]).paginate(per_page: 10, page: params[:page])
+	end
+
+	def archived
+		sets = current_user.setlists.archived
+		@setlists = sets.search(params[:search]).paginate(per_page: 10, page: params[:page])
 	end
 
 	def show
@@ -43,10 +52,22 @@ class SetlistsController < ApplicationController
 		@setlist.active = false
 		if @setlist.save
 			flash[:success] = "The setlist: \"#{@setlist.title.upcase}\" was succesfully archived"
-			redirect_to setlists_path
+			redirect_to :back
 		else
 			flash.now[:error] = "Whoops. SOMETHING WHEN WRONG.\nArchive failed."
-			redirect_to setlists_path
+			redirect_to :back
+		end
+	end
+
+	def unarchive
+		@setlist = Setlist.find(params[:id])
+		@setlist.active = true
+		if @setlist.save
+			flash[:success] = "The setlist: \"#{@setlist.title.upcase}\" was succesfully activated"
+			redirect_to :back
+		else
+			flash.now[:error] = "Whoops. SOMETHING WHEN WRONG.\nActivation failed."
+			redirect_to :back
 		end
 	end
 

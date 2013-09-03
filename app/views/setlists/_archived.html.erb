@@ -1,0 +1,21 @@
+<% if @setlists.archived.size == 0 %>
+
+  <div class="empty_track">
+    <table class="setpiece">
+      <p>No archived setlists found.</p>
+    </table>
+  </div>
+
+<% else %>
+
+  <div id="item_counter">
+    <%= page_entries_info @setlists.archived %>
+  </div>
+  <div>
+
+      <%= render 'setlists/display_arc' %>
+
+  </div>
+
+<% end %>
+

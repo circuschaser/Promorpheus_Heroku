@@ -19,6 +19,11 @@ PromorpheusHeroku::Application.routes.draw do
     member do
       get :tracked
       get :archive
+      get :unarchive
+    end
+    collection do
+      get :active
+      get :archived
     end
   end
 

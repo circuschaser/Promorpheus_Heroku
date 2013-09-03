@@ -1,0 +1,35 @@
+<% @setlists.active.each do |set| %>
+
+<table class="piece">
+  <tr>
+    <td class="set_content_left">
+      <p class="set_title"><%= set[:title] %><p>
+      <p class="meta">
+        <span>CONTAINS: </span><%= pluralize(set.tracks.count, "song") %>
+      </p>
+    </td>
+
+    <td class="set_content_right">
+      <p class="set_dsc"><%= set[:description] %></p>
+      <p class="meta">
+        <span>PERFORMANCE DATE: </span>
+        <%= set[:performance_date].strftime("%B %d, %Y") %>
+      </p>
+    </td>
+
+    <td class="set_button_block">
+      <div class="icon_edit">
+        <%= link_to image_tag("icon_edit.png"), setlist_path(set) %>
+      </div>
+      <div class="icon">
+        <%= link_to image_tag("icon_unarc_alt.png"), archive_setlist_path(set) %>
+      </div>
+      <div class="icon">
+        <%= link_to image_tag("icon_delete_alt.png"), set, method: :delete,
+              data: { confirm: "Do you really want to delete: #{set.title.upcase}?" } %>
+      </div>
+    </td>
+  </tr>
+
+  <% end %>
+</table>

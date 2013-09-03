@@ -1,0 +1,19 @@
+<% if @setlists.active.size == 0 %>
+
+  <div class="empty_track">
+      <p>No active setlists found.</p>
+  </div>
+
+<% else %>
+
+  <div id="item_counter">
+    <%= page_entries_info @setlists.active %>
+  </div>
+  <div>
+
+      <%= render 'setlists/display_act' %>
+
+  </div>
+
+<% end %>
+
