@@ -41,7 +41,7 @@ class SetlistsController < ApplicationController
 		current_user.setlists << @setlist
 		if @setlist.save
 			flash[:success] = "The setlist: \"#{@setlist.title.upcase}\" was successfully created"
-			redirect_to setlists_path
+			redirect_to active_setlists_path
 		else
 	        render 'new'
 	    end
