@@ -1,3 +1,11 @@
+  <div id="item_counter">
+    <%= page_entries_info @setlists %>
+    <p id="newset">
+      <%= link_to image_tag("icon_add.png"), new_setlist_path, class: "icon_add" %>
+      <span><%= link_to "NEW SETLIST", new_setlist_path %></span>
+    </p><br/>
+  </div>
+
 <% if @setlists.active.size == 0 %>
 
   <div class="empty_track">
@@ -6,9 +14,6 @@
 
 <% else %>
 
-  <div id="item_counter">
-    <%= page_entries_info @setlists.active %>
-  </div>
   <div>
 
       <%= render 'setlists/display_act' %>

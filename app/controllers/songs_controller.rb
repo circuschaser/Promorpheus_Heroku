@@ -4,6 +4,10 @@ class SongsController < ApplicationController
   before_filter :prepare_composers
   before_filter :prepare_genres
 
+  def new
+    @song = Song.new
+  end
+
   def index
     if params[:tag]
       @songs = Song.tagged_with(params[:tag]).paginate(per_page: 10, page: params[:page])
@@ -21,9 +25,6 @@ class SongsController < ApplicationController
     @songs = Song.search(params[:search]).paginate(per_page: 10, page: params[:page])
   end
 
-  def new
-    @song = Song.new
-  end
 
   def update
     @song = Song.find(params[:id])

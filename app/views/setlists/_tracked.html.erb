@@ -1,9 +1,9 @@
   <div id="item_counter">
     Displaying all <%= pluralize(@setlist.tracks.count, "song") %>
-    <p id="addtrack">
-      <%= image_tag("icon_add.png", class: "icon_add") %>
-      <label>ADD A SONG</label>
-    </p><br/>
+      <p id="addtrack">
+        <%= link_to image_tag("icon_add.png"), "#", class: "icon_add" %>
+        <label>ADD A SONG</label>
+      </p><br/>
   </div>
 
 <% if @setlist.tracks.count == 0 %>
@@ -32,9 +32,9 @@
             <p><%= t.position %></p>
           </div>
           <div>
-            <table class="setpiece">
+            <table class="piece">
               <tr>
-                <td class="song_content_left">
+                <td class="setsong_left">
                   <p class="song_title"><%= song.title %></p>
 
                   <p class="meta">
@@ -56,8 +56,12 @@
                     <%= link_to image_tag("icon_edit.png"), edit_song_path(song) %>
                   </div>
                   <div class="icon">
-                    <%= link_to image_tag("icon_delete_alt.png"), track, method: :delete,
+                    <% if @setlist.active? %>
+                      <%= link_to image_tag("icon_delete.png"), track, method: :delete,
                           data: { confirm: "Do you really want to delete: #{song.title.upcase}?" } %>
+                    <% else %>
+                      <%= link_to image_tag("icon_delete.png"), "#", id: "editset" %>
+                    <% end %>
                   </div>
                 </td>
               </tr>

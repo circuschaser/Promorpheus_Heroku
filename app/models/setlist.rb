@@ -8,12 +8,12 @@ class Setlist < ActiveRecord::Base
 
   # accepts_nested_attributes_for :songs
 
-  validates :title, presence: true, length: { maximum: 42 }
-  validates :description, length: { maximum: 96 }
+  validates :title, presence: true, length: { maximum: 54 }
+  validates :description, length: { maximum: 120 }
 
   accepts_nested_attributes_for :tracks
 
-  default_scope order: 'setlists.created_at DESC'
+  default_scope order: 'setlists.performance_date ASC'
 
   scope :active, where(active: true)
   scope :archived, where(active: false)

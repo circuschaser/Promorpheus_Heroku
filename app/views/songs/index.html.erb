@@ -17,16 +17,22 @@
 </div>
 
 <div id="content_main">
-  <div class="songlist_title">
-    <h3><%= link_to "MUSIC", songs_path %>&ensp; &loz; &ensp;</h3>
-  </div>
 
-  <div id="search_form">
-    <%= form_tag songs_path, method: 'get' do %>
-    <%= text_field_tag :search, params[:search] %>
-    <% end %>
-    <p>Search</p>
-  <%= link_to "ADD A SONG", new_song_path, :class => 'btn-small' %><br/>
+
+
+
+
+
+  
+  <div class="songlist_title">
+    <div id="search_form">
+      <%= form_tag songs_path, method: 'get' do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search all songs" %>
+      <% end %>
+    </div>
+    <div class="mainlink">
+      <h3><%= link_to "ALL MUSIC", songs_path %></h3>
+    </div>
   </div>
 
   <div class="tanwrap_top">
@@ -35,6 +41,7 @@
   <div class="tanwrap">
 
     <div class="content_head">
+
       <div class='pagination'>
         <%= will_paginate @songs %>
       </div>

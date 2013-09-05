@@ -19,20 +19,20 @@
 <div id="content_main">
   <% if @setlist.active? %>
     <div class="setlist_trail">
-      <%= link_to "MY SETLISTS", setlists_path %>
+      <%= link_to "ALL MY SETLISTS", setlists_path %>
       <%= image_tag("breadcrumb.png", id: "breadcrumb-sm") %>
       <%= link_to "ACTIVE SETLISTS", active_setlists_path, id: "active" %>
     </div>
   <% else %>
     <div class="setlist_trail">
-      <%= link_to "MY SETLISTS", setlists_path %>
+      <%= link_to "ALL MY SETLISTS", setlists_path %>
       <%= image_tag("breadcrumb.png", id: "breadcrumb-sm") %>
       <%= link_to "ARCHIVED SETLISTS", archived_setlists_path, id: "active" %>
     </div>
   <% end %>
 
   <div class="setlist_title">
-    <h3><%= @setlist.title %>
+    <h3><%= link_to "#{@setlist.title}", @setlist %>
       <span><%= link_to image_tag("icon_edit_b.png", id: "icon_edit_sm"), "#", id: "editset" %></span>
     </h3>
   </div>
@@ -48,19 +48,40 @@
     <div class="greywrap">
     
       <div class="content_head_left">
-        <div id="setlist_info">
-          <%= simple_form_for @setlist do |f| %>
-          <%= render 'shared/error_messages', object: f.object %>
-          <%= f.input :title %>
-          <%= f.input :description, as: :string %>
-          <%= f.input :performance_date, as: :date,
-                  order: [:month, :day, :year] %>
-          <div><%= f.button :submit, "SAVE CHANGES", id: 'save_editset', class: "btn btn-small" %></div>
-          <% end %>   
-        </div>
-        <div id="newtrack">
-          <%= render 'tracks/track_form' %>
-        </div>
+        <% if @setlist.active? %>
+          <div id="setlist_info">
+            <%= simple_form_for @setlist do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+            <%= f.input :title %>
+            <%= f.input :description, as: :string %>
+            <%= f.input :performance_date, as: :date,
+                    order: [:month, :day, :year] %>
+            <div><%= f.button :submit, "SAVE CHANGES", id: 'save_editset', class: "btn btn-small" %></div>
+            <% end %>
+          </div>
+
+          <div id="newtrack">
+            <%= render 'tracks/track_form' %>
+          </div>
+
+          <% else %>
+          <div id="setlist_info">
+            <div id="arc_notice">
+              <%= link_to "ACTIVATE", unarchive_setlist_path, class: "btn-small" %>
+              ARCHIVED SETLISTS ARE NOT EDITABLE.</br>
+              To make changes to this Setlist, first ACTIVATE it.
+            </div>
+          </div>
+
+          <div id="newtrack">
+            <div id="arc_notice">
+              <%= link_to "ACTIVATE", unarchive_setlist_path, class: "btn-small" %>
+              ARCHIVED SETLISTS ARE NOT EDITABLE.</br>
+              To make changes to this Setlist, first ACTIVATE it.
+            </div>
+          </div>
+
+        <% end %>
       </div>
 
       <div class="content_body">

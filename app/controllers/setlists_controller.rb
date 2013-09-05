@@ -1,5 +1,9 @@
 class SetlistsController < ApplicationController
 
+	def new
+		@setlist = Setlist.new
+	end
+
 	def index
 		sets = current_user.setlists
 		@setlists = sets.search(params[:search]).paginate(per_page: 10, page: params[:page])
@@ -18,10 +22,6 @@ class SetlistsController < ApplicationController
 	def show
 		@setlist = Setlist.find(params[:id])
 		@songs = @setlist.songs
-	end
-
-	def new
-		@setlist = Setlist.new
 	end
 
 	def update
@@ -63,7 +63,7 @@ class SetlistsController < ApplicationController
 		@setlist = Setlist.find(params[:id])
 		@setlist.active = true
 		if @setlist.save
-			flash[:success] = "The setlist: \"#{@setlist.title.upcase}\" was succesfully activated"
+			flash[:success] = "The setlist: \"#{@setlist.title.upcase}\" was succesfully re-activated"
 			redirect_to :back
 		else
 			flash.now[:error] = "Whoops. SOMETHING WHEN WRONG.\nActivation failed."

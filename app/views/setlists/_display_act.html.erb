@@ -1,6 +1,6 @@
 <% @setlists.active.each do |set| %>
 
-<table class="piece">
+<table class="setpiece">
   <tr>
     <td class="set_content_left">
       <p class="set_title"><%= set[:title] %><p>
@@ -25,7 +25,7 @@
         <%= link_to image_tag("icon_unarc_alt.png"), archive_setlist_path(set) %>
       </div>
       <div class="icon">
-        <%= link_to image_tag("icon_delete_alt.png"), set, method: :delete,
+        <%= link_to image_tag("icon_delete.png"), set, method: :delete,
               data: { confirm: "Do you really want to delete: #{set.title.upcase}?" } %>
       </div>
     </td>

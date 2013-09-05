@@ -1,3 +1,11 @@
+  <div id="item_counter">
+    <%= page_entries_info @songs %>
+    <p id="newsong">
+      <%= link_to image_tag("icon_add.png"), new_song_path, class: "icon_add" %>
+      <span><%= link_to "NEW SONG", new_song_path %></span>
+    </p><br/>
+  </div>
+
 <% if @songs.size == 0 %>
 
   <div class="empty_track">
@@ -6,14 +14,27 @@
 
 <% else %>
 
-  <div id="item_counter">
-    <%= page_entries_info @songs %>
-  </div>
   <div>
     <% @songs.each do |song| %>
     <% alb = Album.find(song.album_id) %>
     <% com = Composer.find(song.composer_id) %>
     <% gen = Genre.find(song.genre_id) %>
+
+  <div class="assign">
+    <div class="toggle"><%= image_tag("icon_setlist.png", class: "icon_sm") %></div>
+    <div class="choose_set">
+      <%= simple_form_for song.tracks.build do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.button :submit, "ADD SONG", id: 'save_addtrack', class: "btn btn-small" %>
+      <div id="none">
+        <%= f.input :tracked_id, as: :hidden %>
+      </div>
+      <%= f.input :tracker_id, label: "Add this Song to a Setlist", 
+                  collection: Setlist.active(order: "performance_date"),
+                  prompt: "CHOOSE FROM YOUR ACTIVE SETLISTS" %>
+      <% end %>
+    </div>
+  </div>
 
     <table class="piece">
       <tr>
@@ -34,12 +55,11 @@
         </td>
 
         <td class="song_button_block">
-          <div>
           <div class="icon_edit">
             <%= link_to image_tag("icon_edit.png"), edit_song_path(song) %>
           </div>
           <div class="icon">
-            <%= link_to image_tag("icon_delete_alt.png"), song, method: :delete,
+            <%= link_to image_tag("icon_delete.png"), song, method: :delete,
                   data: { confirm: "Do you really want to delete: #{song.title.upcase}?" } %>
           </div>
         </td>
@@ -50,7 +70,17 @@
     <ul class="tags">
       <li><%= raw song.tag_list.map { |t| link_to t, tag_path(t) }.join(' ').upcase %></li>
     </ul>
-      <% end %>
+    <% end %>
   </div>
 
-<% end -%>
+<% end %>
+
+    <script>
+
+      $( ".assign" ).accordion({
+        collapsible: true,
+        active: false,
+        animate: 250
+      });
+    </script>
+

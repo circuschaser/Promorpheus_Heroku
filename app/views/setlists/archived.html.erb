@@ -17,21 +17,22 @@
 </div>
 
 <div id="content_main">
+
   <div class="setlist_trail">
-    <%= link_to "ALL SETLISTS", setlists_path %>
+    <%= link_to "ALL MY SETLISTS", setlists_path %>
     <%= image_tag("breadcrumb.png", id: "breadcrumb-sm") %>
   </div>
   <div class="setlist_title">
+    <div id="search_form">
+      <%= form_tag setlists_path, method: 'get' do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search your setlists" %>
+      <% end %>
+    </div>
+    <div class="mainlink">
       <h3><%= link_to "ARCHIVED SETLISTS", archived_setlists_path %> &ensp; &loz; &ensp;</h3>
+    </div>
   </div>
 
-  <div id="search_form">
-    <%= form_tag setlists_path, method: 'get' do %>
-    <%= text_field_tag :search, params[:search] %>
-    <% end %>
-    <p>Search</p>
-    <%= link_to "ADD A SETLIST", new_setlist_path, :class => 'btn-small' %><br/>
-    </div>
 
   <div class="greywrap_top">
   </div>

@@ -25,7 +25,7 @@
         <%= link_to image_tag("icon_arc.png"), unarchive_setlist_path(set) %>
       </div>
       <div class="icon">
-        <%= link_to image_tag("icon_delete_alt.png"), set, method: :delete,
+        <%= link_to image_tag("icon_delete.png"), set, method: :delete,
               data: { confirm: "Do you really want to delete: #{set.title.upcase}?" } %>
       </div>
     </td>

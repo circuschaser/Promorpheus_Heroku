@@ -49,6 +49,18 @@ $(document).ready(function() {
            $("#genre a.add_fields").show();
          });
 
+    // add to setlist
+    // $("#assign_<%= song.id %>").hide();
+
+
+    // $(document).on("click","#addtrack",function() {
+    //   $("#assign_<%= song.id %>").slideToggle(250);
+    // });
+
+    // $(document).on("click","#save_addtrack",function() {
+    //   $("#assign_<%= song.id %>").hide();
+    // });
+
 
 });
 

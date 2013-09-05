@@ -1,3 +1,11 @@
+  <div id="item_counter">
+    <%= page_entries_info @setlists %>
+    <p id="newset">
+      <%= link_to image_tag("icon_add.png"), new_setlist_path, class: "icon_add" %>
+      <span><%= link_to "NEW SETLIST", new_setlist_path %></span>
+    </p><br/>
+  </div>
+
 <% if @setlists.size == 0 %>
 
   <div class="empty_track">
@@ -6,20 +14,17 @@
 
 <% else %>
 
-  <div id="item_counter">
-    <%= page_entries_info @setlists %>
-  </div>
   <div>
     <% @setlists.each do |set| %>
 
       <% if set.active? %>
 
-        <table class="piece">
+        <table class="setpiece">
           <tr>
             <td class="set_content_left">
               <p class="set_title"><%= set[:title] %><p>
               <p class="meta">
-                <span>CONTAINS: </span><%= pluralize(set.tracks.count, "song") %>
+                <span class="heading">CONTAINS: </span><%= pluralize(set.tracks.count, "song") %>
               </p>
             </td>
 
@@ -39,7 +44,7 @@
                 <%= link_to image_tag("icon_unarc_alt.png"), archive_setlist_path(set) %>
               </div>
               <div class="icon">
-                <%= link_to image_tag("icon_delete_alt.png"), set, method: :delete,
+                <%= link_to image_tag("icon_delete.png"), set, method: :delete,
                       data: { confirm: "Do you really want to delete: #{set.title.upcase}?" } %>
               </div>
             </td>
@@ -73,7 +78,7 @@
                 <%= link_to image_tag("icon_arc.png"), unarchive_setlist_path(set) %>
               </div>
               <div class="icon">
-                <%= link_to image_tag("icon_delete_alt.png"), set, method: :delete,
+                <%= link_to image_tag("icon_delete.png"), set, method: :delete,
                       data: { confirm: "Do you really want to delete: #{set.title.upcase}?" } %>
               </div>
             </td>

@@ -22,12 +22,12 @@ class TracksController < ApplicationController
 			t.update_attribute(:position, last.position + 1 )
 		end
 		
-		flash[:success] = "The song: \"#{@song.title.upcase}\" was successfully added to this Setlist"
-		redirect_to "/setlists/#{@setlist.id}"
+		flash[:success] = "The song: \"#{@song.title.upcase}\" was successfully added to the setlist: \"#{@setlist.title.upcase}\""
+		redirect_to :back
 
 		rescue ActiveRecord::RecordNotFound
-  			redirect_to "/setlists/#{@setlist.id}"
-			flash[:error] = 'SONG NOT ADDED. You did not choose a song.' 			
+  			redirect_to :back
+			flash[:error] = 'SONG NOT ADDED. You failed to make a choice.' 			
 	end
 
 	def destroy
