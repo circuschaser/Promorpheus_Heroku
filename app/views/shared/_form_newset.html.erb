@@ -1,0 +1,26 @@
+<div id="addset">
+  <div class="greywrap_form">
+    <div class="colorbox_head">
+        <h4>NEW SETLIST</h4>
+    </div>
+    <div class="colorbox_body">
+
+      <% @setlist = Setlist.new %>
+
+      <%= simple_form_for @setlist do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.input :title %>
+
+      <%= f.input :description, as: :string %>
+      <div class="dateset"><%= f.input :performance_date, as: :date,
+              order: [:month, :day, :year] %></div>
+
+      <div><%= f.button :submit, "CREATE THIS SETLIST" %>
+        <span>Hit ESCAPE to Cancel</span>
+      </div>
+      <% end %>
+
+      </div>
+  </div>
+</div>
