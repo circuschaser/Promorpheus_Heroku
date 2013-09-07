@@ -2,7 +2,8 @@
 
 <div class="container">
 	<div class="formbox span6 offset3">
-			<h3>Please Sign in</h3>
+		<h3>Please Sign in</h3>
+		<div class="session_form">
 			<%= form_for(:session, url: sessions_path) do |f| %>
 
 				<%= f.label :email %>
@@ -11,9 +12,9 @@
 				<%= f.label :password %>
 				<%= f.password_field :password %>
 
-				<div><%= f.submit "SIGN IN", class: "btn btn-small" %></div>
+				<%= f.submit "SIGN IN", class: "btn btn-small" %>
 			<% end %>
-
-			<p id="link_button"> Not a current user? <%= link_to "SIGN UP IMMEDIATELY", signup_path %></p>
+		</div>
+			<span id="link_button"> Not a current user? <%= link_to "SIGN UP IMMEDIATELY", signup_path %></span>
 	</div>
 </div>

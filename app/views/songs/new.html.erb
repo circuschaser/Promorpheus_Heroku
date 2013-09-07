@@ -1,31 +1,67 @@
 <% provide(:title, "Add A Song") %>
 <div class="container">
 
-    <div id="sidebar">
-      <h4>The Sidebar Headline</h4>
-        <p>
-            Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod. 
-        </p>
-        <ul>
-            <li>Lorem ipsum Veniam sunt</li>
-            <li>velit in nisi incididunt</li>
-            <li>eu id minim dolore</li>
-            <li>aliqua commodo officia.</li>
-        </ul>
-        <p>
-            Lorem ipsum Dolore pariatur mollit et ullamco et esse velit.
-        </p>
-    </div>
+  <div id="sidebar">
+    <h4>The Sidebar Headline</h4>
+      <p>
+          Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod. 
+      </p>
+      <ul>
+          <li>Lorem ipsum Veniam sunt</li>
+          <li>velit in nisi incididunt</li>
+          <li>eu id minim dolore</li>
+          <li>aliqua commodo officia.</li>
+      </ul>
+      <p>
+          Lorem ipsum Dolore pariatur mollit et ullamco et esse velit.
+      </p>
+  </div>
 
-    <div id="content_main">
-      <div id="addsong">
-        <div class="tanwrap_form">
-          <div class="content_head">
-            <h3>NEW SONG</h3>
+  <div id="content_main">
+    <div id="addsong">
+      <div class="tanwrap_form">
+        <div class="content_head">
+          <h3>NEW SONG</h3>
+        </div>
+        <div class="content_form">
+
+          <%= simple_form_for @song do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+
+          <div id="title">
+              <div id="title_input">
+              <%= f.input :title %>
+              </div>
           </div>
 
-          <div class="content_body">
-            <%= render 'form' %>            
+          <div id="composer">
+              <%= link_to_add_association "Add a new Composer", f, :composer %>
+              <div id="composer_from_list">
+                  <%= f.association :composer, collection: Composer.all(order: "name"), prompt: "CHOOSE A COMPOSER - leave this alone if unknown" %>
+              </div>
+          </div>
+
+          <div id="album">
+              <%= link_to_add_association "Add a new Album", f, :album %>
+              <div id="album_from_list">
+                  <%= f.association :album, collection: Album.all(order: "album_name"), prompt: "CHOOSE AN ALBUM - leave this alone if unknown" %>
+              </div>
+          </div>
+
+          <div id="genre">
+              <%= link_to_add_association "Add a new Genre", f, :genre %>
+              <div id="genre_from_list">
+                  <%= f.association :genre, collection: Genre.all(order: "name"), prompt: "CHOOSE A GENRE - leave this alone if unknown" %>
+              </div>
+          </div>
+          
+          <!-- TAGS                            -->
+          <div class="field">
+              <%= f.input :tag_list, label: "Tags (separate by commas)" %>
+          </div>
+
+          <div><%= f.button :submit, "ADD THIS SONG" %></div>
+          <% end %>
           </div>
           
         </div>

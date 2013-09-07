@@ -275,7 +275,7 @@
     /*border-bottom: 1px solid $grayBorder;*/
   }
 
-  .content_body, .colorbox_body {
+  .content_body, .colorbox_body, .content_form {
     background-color: $white;
     border: 1px solid $grayBorder;
   }
@@ -287,6 +287,10 @@
   }
 
 /* FORMS                                           */
+
+  .session_form {
+    
+  }
 
   form {
     color: $linkGray;

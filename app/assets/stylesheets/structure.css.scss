@@ -314,6 +314,8 @@
     padding-bottom: 12px;
   }
 
+
+
 /* SONG LISTS                                        */
 
   .songlist_title h3 {
@@ -521,6 +523,19 @@
 
 /* FORMS                                                */
 
+  .content_form {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 66px;
+    padding-bottom: 12px;
+  }
+
+  .session_form {
+    margin-left: -25px;
+    padding-right: 66px;
+    padding-bottom: 12px;
+  }
+
   form {
     margin-top: 12px;
     margin-left: 24px;
@@ -536,7 +551,7 @@
   }
 
   input, textarea, select, .uneditable-input {
-    width: 90%;
+    width: 100%;
     /*padding: 10px;*/
     height: auto !important;
     margin-bottom: 15px;
