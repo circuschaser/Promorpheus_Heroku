@@ -25,12 +25,12 @@
     <div class="choose_set">
       <%= simple_form_for song.tracks.build do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-      <%= f.button :submit, "ADD THIS SONG", id: 'save_addtrack', class: "btn btn-small" %>
+      <%= f.button :submit, "ADD SONG", id: 'save_addtrack', class: "btn btn-small" %>
       <div id="none">
         <%= f.input :tracked_id, as: :hidden %>
       </div>
       <%= f.input :tracker_id, label: "Add this Song to a Setlist", 
-                  collection: Setlist.active(order: "performance_date"),
+                  collection: current_user.setlists.active(order: "performance_date"),
                   prompt: "CHOOSE FROM YOUR ACTIVE SETLISTS" %>
       <% end %>
     </div>
