@@ -1,6 +1,6 @@
 module ApplicationHelper
 	def full_title(page_title)
-		base_title = "Promorph BETA 01"
+		base_title = "Promorpheus PROTOTYPE"
 		if page_title.empty?
 			base_title
 		else

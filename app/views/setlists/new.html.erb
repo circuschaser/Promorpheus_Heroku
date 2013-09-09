@@ -24,12 +24,15 @@
             <h3>NEW SETLIST</h3>
         </div>
         <div class="content_form">
+          <div id="newset_form">
 
           <%= simple_form_for(@setlist) do |f| %>
           <%= render 'shared/error_messages', object: f.object %>
 
+          <p>max 54 characters<p>
           <%= f.input :title %>
 
+          <p>max 120 characters<p>
           <%= f.input :description, as: :string %>
 
           <div class="dateset">
@@ -42,7 +45,7 @@
           </div>
 
           <% end %>
-
+          </div>
 
         </div>
       </div>

@@ -454,10 +454,16 @@
     vertical-align: top;
   }
 
-  .track, .empty_track {
+  .track, .empty_track, .track_locked {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     &.track {
+    margin-left: -4px;
+    margin-right: -4px;
+    margin-bottom: 3px;
+    padding: 3px;
+    }
+    &.track_locked {
     margin-left: -4px;
     margin-right: -4px;
     margin-bottom: 3px;
@@ -468,7 +474,6 @@
       padding-top: 12px;
       border-top-right-radius: 8px;
       border-bottom-right-radius: 8px;
-
     }
   }
 
@@ -523,7 +528,7 @@
 
 /* FORMS                                                */
 
-  .content_form {
+  .content_form, #setlist_info, #newtrack {
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 66px;
@@ -588,6 +593,12 @@
 
   #setlist_performance_date_2i {
     width: 25%;
+  }
+
+  #newset_form p {
+    float: right;
+    font-size: 80%;
+    margin-bottom: 3px;
   }
 
 /* BUTTONS                                                */

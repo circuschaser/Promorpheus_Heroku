@@ -43,7 +43,6 @@ class SetlistsController < ApplicationController
 			flash[:success] = "The setlist: \"#{@setlist.title.upcase}\" was successfully created"
 			redirect_to active_setlists_path
 		else
-	      flash.now[:error] = "Whoops. SOMETHING WHEN WRONG.\nCheck the form again."
 	        render 'new'
 	    end
 	end

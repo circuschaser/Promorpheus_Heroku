@@ -61,6 +61,14 @@
     /*border: 1px dashed black;*/
   }
 
+  .content_head h2 span {
+    background: $redBrown;
+    padding: 6px 8px 4px 8px;
+    border-radius: 4px;
+    color: $grayWrap;
+    font-size: 90%;
+  }
+
 /* NAVIGATION MENU                                 */
 
   #logo {
