@@ -663,6 +663,31 @@
     border: 1px solid $grayBorder;
   }
 
+  .users {
+    width: 100%;
+    margin-left: 6px;
+  }
+
+  .users .id {
+    width: 10%;
+    color: $linkGray;
+  }
+
+  .name {
+    width: 30%;
+    color: $linkGray;
+  }
+
+  .email {
+    width: 40%;
+    color: $linkGray;
+  }
+
+  .setlists {
+    /*width: 15%;*/
+    color: $linkGray;
+  }
+
 /* ERROR REPORTING                                 */
   #error_explanation {
     color: red;

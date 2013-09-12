@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :update]
 
+  def index
+    @users = User.order('id ASC')
+  end
+
 	def show
 		@user = User.find(params[:id])
 	end
@@ -34,6 +38,13 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  # def last_set_activity
+  #   @user.setlists.each do |set|
+  #     x = []
+  #     set.tracks.order("updated_at DESC")
+  #     t = set.tracks.first
+  #     x << t
 
   private
 
