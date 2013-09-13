@@ -669,23 +669,37 @@
   }
 
   .users .id {
-    width: 10%;
+    width: 7%;
     color: $linkGray;
+  }
+
+  .admin {
+    width: 13%;
+    color: $linkGray;    
   }
 
   .name {
-    width: 30%;
+    width: 25%;
     color: $linkGray;
   }
 
-  .email {
-    width: 40%;
+  .e_address {
+    width: 35%;
     color: $linkGray;
   }
 
   .setlists {
-    /*width: 15%;*/
+    width: 15%;
     color: $linkGray;
+  }
+
+  .remove_icon {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-left: 9px;
+    margin-top: -1px;
+    margin-bottom: 0px;
   }
 
 /* ERROR REPORTING                                 */

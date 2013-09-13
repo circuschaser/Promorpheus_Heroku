@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.order('id ASC')
+    rescue ActiveRecord::NoMethodError
+        redirect_to '/home'
   end
 
 	def show
@@ -39,12 +41,18 @@ class UsersController < ApplicationController
     end
   end
 
-  # def last_set_activity
-  #   @user.setlists.each do |set|
-  #     x = []
-  #     set.tracks.order("updated_at DESC")
-  #     t = set.tracks.first
-  #     x << t
+  def destroy
+    user = User.find(params[:id])
+    username = User.find(params[:id]).name
+    if user != current_user
+      User.find(params[:id]).destroy
+      flash[:alert] = "The user: \"#{username.upcase}\" was successfully removed"
+      redirect_to users_path
+    else
+      User.find(params[:id]).destroy
+      redirect_to signin_url
+    end
+  end
 
   private
 

@@ -35,16 +35,32 @@
 			  </div>
 			  <table class="users">
 			  	<th class="id">ID</th>
+			  	<th class="admin">Admin</th>
 			  	<th class="name">Name</th>
-			  	<th class="email">Email</th>
+			  	<th class="e_address">Email</th>
 			  	<th class="setlists">Setlists</th>
+			  	<th></th>
 
 		  		<% @users.each do |user| %>
+		  		<% @user = User.find_by_remember_token(cookies[:remember_token]) %>
 		  		<tr>
 		  			<td><%= user.id.to_s.rjust(2, '0') %></td>
-		  			<td><%= user.name %></td>
-		  			<td><%= user.email %></td>
-						<td>has <%= pluralize(user.setlists.count, "setlist") %></td>
+		  			<% if user.admin? %>
+		  				<td>YES</td>
+		  			<% else %>
+		  				<td></td>
+	  				<% end %>
+		  				<td><%= user.name %></td>
+		  				<td><%= user.email %></td>
+							<td>has <%= pluralize(user.setlists.count, "setlist") %></td>
+						<% if @user.admin || user == @user %>
+	          <td><div class="remove_icon">
+	            <%= link_to image_tag("icon_delete.png"), user, method: :delete,
+	                  data: { confirm: "Do you really want to delete the user: #{user.name.upcase}?" } %>
+	          </div></td>
+	          <% else %>
+	          <td></td>
+	          <% end %>
 	  			</tr>
   			<% end %>
 	  		</table>

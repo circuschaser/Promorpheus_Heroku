@@ -3,7 +3,7 @@
 <div class="container">
   <div class="formbox span6 offset3">
     <h3>Create an Account</h3>
-    <br></br>
+    <div class="session_form">
 
     <%= form_for(@user) do |f| %>
     	<%= render 'shared/error_messages', object: f.object %>
@@ -20,7 +20,8 @@
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation %>
 
-      <div><%= f.submit "Create my account", class: "btn btn-small" %></div>
+      <%= f.submit "CREATE MY ACCOUNT", class: "btn btn-small" %>
     <% end %>
+    </div>
   </div>
 </div>
