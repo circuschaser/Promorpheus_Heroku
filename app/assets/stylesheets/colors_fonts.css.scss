@@ -347,6 +347,11 @@
     font-weight: bold;
   }
 
+  .song_title_locked {
+    font-weight: bold;
+    color: $linkGray;    
+  }
+
   .song_content_left p.meta {
     text-indent: -35px;
   }
@@ -441,7 +446,7 @@
     border: 1px dashed $linkGray;
   }
 
-  .track, .empty_track {
+  .track, .empty_track, .track_locked {
     border: 1px solid $grayBorder;
     background: white;
     &.track:hover {
@@ -453,22 +458,17 @@
     }
   }
 
-  .track_position {
-    /*border: none;*/
-    /*box-shadow: none;*/
-    /*font-size: 20px;*/
-    /*color: $grayBorder;*/
-    /*font-family: Georgia, serif;*/
-  }
-
-  .track_position input {
-    border: none;
-    background-color: transparent;
+  .track_position input, .track_pos_locked {
+    border: 1px solid $grayBorder;
     box-shadow: none;
     text-align: center;
-    font-size: 20px;
-    color: $grayBorder;
-    font-family: Georgia, serif;
+    font-size: 14px;
+    color: $linkGray;
+    &.track_pos_locked {
+      border: none;
+      background: $grayBorder;
+      color: white;
+    }
   }
 
   .arc_set {
@@ -598,28 +598,22 @@
 
 /* TAGS                                           */
 
-  .tags{
+  .tags, .tags_inset {
     margin:6px;
-    margin-top: -3px;
-    margin-bottom: 8px;
-    padding-top: -2px;
-    padding-right: -2px;
-    padding-bottom: -2px;
-    padding-left: 18px;
-    list-style:none;
-    width: 650px;
-  } 
-
-  .tags_inset {
-    margin:6px;
-    margin-left: 38px;
     margin-top: -3px;
     padding:-2px;
     list-style:none;
     width: 650px;
-  } 
+    &.tags {
+      margin-left: 36px;
+    }
+    &.tags_inset {
+      margin-left: 46px;
+    }
 
-  .tags li, .tags a, .tags_inset li, .tags_inset a{
+  }
+
+  .tags p, .tags a, .tags_inset p, .tags_inset a{
     /*float:left;*/
     margin-bottom: -3px;
     margin-top: -5px;
@@ -629,7 +623,12 @@
     &:hover {
       background-color: transparent;
       }
-    } 
+    }
+
+  .tags p, .tags_inset p {
+    margin-left: -3px;
+  }
+    
   .tags a, .tags_inset a{
     border-top-left-radius:5px;
     border-top-right-radius:7px;

@@ -443,7 +443,7 @@
     margin-left: -4px;
     margin-right: -4px;
     margin-bottom: 3px;
-    padding: 3px;
+    padding-top: 1px;
     }
     &.empty_track {
       height: 40px;
@@ -453,12 +453,13 @@
     }
   }
 
-  .track_position input {
+  .track_position input, .track_pos_locked {
+    border-radius: 5px;
     float: left;
     width: 30px;
-    margin-left: 2px;
-    margin-top: 2px;
-    padding: 5px 2px 0 2px;
+    margin-left: 4px;
+    margin-top: 6px;
+    padding: 3px 0 3px 0;
   }
 
   #trackorder {

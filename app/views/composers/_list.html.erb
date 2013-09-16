@@ -83,9 +83,9 @@
   </table>
 </div>
 <div>
-  <ul class="tags">
-    <li><%= raw song.tag_list.map { |t| link_to t, tag_path(t) }.join(' ').upcase %></li>
-  </ul>
+  <div class="tags">
+    <p><%= raw song.tag_list.map { |t| link_to t, tag_path(t) }.join(' ').upcase %></p>
+  </div>
     <% end %>
 </div>
 
