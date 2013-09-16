@@ -313,13 +313,6 @@
     padding-left: 24px;
   }
 
-  .setsong_left {
-    padding-top: 5px;
-    padding-bottom: 0px;
-    width: 450px;
-    /*padding-left: 24px;*/
-  }
-
   .song_content_right {
     padding-top: 5px;
     padding-bottom: 0px;
@@ -412,6 +405,13 @@
     display: none;
   }
 
+  .setsong_left {
+    padding-top: 5px;
+    padding-bottom: 0px;
+    width: 450px;
+    /*padding-left: 24px;*/
+  }
+
   .set_content_left, .set_content_right {
     padding-top: 7px;
     padding-bottom: 0px;
@@ -436,7 +436,7 @@
     margin-left: -4px;
     margin-right: -4px;
     margin-bottom: 3px;
-    padding: 3px;
+    padding-top: 1px;
     cursor: url(https://mail.google.com/mail/images/2/openhand.cur), default !important;
     }
     &.track_locked {
@@ -453,11 +453,12 @@
     }
   }
 
-  .track_position {
+  .track_position input {
     float: left;
-    vertical-align: center;
     width: 30px;
-    /*padding: 5px 4px 0 2px;*/
+    margin-left: 2px;
+    margin-top: 2px;
+    padding: 5px 2px 0 2px;
   }
 
   #trackorder {
