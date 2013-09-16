@@ -29,7 +29,7 @@
       <li id="track_<%= t.id %>">
         <div class="track">
           <div class="track_position">
-            <p><%= t.position %></p>
+            <input type="text">
           </div>
           <div>
             <table class="piece">
@@ -68,9 +68,9 @@
             </table>
           </div>
           <div>
-            <ul class="tags_inset">
-              <li><%= raw song.tag_list.map { |t| link_to t, tag_path(t) }.join(' ').upcase %></li>
-            </ul>
+            <div class="tags_inset">
+              <p><%= raw song.tag_list.map { |t| link_to t, tag_path(t) }.join(' ').upcase %></p>
+            </div>
           </div>
         </div>
       </li>
@@ -78,6 +78,28 @@
   </ul>
 
   <script>
+    sort_ul = $('#trackorder');
+    itemsCount = $("#trackorder li").length;
+
+    function updateIndexes(){
+      $('li input').each(function(i){
+        $(this).val(i+1);
+        });    
+    }
+
+    function ajaxdata(){
+      $.ajax({
+        type: 'post',
+        beforeSend : function (xhr) {
+          xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+        },
+        data: $('#trackorder').sortable('serialize'),
+        dataType: 'script',
+        url: '<%= sort_tracks_path %>'});
+    }
+
+    updateIndexes();
+
     $("#trackorder").sortable({ 
       placeholder: "sort_highlight",
       distance: 10,
@@ -86,18 +108,46 @@
       cursor: "move",
       tolerance: "intersect",
 
+      stop: function(event, ui){
+        updateIndexes();
+      },
+
       update: function(){
-        $.ajax({
-          type: 'post',
-          beforeSend : function (xhr) {
-            xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
-          },
-          data: $('#trackorder').sortable('serialize'),
-          dataType: 'script',
-          url: '<%= sort_tracks_path %>'})
+        ajaxdata();
       }
     });
-    $("#trackorder").disableSelection();
+
+    $('li input').keyup(function(event) {
+      if(event.keyCode == '13'){      
+        event.preventDefault();
+          
+        order = parseInt($(this).val());
+        li = $(this).parent().parent().parent();
+
+        if( order>=1 && order <= itemsCount ){      
+            
+          li.effect( 'drop', function() {
+              li.detach();
+                  
+              if( order == itemsCount )
+                  sort_ul.append(li);
+              else
+                  li.insertBefore($('#trackorder li:eq('+(order-1)+')'));
+              
+              updateIndexes();
+              ajaxdata();
+              li.effect('slide');
+          });
+
+        }
+
+        else{
+            li.effect('shake',{direction: "right", distance: 9});
+        }
+      }    
+    });
+
+    $(".piece").disableSelection();
   </script>
 
 <% else %>
@@ -112,14 +162,14 @@
       <% track = Track.find_by_tracked_id(song.id)%>
       <li id="track_<%= t.id %>">
         <div class="track_locked">
-          <div class="track_position">
-            <p><%= t.position %></p>
+          <div class="track_pos_locked">
+            <%= t.position %>
           </div>
           <div>
             <table class="piece">
               <tr>
                 <td class="setsong_left">
-                  <p class="song_title"><%= song.title %></p>
+                  <p class="song_title_locked"><%= song.title %></p>
 
                   <p class="meta">
                     <span>ALBUM: </span><%= link_to alb.album_name, album_path(alb) %>
@@ -152,9 +202,9 @@
             </table>
           </div>
           <div>
-            <ul class="tags_inset">
-              <li><%= raw song.tag_list.map { |t| link_to t, tag_path(t) }.join(' ').upcase %></li>
-            </ul>
+            <div class="tags_inset">
+              <p><%= raw song.tag_list.map { |t| link_to t, tag_path(t) }.join(' ').upcase %></p>
+            </div>
           </div>
         </div>
       </li>
