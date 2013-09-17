@@ -124,9 +124,9 @@
         order = parseInt($(this).val());
         li = $(this).parent().parent().parent();
 
-        if( order>=1 && order <= itemsCount ){      
+        if ( order>=1 && order <= itemsCount ){      
             
-          li.effect( 'drop', function() {
+          li.effect( 'drop',{duration: 500}, function() {
               li.detach();
                   
               if( order == itemsCount )
@@ -136,13 +136,32 @@
               
               updateIndexes();
               ajaxdata();
-              li.effect('slide');
+              li.effect('slide',{duration: 500});
           });
+        }
+        
+        else if (order > itemsCount){
+          li.effect( 'drop',{duration: 500}, function() {
+            li.detach();
 
+            sort_ul.append(li);
+
+            updateIndexes();
+            ajaxdata();
+            li.effect('slide',{duration: 500});
+          });
         }
 
-        else{
-            li.effect('shake',{direction: "right", distance: 9});
+        else {
+          li.effect( 'drop',{duration: 500}, function() {
+            li.detach();
+
+            li.insertBefore($('#trackorder li:eq('+(order-1+1)+')'));
+
+            updateIndexes();
+            ajaxdata();
+            li.effect('slide',{duration: 500});
+          });
         }
       }    
     });
