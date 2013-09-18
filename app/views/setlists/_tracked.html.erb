@@ -152,7 +152,7 @@
           });
         }
 
-        else {
+        else if (order == 0){
           li.effect( 'drop',{duration: 500}, function() {
             li.detach();
 
@@ -163,6 +163,11 @@
             li.effect('slide',{duration: 500});
           });
         }
+
+        else {
+            li.effect('shake',{direction: "right", distance: 9});
+        }
+
       }    
     });
 

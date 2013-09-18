@@ -459,16 +459,17 @@
   }
 
   .track_position input, .track_pos_locked {
-    border: 1px solid $grayBorder;
-    box-shadow: none;
+    border: 1px solid $grayWrap;
+    box-shadow: inset 1px 2px 3px $linkLight;
     text-align: center;
     font-family: Lucida Grande, Lucida Sans Unicode, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     color: $linkGray;
     &.track_pos_locked {
+      box-shadow: none;
       border: none;
-      background: $grayBorder;
-      color: white;
+      /*background: $grayBorder;*/
+      /*color: white;*/
     }
   }
 

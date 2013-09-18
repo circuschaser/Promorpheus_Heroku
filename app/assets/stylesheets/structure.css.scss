@@ -454,12 +454,15 @@
   }
 
   .track_position input, .track_pos_locked {
-    border-radius: 5px;
+    border-radius: 3px;
     float: left;
     width: 30px;
     margin-left: 4px;
     margin-top: 6px;
-    padding: 3px 0 3px 0;
+    padding: 4px 0 2px 0;
+    &.track_pos_locked {
+      padding: 3px 0 3px 0;
+    }
   }
 
   #trackorder {
