@@ -29,6 +29,34 @@ class SongsController < ApplicationController
   def update
     @song = Song.find(params[:id])
     if @song.update_attributes(params[:song])
+      s = @song
+      if s.composer_name.empty?
+        c = Composer.find_by_name "Unknown Composer"
+        c.songs << s
+        # s.update_attribute(:composer_name, c.name)
+      else
+        c = Composer.find_or_create_by_name s.composer_name
+        c.songs << s
+      end
+
+      if s.album.album_name.empty?
+        a = Album.find_by_album_name "Unknown Album"
+        a.songs << s
+        # s.update_attribute(:album_name, a.album_name)
+      else
+        a = Album.find_or_create_by_album_name s.album_name
+        a.songs << s
+      end
+
+      if s.genre.name.empty?
+        g = Genre.find_by_name "Unknown Genre"
+        g.songs << s
+        # s.update_attribute(:genre_name, g.name)
+      else
+        g = Genre.find_or_create_by_name s.genre_name
+        g.songs << s
+      end
+
       flash[:success] = "The song: \"#{@song.title.upcase}\" was successfully updated"
       redirect_to songs_path
     else
