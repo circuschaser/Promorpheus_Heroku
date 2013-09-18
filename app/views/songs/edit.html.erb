@@ -23,7 +23,7 @@
         <h3>EDIT SONG INFO</h3>
       </div>
 
-      <div class="content_body">
+      <div class="content_form">
         <div id="editsong">
             <% @song = Song.find(params[:id]) %>
             <%= simple_form_for @song do |f| %>
