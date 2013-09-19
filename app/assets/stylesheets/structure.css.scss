@@ -50,14 +50,6 @@
     margin-bottom: 5px;
   }
 
-  #breadcrumb-toggle {
-    height: 8px;
-    width: 8px;
-    /*margin-left: 4px;*/
-    /*margin-right: 3px;*/
-    margin-bottom: 12px;
-  }
-
 /* HEADER                                               */
 
   #header {
@@ -661,9 +653,7 @@
   #icon_edit_sm {
     width: 18px;
     height: 18px;
-    /*float: left;*/
     margin-left: 4px;
-    /*margin-top: 4px;*/
     margin-bottom: 4px;
   }
 
@@ -674,6 +664,13 @@
     margin-left: 8px;
     margin-top: 3px;
     padding-right: 12px;
+  }
+
+  #icon_print {
+    width: 20px;
+    height: 20px;
+    margin-left: 2px;
+    margin-bottom: 4px;
   }
 
 /* FOOTER                                               */

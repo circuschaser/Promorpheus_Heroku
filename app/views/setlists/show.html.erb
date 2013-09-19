@@ -34,6 +34,7 @@
   <div class="setlist_title">
     <h3><%= link_to "#{@setlist.title}", @setlist %>
       <span><%= link_to image_tag("icon_edit_b.png", id: "icon_edit_sm"), "#", id: "editset" %></span>
+      <span><%=link_to_function(image_tag("icon_print.png", id: "icon_print"), "javascript:print()")%></span>
     </h3>
   </div>
 

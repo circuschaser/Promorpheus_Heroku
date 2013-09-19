@@ -1,4 +1,4 @@
-  /* COLORS                                         */
+/* COLORS                                         */
 
   $white: #fff;
 
@@ -204,11 +204,6 @@
   }
 
 /* CONTENT                                         */
-
-  #separator {
-    height: 24px;
-    background: $tagOrange;
-  }
 
   .content_body #item_counter {
     color: $tagBlue;
@@ -424,11 +419,6 @@
     color: $liteBrown;
     font-family: Georgia, serif;
     font-size: 90%;
-  }
-
-  .setdesc span {
-    color: $liteBrown;
-    font-size: 95%;
   }
 
   .setdesc {
