@@ -381,15 +381,13 @@
     margin-bottom: 4px;
   }
 
-  .setdesc {
+  .setdesc, .pdate {
     /*width: 680px;*/
     margin-bottom: 6px;
     margin-top: -12px;
-  }
-
-  .setdesc p {
-    margin-left: 5px;
-    display: inline;
+    &.pdate {
+      display: none;
+    }
   }
 
   #setlist_info {

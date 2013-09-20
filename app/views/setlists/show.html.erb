@@ -41,7 +41,9 @@
   <div class="setdesc">
     <%= @setlist.description %>
   </div>
-
+  <div class="pdate">
+    Performance Date: <%= @setlist.performance_date.strftime("%B %d, %Y") %>
+  </div>
 
     <div class="greywrap_top">
     </div>

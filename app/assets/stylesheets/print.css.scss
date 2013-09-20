@@ -47,6 +47,7 @@
 
 #header,
 #footer,
+.alert,
 #sidebar,
 .setlist_trail,
 .setlist_title span,
@@ -118,7 +119,7 @@
     }
   }
 
-  .setdesc {
+  .setdesc, .pdate {
     margin-bottom: 6px;
     margin-top: -12px;
     color: $grayBorder;
