@@ -37,11 +37,11 @@
             </td>
 
             <td class="set_button_block">
-              <div class="icon_view">
+              <div class="icon_view" data-toggle="tooltip" title="VIEW THIS SETLIST">
                 <%= link_to image_tag("icon_view.png"), setlist_path(set) %>
               </div>
-              <div class="icon">
-                <%= link_to image_tag("icon_unarc_alt.png"), archive_setlist_path(set) %>
+              <div class="icon" data-toggle="tooltip" title="ARCHIVE THIS SETLIST">
+                  <%= link_to image_tag("icon_unarc_alt.png"), archive_setlist_path(set) %>
               </div>
               <div class="icon">
                 <%= link_to image_tag("icon_delete.png"), set, method: :delete,
@@ -71,11 +71,11 @@
             </td>
 
             <td class="set_button_block">
-              <div class="icon_view">
+              <div class="icon_view" data-toggle="tooltip" title="VIEW THIS SETLIST">
                 <%= link_to image_tag("icon_view.png"), setlist_path(set) %>
               </div>
-              <div class="icon">
-                <%= link_to image_tag("icon_arc.png"), unarchive_setlist_path(set) %>
+              <div class="icon" data-toggle="tooltip" title="ACTIVATE THIS SETLIST">
+                  <%= link_to image_tag("icon_arc.png"), unarchive_setlist_path(set) %>
               </div>
               <div class="icon">
                 <%= link_to image_tag("icon_delete.png"), set, method: :delete,
@@ -91,3 +91,4 @@
   </div>
 
 <% end %>
+  
