@@ -212,12 +212,13 @@
   }
 
   .content_body #item_counter {
-    #new label {
+    #new label, #new label a {
       color: $linkGray;
       text-align: left;
       line-height: 180%;
       font-size: 16px;
       font-family: Georgia, serif;
+      text-decoration: none;
     }
   }
 

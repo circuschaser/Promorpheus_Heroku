@@ -1,7 +1,7 @@
   <div id="item_counter">
     <%= page_entries_info @setlists %>
     <p id="new">
-      <label>NEW SETLIST</label>
+      <label><%= link_to "NEW SETLIST", new_setlist_path %></label>
       <%= link_to image_tag("icon_add.png"), new_setlist_path, class: "icon_add" %>
     </p><br/>
   </div>
