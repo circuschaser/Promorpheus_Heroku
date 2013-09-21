@@ -133,7 +133,7 @@
     padding: 0;
   }
 
-  .track, .track_locked {
+  .track, .track_locked, .empty_track {
     border: 1px solid $grayBorder;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
@@ -143,6 +143,13 @@
     margin-top: 8px;
     padding-top: 1px;
     padding-bottom: 3px;
+    &.empty_track {
+      text-align: center;
+      height: 40px;
+      padding-top: 12px;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
   }
 
   .track_position input, .track_pos_locked {

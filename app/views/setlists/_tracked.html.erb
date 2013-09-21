@@ -1,8 +1,8 @@
   <div id="item_counter">
     Displaying all <%= pluralize(@setlist.tracks.count, "song") %>
-      <p id="addtrack">
-        <%= link_to image_tag("icon_add.png"), "#", class: "icon_add" %>
+      <p id="new">
         <label>ADD A SONG</label>
+        <%= link_to image_tag("icon_add.png"), "#", class: "icon_add" %>
       </p><br/>
   </div>
 
@@ -10,9 +10,7 @@
 
   <div class="trackorder">
       <div class="empty_track">
-        <table class="setpiece">
           <p>No songs found.</p>
-        </table>
       </div>
   </div>
 
@@ -105,7 +103,7 @@
       distance: 10,
       opacity: 0.80,
       axis: "y",
-      cursor: "move",
+      cursor: "row-resize",
       tolerance: "intersect",
 
       stop: function(event, ui){

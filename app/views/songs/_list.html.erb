@@ -1,8 +1,8 @@
   <div id="item_counter">
     <%= page_entries_info @songs %>
-    <p id="newsong">
+    <p id="new">
+      <label>NEW SONG</label>
       <%= link_to image_tag("icon_add.png"), new_song_path, class: "icon_add" %>
-      <span><%= link_to "NEW SONG", new_song_path %></span>
     </p><br/>
   </div>
 

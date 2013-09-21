@@ -1,4 +1,4 @@
-<% provide(:title, "Add A Song") %>
+<% provide(:title, "Edit Song") %>
 <div class="container">
 
   <div id="sidebar">
@@ -20,6 +20,9 @@
   <div id="content_main">
     <div class="tanwrap_form">
       <div class="content_head">
+        <div id="referer">
+          <p><%= request.referer %>
+        </div>
         <h3>EDIT SONG INFO</h3>
       </div>
 
@@ -28,6 +31,7 @@
             <% @song = Song.find(params[:id]) %>
             <%= simple_form_for @song do |f| %>
             <%= render 'shared/error_messages', object: f.object %>
+
 
             <div id="title">
                 <div id="title_input">

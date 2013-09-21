@@ -211,30 +211,14 @@
     text-align: left;
   }
 
-  .content_body #item_counter #addtrack label {
-    color: $linkGray;
-    text-align: left;
-    line-height: 180%;
-    font-size: 16px;
-    font-family: Georgia, serif;
-  }
-
-  .content_body #item_counter #newset a {
-    color: $linkGray;
-    text-align: left;
-    line-height: 200%;
-    font-size: 16px;
-    font-family: Georgia, serif;
-    text-decoration: none;
-  }
-
-  .content_body #item_counter #newsong a {
-    color: $linkGray;
-    text-align: left;
-    line-height: 200%;
-    font-size: 16px;
-    font-family: Georgia, serif;
-    text-decoration: none;
+  .content_body #item_counter {
+    #new label {
+      color: $linkGray;
+      text-align: left;
+      line-height: 180%;
+      font-size: 16px;
+      font-family: Georgia, serif;
+    }
   }
 
   #content_main {

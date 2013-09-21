@@ -59,6 +59,7 @@ class SongsController < ApplicationController
       end
 
       flash[:success] = "The song: \"#{@song.title.upcase}\" was successfully updated"
+      # redirect_to request.referer
       redirect_to songs_path
     else
       render 'edit'

@@ -1,8 +1,8 @@
   <div id="item_counter">
     <%= page_entries_info @setlists %>
-    <p id="newset">
+    <p id="new">
+      <label>NEW SETLIST</label>
       <%= link_to image_tag("icon_add.png"), new_setlist_path, class: "icon_add" %>
-      <span><%= link_to "NEW SETLIST", new_setlist_path %></span>
     </p><br/>
   </div>
 
@@ -37,10 +37,10 @@
             </td>
 
             <td class="set_button_block">
-              <div class="icon_view" data-toggle="tooltip" title="VIEW THIS SETLIST">
+              <div class="icon_view" data-toggle="tooltip" title="View this Setlist">
                 <%= link_to image_tag("icon_view.png"), setlist_path(set) %>
               </div>
-              <div class="icon" data-toggle="tooltip" title="ARCHIVE THIS SETLIST">
+              <div class="icon" data-toggle="tooltip" title="Archive this Setlist">
                   <%= link_to image_tag("icon_unarc_alt.png"), archive_setlist_path(set) %>
               </div>
               <div class="icon">
