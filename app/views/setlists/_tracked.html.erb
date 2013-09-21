@@ -10,8 +10,12 @@
 
   <div class="trackorder">
       <div class="empty_track">
-          <p>No songs found.</p>
+        <p>No songs found.</p>
+        <div id="pmessage">
+          <%= render 'setlists/pmessage' %>
+        </div>
       </div>
+
   </div>
 
 <% elsif @setlist.active? %>

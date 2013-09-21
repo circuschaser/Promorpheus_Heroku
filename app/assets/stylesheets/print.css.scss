@@ -148,10 +148,22 @@
     padding-bottom: 3px;
     &.empty_track {
       text-align: center;
-      height: 40px;
+      /*height: 40px;*/
       padding-top: 12px;
       border-top-right-radius: 8px;
       border-bottom-right-radius: 8px;
+    }
+  }
+
+  #pmessage {
+    /*display: none;*/
+    text-align: left;
+    padding-left: 100px;
+    #jabberwock {
+      font-family: Courier;
+      text-align: left;
+      /*padding-left: 75px;*/
+      padding-right: 75px;
     }
   }
 
