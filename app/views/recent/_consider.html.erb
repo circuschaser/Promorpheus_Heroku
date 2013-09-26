@@ -1,0 +1,74 @@
+<div class="consider">
+
+	<% sorted = [] %>
+	<% rec_tracks = [] %>
+
+	<% Track.all.each do |t| %>
+		<% if t.tracker.user == current_user %>
+		<% sorted.push(t) %>
+		<% rec_tracks.push(t.tracked) %>
+		<% end %>
+	<% end %>
+
+	<% sorted.sort! {|x,y| y.created_at <=> x.created_at } %> 
+
+	<h5>FOR YOUR CONSIDERATION</h5>
+		<% song = sorted[0..4].sort_by { rand }.first.tracked %>
+		<% related = (song.find_related_tags) - rec_tracks %>
+		
+		<div>You recently used the Song: 
+			<p><span class="green"><%= link_to "#{truncate(song.title.upcase, length: 34, separator: ' ')}", 
+						"#{songs_path}" + "?utf8=✓&search=" + "#{song.title}" %></span></p>
+		</div>
+
+		<% if !related.empty? %>
+		<div id="related">
+			The following songs have similar tags:
+			<ul>
+			<% related[0..4].each do |s| %>
+				<li>
+					<span>
+						<%= link_to "#{truncate(s.title, length: 42, separator: ' ')}", 
+						"#{songs_path}" + "?utf8=✓&search=" + "#{s.title}" %>
+					</span>
+					<% end %>
+				</li>
+			</ul>
+		</div>
+
+		<% else %>
+		<div id="related">
+			Consider the following similar songs:</br>
+			FROM THE SAME GENRE
+			<ul>
+			<% genre = song.genre.songs - rec_tracks %>
+			<% genre[0..2].sort_by { rand }.each do |s| %>
+				<li>
+					<span>
+						<%= link_to "#{truncate(s.title, length: 42, separator: ' ')}", 
+						"#{songs_path}" + "?utf8=✓&search=" + "#{s.title}" %>
+					</span>
+				</li>
+				<% end %>
+			</ul>
+
+			FROM THE SAME COMPOSER
+			<ul>
+			<% comp = song.composer.songs - rec_tracks - genre %>
+			<% comp[0..1].sort_by { rand }.each do |s| %>
+				<li>
+					<span>
+						<%= link_to "#{truncate(s.title, length: 42, separator: ' ')}", 
+						"#{songs_path}" + "?utf8=✓&search=" + "#{s.title}" %>
+					</span>
+				</li>
+				<% end %>
+			</ul>
+
+		</div>
+
+		<% end %>
+
+
+
+</div>

@@ -37,7 +37,7 @@ PromorpheusHeroku::Application.routes.draw do
 
   root to: 'sessions#new'
 
-  match '/home', to: "pages#home"
+  match '/home', to: "pages#dashboard"
 
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'

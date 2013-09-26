@@ -1,0 +1,58 @@
+<% provide(:title, "Dashboard") %>
+
+<div id="sidebar">
+  <h4>The Sidebar Headline</h4>
+    <p>
+      Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod. 
+    </p>
+    <ul>
+      <li>Lorem ipsum Veniam sunt</li>
+      <li>velit in nisi incididunt</li>
+      <li>eu id minim dolore</li>
+      <li>aliqua commodo officia.</li>
+    </ul>
+    <p>
+      Lorem ipsum Dolore pariatur mollit et ullamco et esse velit.
+    </p>
+</div>
+
+<div id="content_main">
+
+  <div class="welcome">
+
+    <div class="welcome_notice">
+      <h3><span>Welcome Back</span> <%= "#{current_user.name.upcase}" %></h3>
+    </div>
+  </div>
+
+  <div class="greywrap_top">
+  </div>
+
+	<div class="greywrap">
+	
+		<div class="content_head">
+		</div>
+
+		<!-- USER -->
+		<div class="ucon_left">
+			<%= render 'recent/usersongs' %>
+		</div>
+		<div class="ucon_mid">
+			<%= render 'recent/usersets' %>
+		</div>
+		<div class="ucon_right">
+			<%= render 'recent/consider' %>
+		</div>
+
+		<!-- COMMUNITY -->
+		<div class="comcon_left">
+			<%= render 'recent/comsongs' %>
+		</div>
+		<div class="comcon_right">
+			<%= render 'recent/comtags' %>
+		</div>
+
+	</div>
+</div>
+
+

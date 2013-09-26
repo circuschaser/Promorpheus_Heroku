@@ -120,7 +120,7 @@
   }
 
   .mainlink h3 {
-    line-height: 140%;
+    line-height: 100%;
   }
 
   #search_form {
@@ -203,6 +203,76 @@
     color: $tagLime;
   }
 
+/* DASHBOARD                                         */
+
+  .welcome h3 {
+    span {
+      color: $linkGray;
+      font-family: Georgia, serif;
+      font-size: 70%;
+      font-weight: normal;
+    }
+  }
+
+  .welcome_notice h3 {
+    color: $grayWrap;
+    font-family: Georgia, serif;
+    /*text-align: right;*/
+    font-weight: normal;
+    text-decoration: none;
+    line-height: 100%;
+  }
+
+  .ucon_left,
+  .ucon_mid,
+  .ucon_right,
+  .comcon_left,
+  .comcon_right {
+    border: 1px solid $grayBorder;
+    background-color: $white;
+    font-size: 85%;
+    h5 {
+      border-bottom: 2px solid $grayBorder;
+      text-align: center;
+    }
+    a {
+      font-weight: bold;
+      color: $tagBlue;
+    }
+    ul {
+      list-style-type: none;
+      margin-left: 6px;
+      margin-bottom: 0;
+      &:first-child {
+        margin-top: 8px;
+      }
+    }
+    span.green {
+      background-color: $tagLime;
+      padding: 1px 6px 1px 4px;
+      border-radius: 4px;
+      font-size: 90%;
+      a {
+        color: black;
+        font-size: 110%;
+      }
+    }
+    span.blue {
+      color: white;
+      background-color: $tagBlue;
+      padding: 1px 4px 1px 4px;
+      border-radius: 6px;
+      font-size: 90%;
+    }
+    span.orange {
+      background-color: $tagOrange;
+      padding: 1px 4px 1px 4px;
+      border-radius: 6px;
+      font-size: 90%;
+    }
+  }
+
+
 /* CONTENT                                         */
 
   .content_body #item_counter {
@@ -244,7 +314,9 @@
     background-color: $grayCream;
   }
 
-  .content_head h2, .content_head h3 {
+  .content_head h2,
+  .content_head h3,
+  .content_head h4 {
     font-family: Georgia, serif;
     font-weight: normal;
   }
@@ -263,7 +335,9 @@
     /*border-bottom: 1px solid $grayBorder;*/
   }
 
-  .content_body, .colorbox_body, .content_form {
+  .content_body, 
+  .colorbox_body, 
+  .content_form {
     background-color: $white;
     border: 1px solid $grayBorder;
   }
@@ -376,11 +450,13 @@
 
 /* SET LISTS                                        */
 
-  .setlist_title h3, .setlist_title a {
+  .setlist_title {
+    h3, h4, a {
     color: $grayWrap;
     font-family: Georgia, serif;
     font-weight: normal;
     text-decoration: none;
+    }
   }
 
   .setlist_trail a, .setlist_title span a {
@@ -396,7 +472,7 @@
     font-size: 90%;
   }
 
-  .setpiece {
+  .act_set {
     border-top: 1px solid $grayBorder;
   }
 
@@ -599,10 +675,21 @@
     &.tags_inset {
       margin-left: 46px;
     }
-
   }
 
-  .tags p, .tags a, .tags_inset p, .tags_inset a{
+  .comtags {
+    /*margin:6px;*/
+    margin-top: -3px;
+    padding:-2px;
+    list-style:none;
+  }
+
+  .tags p, 
+  .tags a,
+  .tags_inset p, 
+  .tags_inset a,
+  .comtags p,
+  .comtags a {
     /*float:left;*/
     margin-bottom: -3px;
     margin-top: -5px;
@@ -614,11 +701,14 @@
       }
     }
 
-  .tags p, .tags_inset p {
+  .tags p,
+  .tags_inset p,
+  .comtags p {
     margin-left: -3px;
   }
     
-  .tags a, .tags_inset a{
+  .tags a,
+  .tags_inset a {
     border-top-left-radius:5px;
     border-top-right-radius:7px;
     border-bottom-left-radius:18px;
@@ -629,7 +719,20 @@
     text-decoration:none;
   } 
 
-  .tags a:after, .tags_inset a:after{
+  .comtags a {
+    border-top-left-radius:5px;
+    border-top-right-radius:7px;
+    border-bottom-left-radius:18px;
+    /*margin-left:-4px;*/
+    padding:2px 6px 2px 11px;
+    background:$tagPine;
+    color:white;
+    text-decoration:none;
+  } 
+
+  .tags a:after, 
+  .tags_inset a:after,
+  .comtags a:after {
     content:"";
     position:absolute;
     top:4px;
@@ -643,11 +746,15 @@
     background:white;
   }
 
-  .tags a:hover, .tags_inset a:hover {
+  .tags a:hover, 
+  .tags_inset a:hover,
+  .comtags a:hover {
     background:#555;
   } 
 
-  .tags a:hover:before, .tags_inset a:hover:before {
+  .tags a:hover:before,
+  .tags_inset a:hover:before,
+  .comtags a:hover:before {
     border-color:transparent #555 transparent transparent;
   }
 
@@ -697,8 +804,15 @@
   }
 
 /* ERROR REPORTING                                 */
+
+  .alert {
+    font-size: 90%;
+    text-align: center;
+  }
+
   #error_explanation {
     color: red;
+    font-size: 90%;
   }
 
   li.error input, li.error textarea, li.error select {

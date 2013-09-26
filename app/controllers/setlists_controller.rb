@@ -52,6 +52,7 @@ class SetlistsController < ApplicationController
 		@setlist.active = false
 		if @setlist.save
 			flash[:success] = "The setlist: \"#{@setlist.title.upcase}\" was succesfully archived"
+			@setlist.touch
 			redirect_to :back
 		else
 			flash.now[:error] = "Whoops. SOMETHING WHEN WRONG.\nArchive failed."
@@ -64,6 +65,7 @@ class SetlistsController < ApplicationController
 		@setlist.active = true
 		if @setlist.save
 			flash[:success] = "The setlist: \"#{@setlist.title.upcase}\" was succesfully re-activated"
+			@setlist.touch
 			redirect_to :back
 		else
 			flash.now[:error] = "Whoops. SOMETHING WHEN WRONG.\nActivation failed."

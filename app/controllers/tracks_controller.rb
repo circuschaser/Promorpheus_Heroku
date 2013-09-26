@@ -21,7 +21,7 @@ class TracksController < ApplicationController
 			t = @setlist.tracks.last
 			t.update_attribute(:position, last.position + 1 )
 		end
-		
+		@setlist.touch
 		flash[:success] = "The song: \"#{@song.title.upcase}\" was successfully added to the setlist: \"#{@setlist.title.upcase}\""
 		redirect_to :back
 
@@ -34,14 +34,20 @@ class TracksController < ApplicationController
 		@setlist = Track.find(params[:id]).tracker
 		@song = Track.find(params[:id]).tracked
 		@setlist.drop!(@song)
+		@setlist.touch
 		flash[:alert] = "The song: \"#{@song.title.upcase}\" was successfully removed from this Setlist"		
-		redirect_to "/setlists/#{@setlist.id}"
+		redirect_to :back
 	end
 
 	def sort
 		params[:track].each_with_index do |id, index|
 			Track.update_all({position: index+1}, {id: id})
 		end
+		sid = request.referer
+		sid.slice! 'promorpheus-prototype.herokuapp.com/setlists/'
+		# sid.slice! 'http://localhost:3000/setlists/'
+		@setlist = Setlist.find(sid.to_i)
+		@setlist.touch
 		render nothing: true
 	end
 

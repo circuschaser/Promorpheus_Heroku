@@ -1,0 +1,27 @@
+<div class="recent_user">
+
+	<% set_sorted = [] %>
+	<% sets_updated = current_user.setlists.where("updated_at > ?", 5.days.ago) %> 
+
+	<% sets_updated.each do |s| %>
+		<% set_sorted.push(s) %>
+	<% end %>
+
+	<% set_sorted.sort! {|x,y| y.updated_at <=> x.updated_at } %>
+
+	<h5>YOUR RECENT SETLISTS</h5>
+	<% set_sorted[0..4].uniq { |p| p.id }.each do |x| %>
+		<ul>
+			<% if x.created_at == x.updated_at %>
+			<li>
+				<span class="orange">CREATED</span> <%= link_to "#{truncate(x.title)}", setlist_path(x) %>
+			</li>
+			<% else %>
+			<li>
+				<span class="blue">EDITED</span> <%= link_to "#{truncate(x.title)}", setlist_path(x) %>
+			</li>
+			<% end %>
+		</ul>
+	<% end %>
+
+</div>

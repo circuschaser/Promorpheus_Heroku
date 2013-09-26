@@ -54,15 +54,15 @@
     <table class="piece">
       <tr>
         <td class="song_content_left">
-          <p class="song_title"><%= song.title %></p>
+          <p class="song_title"><%= truncate(song.title, length: 68, separator: ' ') %></p>
 
           <p class="meta">
-            <span>ALBUM: </span><%= link_to alb.album_name, album_path(alb) %>
+            <span>ALBUM: </span><%= link_to truncate(alb.album_name, length: 60, separator: ' '), album_path(alb) %>
           </p>
         </td>
 
         <td class="song_content_right">
-          <p><span>COMPOSER: </span><%= link_to com.name, composer_path(com) %>
+          <p><span>COMPOSER: </span><%= link_to truncate(com.name, length: 32, separator: ' '), composer_path(com) %>
           </p>
           <p class="meta">
             <span>GENRE: </span><%= link_to gen.name, genre_path(gen) %>

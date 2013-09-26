@@ -1,0 +1,24 @@
+<div class="recent_user">
+
+	<% sorted = [] %>
+
+	<% Track.all.each do |t| %>
+		<% if t.tracker.user == current_user %>
+		<% sorted.push(t) %>
+		<% end %>
+	<% end %>
+
+	<% sorted.sort! {|x,y| y.updated_at <=> x.updated_at } %> 
+
+
+	<h5>YOUR RECENT SONGS</h5>
+	<% sorted[0..9].uniq { |p| p.tracked_id }.each do |t| %>
+		<ul>
+			<li>
+				<%= link_to "#{truncate(t.tracked.title, length: 42, separator: ' ')}", 
+						"#{songs_path}" + "?utf8=✓&search=" + "#{t.tracked.title}" %>
+			</li>
+		</ul>
+	<% end %>
+
+</div>

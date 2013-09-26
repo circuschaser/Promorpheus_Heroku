@@ -19,17 +19,17 @@
 
       <% if set.active? %>
 
-        <table class="setpiece">
+        <table class="act_set">
           <tr>
             <td class="set_content_left">
-              <p class="set_title"><%= set[:title] %><p>
+              <p class="set_title"><%= truncate(set[:title].titleize, length: 36 ) %><p>
               <p class="meta">
                 <span class="heading">CONTAINS: </span><%= pluralize(set.tracks.count, "song") %>
               </p>
             </td>
 
             <td class="set_content_right">
-              <p class="set_dsc"><%= set[:description] %></p>
+              <p class="set_dsc"><%= truncate(set[:description], length: 70 ) %></p>
               <p class="meta">
                 <span>PERFORMANCE DATE: </span>
                 <%= set[:performance_date].strftime("%B %d, %Y") %>
@@ -56,14 +56,14 @@
         <table class="arc_set">
           <tr>
             <td class="set_content_left">
-              <p class="set_title"><%= set[:title] %><p>
+              <p class="set_title"><%= truncate(set[:title].titleize, length: 36 ) %><p>
               <p class="meta">
                 <span>CONTAINS: </span><%= pluralize(set.tracks.count, "song") %>
               </p>
             </td>
 
             <td class="set_content_right">
-              <p class="set_dsc"><%= set[:description] %></p>
+              <p class="set_dsc"><%= truncate(set[:description], length: 70 ) %></p>
               <p class="meta">
                 <span>PERFORMANCE DATE: </span>
                 <%= set[:performance_date].strftime("%B %d, %Y") %>

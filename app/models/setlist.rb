@@ -8,7 +8,7 @@ class Setlist < ActiveRecord::Base
 
   # accepts_nested_attributes_for :songs
 
-  validates :title, presence: true, length: { maximum: 54 }
+  validates :title, presence: true, length: { maximum: 68 }
   validates :description, length: { maximum: 120 }
 
   accepts_nested_attributes_for :tracks

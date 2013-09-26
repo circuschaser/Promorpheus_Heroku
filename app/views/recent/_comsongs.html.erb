@@ -1,0 +1,55 @@
+<div class="recent_com">
+
+	<% sorted = [] %>
+	<% titles = [] %>
+
+	<% tracks = Track.where("updated_at > ?", 5.days.ago) %>
+	<% songs = Song.where("updated_at > ?", 5.days.ago) %> 
+
+	<% tracks.each do |t| %>
+		<% sorted.push(t.tracked) %>
+	<% end %>
+
+	<% songs.each do |t| %>
+		<% sorted.push(t) %>
+	<% end %>
+
+	<% sorted.sort! {|x,y| y.updated_at <=> x.updated_at } %>
+	<% sorted.uniq! { |p| p.id } %>
+
+	<h5>COMMUNITY SONG ACTIVITY</h5>
+	<% sorted[0..7].each do |x| %>
+		<% if !x.tracks.empty? %>
+		<ul>
+			<li>
+				<%= link_to "#{truncate(x.title, length: 42, separator: ' ')}", 
+						"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %>				
+				has been used 
+				<span class="green">
+					<%= pluralize(x.tracks.count, "TIME").upcase %>
+				</span>
+			</li>
+		</ul>
+		<% elsif x.created_at.to_s == x.updated_at.to_s && x.tracks.empty? %>
+		<ul>
+			<li>
+				<%= link_to "#{truncate(x.title, length: 42, separator: ' ')}", 
+						"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %>				
+				was <span class="orange">CREATED</span>
+			</li>
+		</ul>
+		<% elsif (x.created_at.to_s < x.updated_at.to_s) %>
+		<ul> 
+			<li>
+				<%= link_to "#{truncate(x.title, length: 42, separator: ' ')}", 
+						"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %> 
+				was <span class="blue">EDITED</span>
+			</li>
+		</ul>
+		<% else %>
+		SUCK IT.
+		<% end %>
+
+	<% end %>
+
+</div>
