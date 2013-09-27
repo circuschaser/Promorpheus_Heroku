@@ -254,14 +254,14 @@
   .ucon_right,
   .comcon_left,
   .comcon_right {
-    border: 1px solid $tagTan;
+    border: 1px solid $grayBorder;
     background-color: $white;
     font-size: 85%;
     color: $linkGray;
     /*box-shadow: inset 2px 2px 3px $linkLight;*/
 
     h5 {
-      border-bottom: 1px solid $linkLight;
+      border-bottom: 1px solid $grayBorder;
       color: black;
       text-align: center;
     }
