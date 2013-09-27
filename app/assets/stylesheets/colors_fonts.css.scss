@@ -76,19 +76,36 @@
     /*border-right: 2px solid $gBrown;*/
   }
 
-  #navmenu span a, #navmenu span a:visited {
-    color: $liteBrown;
-    font-size: 10px;
-    text-decoration: none;
-    font-weight: bold;
+  #navmenu {
+    span a, 
+    span a:visited {
+      color: $liteBrown;
+      font-size: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      color: $cream;
+      text-decoration: none;
+    }
   }
 
-  #navmenu span a:hover {
-    color: $cream;
-    text-decoration: none;
+  #dash {
+    a,
+    a:visited {
+      color: $liteBrown;
+      font-size: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      color: $cream;
+      text-decoration: none;
+    }
   }
 
-  #navmenu .dropdown, #navmenu .dropdown a {
+  #navmenu .dropdown,
+  #navmenu .dropdown a {
     color: $liteBrown;
     font-size: 10px;
     text-decoration: none;
@@ -203,6 +220,12 @@
     color: $tagLime;
   }
 
+/* SEARCHFORM                                         */
+
+  #search_form form input {
+    font-size: 12px;
+  }
+
 /* DASHBOARD                                         */
 
   .welcome h3 {
@@ -221,6 +244,9 @@
     font-weight: normal;
     text-decoration: none;
     line-height: 100%;
+    a {
+      color: $grayWrap;
+    }
   }
 
   .ucon_left,
@@ -228,50 +254,56 @@
   .ucon_right,
   .comcon_left,
   .comcon_right {
-    border: 1px solid $grayBorder;
+    border: 1px solid $tagTan;
     background-color: $white;
     font-size: 85%;
+    color: $linkGray;
+    /*box-shadow: inset 2px 2px 3px $linkLight;*/
+
     h5 {
-      border-bottom: 2px solid $grayBorder;
+      border-bottom: 1px solid $linkLight;
+      color: black;
       text-align: center;
     }
     a {
       font-weight: bold;
-      color: $tagBlue;
     }
     ul {
       list-style-type: none;
-      margin-left: 6px;
-      margin-bottom: 0;
-      &:first-child {
-        margin-top: 8px;
       }
-    }
     span.green {
-      background-color: $tagLime;
-      padding: 1px 6px 1px 4px;
-      border-radius: 4px;
+      color: white;
+      background-color: $tagForest;
       font-size: 90%;
       a {
-        color: black;
+        color: white;
         font-size: 110%;
       }
     }
     span.blue {
       color: white;
       background-color: $tagBlue;
-      padding: 1px 4px 1px 4px;
-      border-radius: 6px;
       font-size: 90%;
     }
     span.orange {
+      color: white;
       background-color: $tagOrange;
-      padding: 1px 4px 1px 4px;
-      border-radius: 6px;
       font-size: 90%;
+    }
+    span.gray {
+      background-color: $linkGray;
+      font-size: 90%;
+      a {
+        color: white;
+        font-size: 110%;
+        text-align: center;
+      }
     }
   }
 
+  .consider {
+    color: black;
+  }
 
 /* CONTENT                                         */
 
@@ -317,6 +349,7 @@
   .content_head h2,
   .content_head h3,
   .content_head h4 {
+    color: $linkGray;
     font-family: Georgia, serif;
     font-weight: normal;
   }

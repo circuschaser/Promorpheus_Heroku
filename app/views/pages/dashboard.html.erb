@@ -21,7 +21,7 @@
   <div class="welcome">
 
     <div class="welcome_notice">
-      <h3><span>Welcome Back</span> <%= "#{current_user.name.upcase}" %></h3>
+      <h3><%= link_to "DASHBOARD", '/home' %></h3>
     </div>
   </div>
 
@@ -31,6 +31,7 @@
 	<div class="greywrap">
 	
 		<div class="content_head">
+			<h3>Your recent activity...</h3>
 		</div>
 
 		<!-- USER -->
@@ -42,6 +43,10 @@
 		</div>
 		<div class="ucon_right">
 			<%= render 'recent/consider' %>
+		</div>
+
+		<div class="content_head">
+			<h3>Activity around the community...</h3>
 		</div>
 
 		<!-- COMMUNITY -->

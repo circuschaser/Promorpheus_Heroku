@@ -77,11 +77,16 @@
     margin-top: 4px;
     margin-left: 4px;
     padding-left: 18px;
+    span a,
+    span a:visited {
+      margin: 0 12px 0 12px;
+      float: right;
+    }
   }
 
-  #navmenu span a, #navmenu span a:visited {
-    margin: 0 12px 0 12px;
-    float: right;
+  #dash {
+    display: inline;
+    margin: 0 24px 0 4px;
   }
 
   #navmenu div.dropdown, #navmenu div.dropdown a {
@@ -173,18 +178,27 @@
   .ucon_mid,
   .ucon_right {
     display: inline-block;
-    width: 246px;
-    height: 250px;
+    /*width: 246px;*/
+    height: 240px;
     vertical-align: top;
-    margin-bottom: 3px;
-    padding-top: 6px;
+    margin-bottom: 16px;
+    padding-top: 8px;
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 12px;
     padding-bottom: 12px;
     h5 {
       margin-top: -3px;
       padding-bottom: 3px;
     }
+  }
+
+  .ucon_mid {
+    margin-right: 4px;
+    margin-left: 4px;
+  }
+
+  .ucon_right {
+    width: 275px;
   }
 
   .comcon_left,
@@ -193,7 +207,7 @@
     width: 380px;
     height: 200px;
     vertical-align: top;
-    padding-top: 6px;
+    padding-top: 8px;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 12px;
@@ -205,10 +219,50 @@
 
   .ucon_mid {
     padding-left: 7px;
+    h5 {
+      margin-left: 3px;
+    }
   }
 
   .comcon_left {
-    margin-right: 4px;
+    margin-right: 5px;
+  }
+
+  .ucon_left,
+  .ucon_mid,
+  .ucon_right,
+  .comcon_left,
+  .comcon_right {
+    border-radius: 20px;
+    h5 {
+    }
+    a {
+    }
+    ul {
+      margin-left: 6px;
+      margin-bottom: 0;
+      &:first-child {
+        margin-top: 8px;
+      }
+    }
+    span.green,
+    span.blue,
+    span.orange {
+      margin: 0 3px 0 0;
+      padding: 1px 6px 1px 4px;
+      border-radius: 4px;
+    }
+    span.gray {
+      padding: 2px 10px 1px 8px;
+      border-radius: 4px;
+    }
+  }
+
+  .consider {
+    padding-left: 5px;
+    h5 {
+      margin-left: -3px;
+    }
   }
 
 /* CONTENT                                              */
@@ -286,6 +340,9 @@
   .content_head {
     padding-left: 10px;
     padding-right: 12px;
+    h3 {
+      margin: 0 0 0 0;
+    }
   }
 
   .content_head_left {

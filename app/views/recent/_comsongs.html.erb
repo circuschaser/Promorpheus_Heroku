@@ -17,7 +17,7 @@
 	<% sorted.sort! {|x,y| y.updated_at <=> x.updated_at } %>
 	<% sorted.uniq! { |p| p.id } %>
 
-	<h5>COMMUNITY SONG ACTIVITY</h5>
+	<h5>RECENT POPULAR SONGS</h5>
 	<% sorted[0..7].each do |x| %>
 		<% if !x.tracks.empty? %>
 		<ul>

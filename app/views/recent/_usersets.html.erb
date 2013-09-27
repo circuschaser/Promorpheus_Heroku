@@ -9,7 +9,7 @@
 
 	<% set_sorted.sort! {|x,y| y.updated_at <=> x.updated_at } %>
 
-	<h5>YOUR RECENT SETLISTS</h5>
+	<h5>RECENT SETLISTS</h5>
 	<% set_sorted[0..4].uniq { |p| p.id }.each do |x| %>
 		<ul>
 			<% if x.created_at == x.updated_at %>
