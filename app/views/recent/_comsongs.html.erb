@@ -22,7 +22,7 @@
 		<% if !x.tracks.empty? %>
 		<ul>
 			<li>
-				<%= link_to "#{truncate(x.title, length: 42, separator: ' ')}", 
+				<%= link_to "#{truncate(x.title, length: 32, separator: ' ')}", 
 						"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %>				
 				has been used 
 				<span class="green">
@@ -33,7 +33,7 @@
 		<% elsif x.created_at.to_s == x.updated_at.to_s && x.tracks.empty? %>
 		<ul>
 			<li>
-				<%= link_to "#{truncate(x.title, length: 42, separator: ' ')}", 
+				<%= link_to "#{truncate(x.title, length: 32, separator: ' ')}", 
 						"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %>				
 				was <span class="orange">CREATED</span>
 			</li>
@@ -41,7 +41,7 @@
 		<% elsif (x.created_at.to_s < x.updated_at.to_s) %>
 		<ul> 
 			<li>
-				<%= link_to "#{truncate(x.title, length: 42, separator: ' ')}", 
+				<%= link_to "#{truncate(x.title, length: 32, separator: ' ')}", 
 						"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %> 
 				was <span class="blue">EDITED</span>
 			</li>

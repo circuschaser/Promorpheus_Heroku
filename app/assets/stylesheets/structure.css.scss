@@ -216,7 +216,7 @@
   .comcon_left,
   .comcon_right {
     display: inline-block;
-    width: 480px;
+    width: 370px;
     height: 200px;
     vertical-align: top;
     padding-top: 8px;
@@ -236,14 +236,27 @@
     }
   }
 
-  .comcon_left {
-    margin-right: 5px;
+  .comcon_mid {
+    display: inline-block;
+    height: 200px;
+    width: 250px;
+    margin-right: 4px;
+    margin-left: 4px;vertical-align: top;
+    padding-top: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 12px;
+    h5 {
+      margin-top: -3px;
+      padding-bottom: 3px;
+    }
   }
 
   .ucon_left,
   .ucon_mid,
   .ucon_right,
   .comcon_left,
+  .comcon_mid,
   .comcon_right {
     border-radius: 20px;
     h5 {
