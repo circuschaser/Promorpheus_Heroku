@@ -186,7 +186,6 @@
   .ucon_mid,
   .ucon_right {
     display: inline-block;
-    /*width: 246px;*/
     height: 240px;
     vertical-align: top;
     margin-bottom: 16px;
@@ -200,19 +199,24 @@
     }
   }
 
+  .ucon_left {
+    width: 280px;
+  }
+
   .ucon_mid {
+    width: 420px;
     margin-right: 4px;
     margin-left: 4px;
   }
 
   .ucon_right {
-    width: 268px;
+    width: 288px;
   }
 
   .comcon_left,
   .comcon_right {
     display: inline-block;
-    width: 380px;
+    width: 480px;
     height: 200px;
     vertical-align: top;
     padding-top: 8px;

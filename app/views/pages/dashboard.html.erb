@@ -1,22 +1,6 @@
 <% provide(:title, "Dashboard") %>
 
-<div id="sidebar">
-  <h4>The Sidebar Headline</h4>
-    <p>
-      Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod. 
-    </p>
-    <ul>
-      <li>Lorem ipsum Veniam sunt</li>
-      <li>velit in nisi incididunt</li>
-      <li>eu id minim dolore</li>
-      <li>aliqua commodo officia.</li>
-    </ul>
-    <p>
-      Lorem ipsum Dolore pariatur mollit et ullamco et esse velit.
-    </p>
-</div>
 
-<div id="content_main">
 
   <div class="welcome">
 
@@ -34,7 +18,11 @@
 			<h3>Your recent activity...</h3>
 		</div>
 
-		<!-- USER -->
+		<% tracks = Track.where(current_user.setlists.include?(:tracker)) %>
+
+		<% if current_user.setlists.empty? || tracks.empty?%>
+		<!-- do something -->
+		
 		<div class="ucon_left">
 			<%= render 'recent/usersongs' %>
 		</div>
@@ -49,7 +37,26 @@
 			<h3>Activity around the community...</h3>
 		</div>
 
-		<!-- COMMUNITY -->
+		<% else %>
+
+	<!-- USER                            -->
+		<div class="ucon_left">
+			<%= render 'recent/usersongs' %>
+		</div>
+		<div class="ucon_mid">
+			<%= render 'recent/usersets' %>
+		</div>
+		<div class="ucon_right">
+			<%= render 'recent/consider' %>
+		</div>
+
+		<div class="content_head">
+			<h3>Activity around the community...</h3>
+		</div>
+
+		<% end %>
+
+	<!-- COMMUNITY                       -->
 		<div class="comcon_left">
 			<%= render 'recent/comsongs' %>
 		</div>
@@ -57,7 +64,7 @@
 			<%= render 'recent/comtags' %>
 		</div>
 
+
 	</div>
-</div>
 
 
