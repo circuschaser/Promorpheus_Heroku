@@ -3,12 +3,43 @@
 	<% sorted = [] %>
 	<% recent = [] %>
 
-	<% Track.all.each do |t| %>
-		<% if t.tracker.user == current_user %>
+	<% user_songs = current_user.songs %>
+	<% user_tracks = current_user.tracks %>
+
+<!--  -->
+	<% if user_songs.empty? %>
+
+		<h5>FOR YOUR CONSIDERATION</h5>
+
+		<div>You haven't used any Songs yet: 
+		</div>
+
+		<div id="related">
+		Try one of these:
+		<ul>
+		<% random = [] %>
+		<% Song.where('LENGTH(title) > 18').each do |x| %>
+			<% random.push(x) %>
+			<% end %>
+		<% random.sort_by! { rand } %>
+		<% random[0..7].each do |s| %>
+			<li>
+				<span>
+					<%= link_to "#{truncate(s.title, length: 42, separator: ' ')}", 
+					"#{songs_path}" + "?utf8=✓&search=" + "#{s.title}" %>
+				</span>
+				<% end %>
+			</li>
+		</ul>
+	</div>
+
+<!--  -->
+	<% else %>
+
+	<% user_tracks.each do |t| %>
 		<% sorted.push(t) %>
 		<% recent.push(t.tracked) %>
 		<% end %>
-	<% end %>
 
 	<% sorted.sort! {|x,y| y.created_at <=> x.created_at } %> 
 	<% song = sorted[0..4].sort_by { rand }.first.tracked %>
@@ -25,7 +56,7 @@
 
 		<% if !related.empty? %>
 		<div id="related">
-			The following songs have similar tags:
+			You've not used any of the following similar songs:
 			<ul>
 			<% related[0..5].each do |s| %>
 				<li>
@@ -88,5 +119,8 @@
 		</div>
 
 		<% end %>
+
+<!--  -->
+	<% end %>
 
 </div>
