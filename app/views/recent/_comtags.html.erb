@@ -1,10 +1,12 @@
 <div class="recent_com">
 
-	<h5>RECENT POPULAR TAGS</h5>
-    <div class="comtags">
-      <% tag_cloud Song.tag_counts.order('count desc').limit(20), %w{comtags} do |tag, css_class| %>
-        <%= link_to tag.name.upcase, tag_path(tag.name), class: 'comtags' %>
-      <% end %>
-    </div>
+	<h5>POPULAR TAGS</h5>
+
+
+	<div class="tag_cloud">
+	  <% tag_cloud Song.tag_counts.limit(30).sort_by! {rand}, %w{s m l} do |tag, css_class| %>
+	    <%= link_to tag.name.upcase, tag_path(tag.name), class: css_class %>
+	  <% end %>
+	</div>
 
 </div>

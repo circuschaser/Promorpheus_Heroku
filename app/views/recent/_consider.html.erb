@@ -11,11 +11,11 @@
 
 		<h5>FOR YOUR CONSIDERATION</h5>
 
-		<div>You haven't used any Songs yet: 
+		<div>You haven't used any Songs yet.
 		</div>
 
 		<div id="related">
-		Try one of these:
+		We picked these at random for you:
 		<ul>
 		<% random = [] %>
 		<% Song.where('LENGTH(title) > 18').each do |x| %>
@@ -99,10 +99,12 @@
 
 		<% else %>
 		<div id="related">
-			Consider a few random suggestions:
+			<div class="random">Consider a few random suggestions:
+				<span class="paren">(Nobody has used these yet)</span>
+			</div>
 			<ul>
 			<% random = [] %>
-			<% Song.all.each do |x| %>
+			<% Song.where('LENGTH(title) > 18').each do |x| %>
 				<% random.push(x) %>
 				<% end %>
 			<% random.sort_by! { rand } %>

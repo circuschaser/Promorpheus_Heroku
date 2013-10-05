@@ -1,0 +1,28 @@
+<div class="consider">
+
+	<div class="op_content">
+		<p>
+			So you've been a <span>{promorpheus}</span> user for 
+			<b><%= time_ago_in_words(current_user.created_at) %></b> now, and you've not really done anything yet.
+			</br>
+			<%= link_to "DON'T PANIC",'http://en.wikipedia.org/wiki/Don%27t_panic' %>. There are a couple of ways to begin.
+		</p>
+	</div>
+	<div class="op_content">
+		<div class="numeral">1.</div>
+		<div class="option">
+			First, you should go to the <%= link_to "SETLISTS", setlists_path %> page or to the the menu above and create a new Setlist.</br>
+			Then you can add songs directly within your new Setlist.</br></br>
+			If you've already created a Setlist, you could begin with a song from the list on the right.
+		</div>
+	</div>
+	<div class="op_content">
+		<div class="numeral">2.</div>
+		<div class="option">
+			After you've created a Setlist, you can also look for songs in the
+			<%= link_to "MUSIC", songs_path %> section</br>
+			and add any song to a Setlist directly from there.
+		</div>
+	</div>
+
+</div>

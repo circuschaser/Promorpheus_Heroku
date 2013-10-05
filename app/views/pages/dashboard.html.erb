@@ -1,10 +1,12 @@
 <% provide(:title, "Dashboard") %>
 
-
-
-  <div class="welcome">
-
-    <div class="welcome_notice">
+	<div class="songlist_title">
+    <div id="search_form">
+      <%= form_tag songs_path, method: 'get' do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search all songs" %>
+      <% end %>
+    </div>
+    <div class="mainlink">
       <h3><%= link_to "DASHBOARD", '/home' %></h3>
     </div>
   </div>
@@ -21,14 +23,11 @@
 		<% tracks = Track.where(current_user.setlists.include?(:tracker)) %>
 
 		<% if current_user.setlists.empty? || tracks.empty?%>
-		<!-- do something -->
 		
-		<div class="ucon_left">
-			<%= render 'recent/usersongs' %>
+		<div class="ucon_new">
+			<%= render 'recent/usernew' %>
 		</div>
-		<div class="ucon_mid">
-			<%= render 'recent/usersets' %>
-		</div>
+
 		<div class="ucon_right">
 			<%= render 'recent/consider' %>
 		</div>
@@ -57,18 +56,18 @@
 		<% end %>
 
 	<!-- COMMUNITY                       -->
+		<div class="comcon_left">
+			<%= render 'recent/comsongs' %>
+		</div>	
+
 		<div class="comcon_mid">
 			<h5>NEW SONGS</h5>
 				<ul>
 					<li>
-						Still in development.
+						Still a possibility.
 					</li>
 				</ul>
 		</div>
-
-		<div class="comcon_left">
-			<%= render 'recent/comsongs' %>
-		</div>	
 
 		<div class="comcon_right">
 			<%= render 'recent/comtags' %>

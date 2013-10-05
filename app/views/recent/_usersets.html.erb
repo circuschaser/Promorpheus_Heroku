@@ -1,7 +1,7 @@
 <div class="recent_user">
 
 	<% set_sorted = [] %>
-	<% sets_updated = current_user.setlists.where("updated_at > ?", 5.days.ago) %> 
+	<% sets_updated = current_user.setlists.where("updated_at > ?", 15.days.ago) %> 
 
 	<% sets_updated.each do |s| %>
 		<% set_sorted.push(s) %>
@@ -14,14 +14,25 @@
 		<ul>
 			<% if x.created_at == x.updated_at %>
 			<li>
+				<span class="date"><%= x.created_at.strftime("%B %d, %Y") %></span>
 				<span class="orange">CREATED</span> <%= link_to "#{truncate(x.title)}", setlist_path(x) %>
 			</li>
 			<% else %>
 			<li>
+				<span class="date"><%= x.updated_at.strftime("%B %d, %Y") %></span>
 				<span class="blue">EDITED</span> <%= link_to "#{truncate(x.title)}", setlist_path(x) %>
 			</li>
 			<% end %>
 		</ul>
 	<% end %>
-
+</br>
+	<h5>UPCOMING PERFORMANCES</h5>
+	<ul>
+		<% current_user.setlists.order.limit(3).each do |x| %>
+		<li>
+			<span class="date"><%= x.performance_date.strftime("%B %d, %Y") %></span>
+			<%= link_to "#{truncate(x.title, length: 50, separator: ' ')}", setlist_path(x) %>
+		</li>
+		<% end %>
+	</ul>
 </div>

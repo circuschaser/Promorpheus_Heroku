@@ -11,6 +11,7 @@
 	<% sorted.sort! {|x,y| y.updated_at <=> x.updated_at } %> 
 
 	<h5>RECENT SONGS</h5>
+	Songs you recently added to a Setlist:
 	<% sorted[0..9].uniq { |p| p.tracked_id }.each do |t| %>
 		<ul>
 			<li>

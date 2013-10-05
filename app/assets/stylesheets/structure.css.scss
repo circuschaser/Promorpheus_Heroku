@@ -174,17 +174,31 @@
     padding-right: 6px;
   }
 
-  .ucon_left {
-    width: 220px;
+  .op_content {
+    margin: 12px 12px 12px 18px;
+    .option {
+        margin: 12px 34px 12px 20px;
+        -moz-border-radius:10px;
+        -webkit-border-radius:10px;
+        border-radius:10px;
+        padding: 6px 12px 6px 12px;
+    }
   }
 
-  .ucon_mid {
-    width: 240px;
+  .numeral {
+    float: left;
+    margin-top: 6px;
+  }
+
+  .ucon_new {
+    width: 729px;
+    margin-right: 4px;
   }
 
   .ucon_left,
   .ucon_mid,
-  .ucon_right {
+  .ucon_right,
+  .ucon_new {
     display: inline-block;
     height: 240px;
     vertical-align: top;
@@ -207,11 +221,17 @@
     width: 420px;
     margin-right: 4px;
     margin-left: 4px;
+    padding-left: 7px;
+    h5 {
+      margin-left: 3px;
+    }
   }
 
   .ucon_right {
     width: 288px;
   }
+
+
 
   .comcon_left,
   .comcon_right {
@@ -229,19 +249,15 @@
     }
   }
 
-  .ucon_mid {
-    padding-left: 7px;
-    h5 {
-      margin-left: 3px;
-    }
-  }
+
 
   .comcon_mid {
     display: inline-block;
     height: 200px;
-    width: 250px;
+    width: 251px;
     margin-right: 4px;
-    margin-left: 4px;vertical-align: top;
+    margin-left: 4px;
+    vertical-align: top;
     padding-top: 8px;
     padding-left: 10px;
     padding-right: 10px;
@@ -255,6 +271,7 @@
   .ucon_left,
   .ucon_mid,
   .ucon_right,
+  .ucon_new,
   .comcon_left,
   .comcon_mid,
   .comcon_right {
@@ -281,6 +298,9 @@
       padding: 2px 10px 1px 8px;
       border-radius: 4px;
     }
+    span.date {
+      float: right;
+    }
   }
 
   .consider {
@@ -288,7 +308,14 @@
     h5 {
       margin-left: -3px;
     }
+    .random {
+      display: inline-block;
+    }
+    span.paren {
+      display: inline-block;
+    }
   }
+
 
 /* CONTENT                                              */
 

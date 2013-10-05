@@ -3,8 +3,8 @@
 	<% sorted = [] %>
 	<% titles = [] %>
 
-	<% tracks = Track.where("updated_at > ?", 5.days.ago) %>
-	<% songs = Song.where("updated_at > ?", 5.days.ago) %> 
+	<% tracks = Track.where("updated_at > ?", 15.days.ago) %>
+	<% songs = Song.where("updated_at > ?", 15.days.ago) %> 
 
 	<% tracks.each do |t| %>
 		<% sorted.push(t.tracked) %>
@@ -24,9 +24,9 @@
 			<li>
 				<%= link_to "#{truncate(x.title, length: 32, separator: ' ')}", 
 						"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %>				
-				has been used 
+				appears in 
 				<span class="green">
-					<%= pluralize(x.tracks.count, "TIME").upcase %>
+					<%= pluralize(x.setlists.uniq.count, "SETLIST").upcase %>
 				</span>
 			</li>
 		</ul>
