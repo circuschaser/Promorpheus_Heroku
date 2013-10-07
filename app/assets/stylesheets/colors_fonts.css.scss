@@ -848,27 +848,32 @@
   }
 
   .users .id {
-    width: 7%;
+    width: 5%;
     color: $linkGray;
   }
 
   .admin {
-    width: 13%;
+    width: 12%;
     color: $linkGray;    
   }
 
   .name {
-    width: 25%;
+    width: 20%;
     color: $linkGray;
   }
 
   .e_address {
-    width: 35%;
+    width: 30%;
     color: $linkGray;
   }
 
   .setlists {
-    width: 15%;
+    width: 18%;
+    color: $linkGray;
+  }
+
+  .activity {
+    width: 20%;
     color: $linkGray;
   }
 

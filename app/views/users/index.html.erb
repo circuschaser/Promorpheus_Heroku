@@ -39,6 +39,7 @@
 			  	<th class="name">Name</th>
 			  	<th class="e_address">Email</th>
 			  	<th class="setlists">Setlists</th>
+			  	<th class="setlists">Last Activity</th>
 			  	<th></th>
 
 		  		<% @users.each do |user| %>
@@ -50,9 +51,15 @@
 		  			<% else %>
 		  				<td></td>
 	  				<% end %>
-		  				<td><%= user.name %></td>
-		  				<td><%= user.email %></td>
-							<td>has <%= pluralize(user.setlists.count, "setlist") %></td>
+	  				<td><%= user.name %></td>
+	  				<td><%= user.email %></td>
+						<td>has <%= pluralize(user.setlists.count, "setlist") %></td>
+						<% if user.setlists.count > 0 %>
+							<td><%= time_ago_in_words(user.setlists.order('updated_at DESC').first.updated_at) %> ago</td>
+						<% else %>
+							<td>none</td>
+						<% end %>
+
 						<% if @user.admin || user == @user %>
 	          <td><div class="remove_icon">
 	            <%= link_to image_tag("icon_delete.png"), user, method: :delete,
