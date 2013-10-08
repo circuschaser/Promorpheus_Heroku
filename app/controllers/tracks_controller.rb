@@ -44,7 +44,7 @@ class TracksController < ApplicationController
 			Track.update_all({position: index+1}, {id: id})
 		end
 		sid = request.referer
-		sid.slice! 'promorpheus-prototype.herokuapp.com/setlists/'
+		sid.slice! 'http://promorpheus-prototype.herokuapp.com/setlists/'
 		sid.slice! 'http://localhost:3000/setlists/'
 		@setlist = Setlist.find(sid.to_i)
 		@setlist.touch
