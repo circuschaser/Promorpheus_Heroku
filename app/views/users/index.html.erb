@@ -2,23 +2,6 @@
 
 <div class="container">
 
-  <div id="sidebar">
-    <h4>The Sidebar Headline</h4>
-      <p>
-          Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod. 
-      </p>
-      <ul>
-          <li>Lorem ipsum Veniam sunt</li>
-          <li>velit in nisi incididunt</li>
-          <li>eu id minim dolore</li>
-          <li>aliqua commodo officia.</li>
-      </ul>
-      <p>
-          Lorem ipsum Dolore pariatur mollit et ullamco et esse velit.
-      </p>
-  </div>
-
-  <div id="content_main">
   <div class="songlist_title">
     <div class="mainlink">
       <h3>ALL USERS</h3>
@@ -39,23 +22,39 @@
 			  	<th class="name">Name</th>
 			  	<th class="e_address">Email</th>
 			  	<th class="setlists">Setlists</th>
-			  	<th class="setlists">Last Activity</th>
+			  	<th class="activity">Last Activity</th>
 			  	<th></th>
 
 		  		<% @users.each do |user| %>
 		  		<% @user = User.find_by_remember_token(cookies[:remember_token]) %>
 		  		<tr>
+		  			<!-- ID -->
 		  			<td><%= user.id.to_s.rjust(2, '0') %></td>
+		  			<!-- ADMIN -->
 		  			<% if user.admin? %>
 		  				<td>YES</td>
 		  			<% else %>
-		  				<td></td>
+		  				<td>-</td>
 	  				<% end %>
 	  				<td><%= user.name %></td>
+	  				<!--  -->
 	  				<td><%= user.email %></td>
+	  				<!-- SETLIST COUNT -->
 						<td>has <%= pluralize(user.setlists.count, "setlist") %></td>
+
+						<!-- RECENT ACTIVITY -->
 						<% if user.setlists.count > 0 %>
-							<td><%= time_ago_in_words(user.setlists.order('updated_at DESC').first.updated_at) %> ago</td>
+
+							<% set_sorted = [] %>
+							<% sets_updated = user.setlists %> 
+
+							<% sets_updated.each do |s| %>
+								<% set_sorted.push(s) %>
+							<% end %>
+
+							<% set_sorted.sort! {|x,y| y.updated_at <=> x.updated_at } %>
+
+							<td><%= time_ago_in_words(set_sorted.first.updated_at) %> ago</td>
 						<% else %>
 							<td>none</td>
 						<% end %>
@@ -74,5 +73,4 @@
 			</div>
 		
 		</div>
-	</div>
 </div>

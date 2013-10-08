@@ -45,7 +45,7 @@ class TracksController < ApplicationController
 		end
 		sid = request.referer
 		sid.slice! 'promorpheus-prototype.herokuapp.com/setlists/'
-		# sid.slice! 'http://localhost:3000/setlists/'
+		sid.slice! 'http://localhost:3000/setlists/'
 		@setlist = Setlist.find(sid.to_i)
 		@setlist.touch
 		render nothing: true
