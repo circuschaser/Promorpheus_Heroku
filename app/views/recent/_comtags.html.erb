@@ -4,9 +4,13 @@
 
 
 	<div class="tag_cloud">
+	  <ul>
 	  <% tag_cloud Song.tag_counts.limit(30).sort_by! {rand}, %w{s m l} do |tag, css_class| %>
+	  	<li>
 	    <%= link_to tag.name.upcase, tag_path(tag.name), class: css_class %>
+	  	</li>
 	  <% end %>
+		</ul>
 	</div>
 
 </div>

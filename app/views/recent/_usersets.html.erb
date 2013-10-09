@@ -1,24 +1,39 @@
 <div class="recent_user">
 
 	<% set_sorted = [] %>
+	<% set_soon = [] %>
 	<% sets_updated = current_user.setlists.where("updated_at > ?", 15.days.ago) %> 
+	<% sets_upcoming = current_user.setlists.where("performance_date > ?", Time.now) %>
+
+	<% sets_upcoming.each do |s| %>
+		<% set_soon.push(s) %>
+	<% end %>
 
 	<% sets_updated.each do |s| %>
 		<% set_sorted.push(s) %>
 	<% end %>
 
+	<% set_soon.sort! {|x,y| x.performance_date <=> y.performance_date } %>
 	<% set_sorted.sort! {|x,y| y.updated_at <=> x.updated_at } %>
 
 
 	<h5>UPCOMING PERFORMANCES</h5>
+	<% if set_soon.empty? %>
+		<div class="op_content">
+		<p>
+			You don't have any upcoming performances.
+		</p>
+	</div>
+	<% else %>
 	<ul>
-		<% current_user.setlists.order.limit(3).each do |x| %>
+		<% set_soon.limit(3).each do |x| %>
 		<li>
 			<span class="date"><%= x.performance_date.strftime("%B %d, %Y") %></span>
 			<%= link_to "#{truncate(x.title, length: 50, separator: ' ')}", setlist_path(x) %>
 		</li>
 		<% end %>
 	</ul>
+	<% end %>
 </br>
 
 		<h5>RECENT SETLISTS</h5>

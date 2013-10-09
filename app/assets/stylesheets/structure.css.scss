@@ -250,13 +250,13 @@
   }
 
   .tag_cloud {
-      padding-right: 30px;
-      display: inline-block;
-      float: left;
-    ul {
+    padding-right: 24px;
+    display: inline-block;
+    float: left;
+    li {
+      display: inline;
     }
   }
-
 
   .comcon_mid {
     display: inline-block;
