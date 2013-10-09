@@ -11,14 +11,22 @@
 	<% sorted.sort! {|x,y| y.updated_at <=> x.updated_at } %> 
 
 	<h5>RECENT SONGS</h5>
-	Songs you recently added to a Setlist:
-	<% sorted[0..9].uniq { |p| p.tracked_id }.each do |t| %>
-		<ul>
-			<li>
-				<%= link_to "#{truncate(t.tracked.title, length: 42, separator: ' ')}", 
-						"#{songs_path}" + "?utf8=✓&search=" + "#{t.tracked.title}" %>
-			</li>
-		</ul>
+	<% if sorted.empty? %>
+		<div class="op_content">
+			<p>
+				It doesn't look like you've used any songs yet.
+			</p>
+		</div>
+	<% else %>
+		Songs you recently added to a Setlist:
+		<% sorted[0..9].uniq { |p| p.tracked_id }.each do |t| %>
+			<ul>
+				<li>
+					<%= link_to "#{truncate(t.tracked.title, length: 42, separator: ' ')}", 
+							"#{songs_path}" + "?utf8=✓&search=" + "#{t.tracked.title}" %>
+				</li>
+			</ul>
+		<% end %>
 	<% end %>
 
 </div>

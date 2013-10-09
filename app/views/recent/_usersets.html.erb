@@ -26,7 +26,7 @@
 	</div>
 	<% else %>
 	<ul>
-		<% set_soon.limit(3).each do |x| %>
+		<% set_soon[0..2].each do |x| %>
 		<li>
 			<span class="date"><%= x.performance_date.strftime("%B %d, %Y") %></span>
 			<%= link_to "#{truncate(x.title, length: 50, separator: ' ')}", setlist_path(x) %>
