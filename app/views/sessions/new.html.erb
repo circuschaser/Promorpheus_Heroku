@@ -1,20 +1,36 @@
 <% provide(:title, "SIGN IN") %>
 
 <div class="container">
-	<div class="formbox span6 offset3">
-		<h3>Please Sign in</h3>
-		<div class="session_form">
-			<%= form_for(:session, url: sessions_path) do |f| %>
+	<div class="formbox span8 offset2">
 
-				<%= f.label :email %>
-				<%= f.text_field :email %>
+		<h3>WELCOME</h3>
 
-				<%= f.label :password %>
-				<%= f.password_field :password %>
+		<div id="signin">
+			<div id="user">
+				SIGN IN TO YOUR EXISTING ACCOUNT
+			</div>
+			<div id="session_form">
+				<%= form_for(:session, url: sessions_path) do |f| %>
 
-				<%= f.submit "SIGN IN", class: "btn btn-small" %>
-			<% end %>
+					<%= f.label :email %>
+					<%= f.text_field :email %>
+
+					<%= f.label :password %>
+					<%= f.password_field :password %>
+
+					<%= f.submit "SIGN IN", class: "btn btn-small" %>
+				<% end %>
+			</div>
 		</div>
-			<span id="link_button"> Not a current user? <%= link_to "SIGN UP IMMEDIATELY", signup_path %></span>
+
+		<div id="signup">
+			<div id="user">
+				CREATE A NEW ACCOUNT
+			</div>
+			<div class="btn btn-large signup_btn">
+				<%= link_to "SIGN UP IMMEDIATELY", signup_path %>
+			</div>
+		</div>
+
 	</div>
 </div>
