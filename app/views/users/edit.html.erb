@@ -24,10 +24,6 @@
             <h3>UPDATE YOUR INFO</h3>
         </div>
         <div class="content_form">
-          <%= gravatar_for @user %>
-          <a class="btn-mini" href="http://gravatar.com/emails">CHANGE</a>
-          <br></br>
-          <br></br>
 
           <%= simple_form_for(@user) do |f| %>
           <%= render 'shared/error_messages', object: f.object %>
@@ -40,7 +36,7 @@
 
           <%= f.input :password_confirmation, as: :password %>
 
-          <div><%= f.button :submit, "SAVE CHANGES" %></div>
+          <div><%= f.button :submit, "SAVE CHANGES", class: "btn btn-small" %></div>
           <% end %>
         </div>
 				</div>

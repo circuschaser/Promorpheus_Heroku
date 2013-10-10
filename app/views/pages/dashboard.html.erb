@@ -22,7 +22,7 @@
 
 		<% tracks = Track.where(current_user.setlists.include?(:tracker)) %>
 
-		<% if current_user.setlists.empty? || tracks.empty?%>
+		<% if current_user.setlists.empty? && tracks.empty?%>
 		
 		<div class="ucon_new">
 			<%= render 'recent/usernew' %>
