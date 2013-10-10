@@ -1,3 +1,44 @@
+<% if !signed_in? %>
+
+	<% provide(:title, "SIGN IN") %>
+
+	<div class="container">
+		<div class="formbox span8 offset2">
+
+			<h3>WELCOME</h3>
+
+			<div id="signin">
+				<div id="user">
+					SIGN IN TO YOUR EXISTING ACCOUNT
+				</div>
+				<div id="session_form">
+					<%= form_for(:session, url: sessions_path) do |f| %>
+
+						<%= f.label :email %>
+						<%= f.text_field :email %>
+
+						<%= f.label :password %>
+						<%= f.password_field :password %>
+
+						<%= f.submit "SIGN IN", class: "btn btn-small" %>
+					<% end %>
+				</div>
+			</div>
+
+			<div id="signup">
+				<div id="user">
+					CREATE A NEW ACCOUNT
+				</div>
+				<div class="btn btn-large signup_btn">
+					<%= link_to "SIGN UP IMMEDIATELY", signup_path %>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+<% else %>
+
 <% provide(:title, "Dashboard") %>
 
 	<div class="songlist_title">
@@ -73,7 +114,6 @@
 			<%= render 'recent/comtags' %>
 		</div>
 
-
 	</div>
-
+<% end %>
 
