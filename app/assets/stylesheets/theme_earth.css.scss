@@ -908,7 +908,17 @@
 
   .alert {
     font-size: 90%;
+    line-height: 120%;
     text-align: center;
+    /*border: 1px solid $gBrown;*/
+    box-shadow: inset 1px 2px 3px $grayGreen;
+  }
+
+  .alert_greet {
+    /*line-height: 120%;*/
+    text-align: center;
+    /*border: 1px solid $gBrown;*/
+    box-shadow: inset 1px 2px 3px $grayGreen;
   }
 
   #error_explanation {

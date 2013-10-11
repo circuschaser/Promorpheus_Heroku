@@ -2,6 +2,12 @@
 
 <div class="container">
 
+<div class="notice_greet">
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "alert-greet alert fade in alert-#{key}") %>
+  <% end %>
+</div>
+
     <div id="sidebar">
       <h4>The Sidebar Headline</h4>
         <p>
@@ -36,7 +42,7 @@
 								Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod.
 							</p><br>
 							<p id="link_button">
-								Go to the <%= link_to "MAIN", "/home" %> page.
+								Go to your <%= link_to "DASHBOARD", "/home" %>
 							</p>
 					</div>
 				

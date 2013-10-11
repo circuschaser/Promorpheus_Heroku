@@ -1,5 +1,19 @@
 <% provide(:title, "Edit Setlist") %>
 
+<% if @setlist.description.empty? %>
+  <div class="notice_br">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "alert-temp alert fade in alert-#{key}") %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="notice_desc">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "alert-temp alert fade in alert-#{key}") %>
+    <% end %>
+  </div>
+<% end %>
+
 <div id="sidebar">
   <h4>The Sidebar Headline</h4>
     <p>
@@ -32,7 +46,7 @@
   <% end %>
 
   <div class="setlist_title">
-    <h3><%= link_to "#{@setlist.title.titleize}", @setlist %>
+    <h3><%= link_to "#{truncate(@setlist.title.titleize, length: 68)}", @setlist %>
       <span><%= link_to image_tag("icon_edit_b.png", id: "icon_edit_sm"), "#", id: "editset" %></span>
       <span><%=link_to_function(image_tag("icon_print.png", id: "icon_print"), "javascript:print()")%></span>
     </h3>
@@ -57,7 +71,7 @@
             <%= simple_form_for @setlist do |f| %>
             <%= render 'shared/error_messages', object: f.object %>
 
-            <p>max 54 characters<p>
+            <p>max 66 characters<p>
             <%= f.input :title %>
 
             <p>max 120 characters<p>

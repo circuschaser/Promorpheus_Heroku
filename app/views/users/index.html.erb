@@ -2,6 +2,12 @@
 
 <div class="container">
 
+<div class="notice_udel">
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "alert-udel alert fade in alert-#{key}") %>
+  <% end %>
+</div>
+
   <div class="songlist_title">
     <div class="mainlink">
       <h3>ALL USERS</h3>
@@ -30,15 +36,18 @@
 		  		<tr>
 		  			<!-- ID -->
 		  			<td><%= user.id.to_s.rjust(2, '0') %></td>
+
 		  			<!-- ADMIN -->
 		  			<% if user.admin? %>
 		  				<td>YES</td>
 		  			<% else %>
 		  				<td></td>
 	  				<% end %>
+
 	  				<td><%= user.name %></td>
-	  				<!--  -->
+
 	  				<td><%= user.email %></td>
+
 	  				<!-- SETLIST COUNT -->
 						<td>has <%= pluralize(user.setlists.count, "setlist") %></td>
 

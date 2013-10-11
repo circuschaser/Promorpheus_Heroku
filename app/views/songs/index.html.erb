@@ -1,5 +1,11 @@
 <% provide(:title, "Music") %>
 
+<div class="notice_nobr">
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "alert-temp alert fade in alert-#{key}") %>
+  <% end %>
+</div>
+
 <div id="sidebar">
   <%= render "sidebar/side_songs" %>
 </div>

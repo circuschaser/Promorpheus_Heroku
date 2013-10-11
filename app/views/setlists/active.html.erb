@@ -1,5 +1,11 @@
 <% provide(:title, "Active Setlists") %>
 
+<div class="notice_br">
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "alert-temp alert fade in alert-#{key}") %>
+  <% end %>
+</div>
+
 <div id="sidebar">
   <h4>The Sidebar Headline</h4>
     <p>
