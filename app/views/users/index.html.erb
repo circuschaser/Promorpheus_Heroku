@@ -65,7 +65,7 @@
 
 							<td><%= time_ago_in_words(set_sorted.first.updated_at) %> ago</td>
 						<% else %>
-							<td>none</td>
+							<td><%= time_ago_in_words(user.created_at) %> ago</td>
 						<% end %>
 
 						<% if @user.admin || user == @user %>
