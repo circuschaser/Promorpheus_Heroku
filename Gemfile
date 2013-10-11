@@ -20,6 +20,7 @@ gem 'acts_as_list'
 group :development do
 	gem 'annotate', '2.5.0'
 	gem 'pg'
+	gem 'rails-erd'
 
 end
 

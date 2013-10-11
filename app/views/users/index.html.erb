@@ -28,6 +28,7 @@
 			  	<th class="name">Name</th>
 			  	<th class="e_address">Email</th>
 			  	<th class="setlists">Setlists</th>
+			  	<th class="usertracks">Songs</th>
 			  	<th class="activity">Last Activity</th>
 			  	<th></th>
 
@@ -49,7 +50,10 @@
 	  				<td><%= user.email %></td>
 
 	  				<!-- SETLIST COUNT -->
-						<td>has <%= pluralize(user.setlists.count, "setlist") %></td>
+						<td><%= pluralize(user.setlists.count, "setlist") %></td>
+
+	  				<!-- SETLIST COUNT -->
+						<td><%= pluralize(user.songs.count, "track") %></td>
 
 						<!-- RECENT ACTIVITY -->
 						<% if user.setlists.count > 0 %>
