@@ -7,7 +7,17 @@
 	<% user_tracks = current_user.tracks %>
 
 <!--  -->
-	<% if user_songs.empty? %>
+	<% if Song.all.empty? %>
+
+		<h5>FOR YOUR CONSIDERATION</h5>
+
+		<div class="op_content">
+			<p>
+				Sorry. There are no songs in our system.
+			</p>
+		</div>
+
+	<% elsif user_songs.empty? %>
 
 		<h5>FOR YOUR CONSIDERATION</h5>
 
@@ -16,22 +26,22 @@
 
 		<div id="related">
 		We picked these at random for you:
-		<ul>
-		<% random = [] %>
-		<% Song.where('LENGTH(title) > 18').each do |x| %>
-			<% random.push(x) %>
-			<% end %>
-		<% random.sort_by! { rand } %>
-		<% random[0..7].each do |s| %>
-			<li>
-				<span>
-					<%= link_to "#{truncate(s.title, length: 42, separator: ' ')}", 
-					"#{songs_path}" + "?utf8=✓&search=" + "#{s.title}" %>
-				</span>
+			<ul>
+			<% random = [] %>
+			<% Song.where('LENGTH(title) > 18').each do |x| %>
+				<% random.push(x) %>
 				<% end %>
-			</li>
-		</ul>
-	</div>
+			<% random.sort_by! { rand } %>
+			<% random[0..7].each do |s| %>
+				<li>
+					<span>
+						<%= link_to "#{truncate(s.title, length: 42, separator: ' ')}", 
+						"#{songs_path}" + "?utf8=✓&search=" + "#{s.title}" %>
+					</span>
+					<% end %>
+				</li>
+			</ul>
+		</div>
 
 <!--  -->
 	<% else %>

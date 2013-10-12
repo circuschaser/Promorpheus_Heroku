@@ -96,8 +96,14 @@
   }
 
   #topbar_right {
-    color: $liteBrown;
+    color: $linkGray;
     font-size: 10px;
+  }
+
+  #topbar_right p {
+    color: $grayBorder;
+    font-weight: bold;
+    /*background: $sidebar;*/
   }
 
 /* FOOTER                                          */
@@ -146,7 +152,6 @@
 
   #logo {
     border-top: 2px solid $gBrown;
-    /*border-right: 2px solid $gBrown;*/
   }
 
   #navmenu {
@@ -163,11 +168,11 @@
     }
   }
 
-  #dash {
+  .navitem {
+    font-size: 10px;
     a,
     a:visited {
       color: $liteBrown;
-      font-size: 10px;
       text-decoration: none;
       font-weight: bold;
     }
@@ -201,7 +206,6 @@
       border-left: 4px solid transparent;
       content: "";
   }
-
 
   .dropdown-menu li {
     &:hover {

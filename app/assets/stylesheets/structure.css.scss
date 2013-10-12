@@ -85,12 +85,13 @@
     }
   }
 
-  #dash {
+  .navitem {
     display: inline;
     margin: 0 24px 0 4px;
   }
 
-  #navmenu div.dropdown, #navmenu div.dropdown a {
+  #navmenu div.dropdown,
+  #navmenu div.dropdown a {
     display: inline;
     margin: 0 12px 0 6px;
   }
@@ -107,13 +108,28 @@
     margin-left: -2px;
   }
 
-  #topbar span a, #topbar span a:visited {
-    margin: 4px 12px 0 12px;
+  #topbar span {
+    float: right;
+  }
+  
+  #topbar span a,
+  #topbar span a:visited {
+    margin: 4px 12px 0 0;
     float: right;
   }
 
   #topbar_right {
     float: right;
+    margin-top: 4px;
+  }
+
+  #topbar_right p {
+    display: inline;
+    margin: 0 0 0 4px;
+    /*padding: 2px 8px 2px 8px;*/
+    /*-webkit-border-radius: 3px;*/
+       /*-moz-border-radius: 3px;*/
+            /*border-radius: 3px;*/
   }
 
 /* SIDEBAR                                              */
@@ -153,11 +169,12 @@
 
   #search_form form input {
     width: 200px;
-    -moz-border-radius: 18px;
     -webkit-border-radius: 18px;
-    border-radius: 18px;
+       -moz-border-radius: 18px;
+            border-radius: 18px;
     margin-top: 1px;
     margin-bottom: 0;
+    padding-top: 2px;
     padding-left: 12px;
     padding-right: 10px;
     box-shadow: inset 2px 2px 5px gray;
@@ -661,6 +678,7 @@
 
   #signup {
     float: right;
+    margin-right: -20px;
     padding: 0 20px 85px 20px;
   }
   
@@ -674,7 +692,7 @@
   }
 
   .formbox {
-    padding: 12px 24px 20px 24px;
+    padding: 12px 44px 20px 24px;
     -webkit-border-radius: 5px;
        -moz-border-radius: 5px;
             border-radius: 5px;

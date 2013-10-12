@@ -1,17 +1,10 @@
 <div class="recent_com">
 
 	<% sorted = [] %>
-	<% titles = [] %>
-
 	<% tracks = Track.where("updated_at > ?", 15.days.ago) %>
-	<% songs = Song.where("updated_at > ?", 15.days.ago) %> 
 
 	<% tracks.each do |t| %>
 		<% sorted.push(t.tracked) %>
-	<% end %>
-
-	<% songs.each do |t| %>
-		<% sorted.push(t) %>
 	<% end %>
 
 	<% sorted.sort! {|x,y| y.updated_at <=> x.updated_at } %>
@@ -19,10 +12,9 @@
 
 	<h5>RECENT POPULAR SONGS</h5>
 	<% sorted[0..7].each do |x| %>
-		<% if !x.tracks.empty? %>
 		<ul>
 			<li>
-				<%= link_to "#{truncate(x.title, length: 32, separator: ' ')}", 
+				<%= link_to "#{truncate(x.title, length: 39, separator: ' ')}", 
 						"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %>				
 				appears in 
 				<span class="green">
@@ -30,26 +22,6 @@
 				</span>
 			</li>
 		</ul>
-		<% elsif x.created_at.to_s == x.updated_at.to_s && x.tracks.empty? %>
-		<ul>
-			<li>
-				<%= link_to "#{truncate(x.title, length: 32, separator: ' ')}", 
-						"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %>				
-				was <span class="orange">CREATED</span>
-			</li>
-		</ul>
-		<% elsif (x.created_at.to_s < x.updated_at.to_s) %>
-		<ul> 
-			<li>
-				<%= link_to "#{truncate(x.title, length: 32, separator: ' ')}", 
-						"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %> 
-				was <span class="blue">EDITED</span>
-			</li>
-		</ul>
-		<% else %>
-		SUCK IT.
-		<% end %>
-
 	<% end %>
 
 </div>

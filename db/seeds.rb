@@ -21,22 +21,19 @@
 # 	Genre.create! row.to_hash
 # end
 
+Song.destroy_all
+CSV.foreach("doc/Songs.csv", headers: true) do |row|
+	a = Album.find_by_album_name row["album_name"]
+	a.songs.create! row.to_hash
+	s = Song.find_by_title row["title"]
+	s.update_attribute(:genre_id, (Genre.find_by_name s.genre_name).id)
+	s.update_attribute(:composer_id, (Composer.find_by_name s.composer_name).id)
+end
 
-# Song.delete_all
-# CSV.foreach("doc/Songs.csv", headers: true) do |row|
-# 	a = Album.find_by_album_name row["album_name"]
-# 	a.songs.create! row.to_hash
-# 	s = Song.find_by_title row["title"]
-# 	s.update_attribute(:genre_id, (Genre.find_by_name s.genre_name).id)
-# 	s.update_attribute(:composer_id, (Composer.find_by_name s.composer_name).id)
-# end
-
-
-# tags
-# songs = Song.all
-# songs.each do |s|
-# 	s.update_attribute(:tag_list, [])
-# end
+songs = Song.all
+songs.each do |s|
+	s.update_attribute(:tag_list, [])
+end
 
 3.times do
 	CSV.foreach("doc/Tags.csv", headers: false) do |row|

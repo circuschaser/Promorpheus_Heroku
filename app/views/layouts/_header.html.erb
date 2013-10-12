@@ -15,7 +15,7 @@
 
       <div id="navmenu">
 
-        <div id="dash"><%= link_to "DASHBOARD", '/home' %></div>
+        <div class="navitem"><%= link_to "DASHBOARD", '/home' %></div>
 
         <div class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -54,10 +54,12 @@
                     data: { confirm: "DO YOU SERIOUSLY WANT TO DELETE YOUR ACCOUNT?\n\nYour data will disappear into the void forever.\n\nThis cannot be undone."} %>
           </ul>
         </div>
-
       </div>    
+
       <span><%= link_to "SIGN OUT", signout_path, method: "delete" %></span>
-      
+      <div id="topbar_right" class="navitem">You are signed in as
+        <p><%= "#{current_user.name}" %></p>
+      </div>      
     </div>
 
     <% else %>

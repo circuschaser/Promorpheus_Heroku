@@ -1,0 +1,35 @@
+<div class="recent_com">
+
+	<% sorted = [] %>
+
+	<% songs = Song.where("created_at > ?", 15.days.ago) %> 
+
+	<% songs.each do |t| %>
+		<% sorted.push(t) %>
+	<% end %>
+
+	<% sorted.sort! {|x,y| y.created_at <=> x.created_at } %>
+
+	<h5>NEW SONGS</h5>
+
+	<% if songs.empty? %>
+		<ul>
+			<li>
+				No songs were recently created.
+			</li>
+		</ul>
+
+	<% else %>
+
+	<% sorted[0..7].each do |x| %>
+		<ul>
+			<li>
+				<%= link_to "#{truncate(x.title, length: 40)}", 
+						"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %>
+			</li>
+		</ul>
+	<% end %>
+
+	<% end %>
+
+</div>
