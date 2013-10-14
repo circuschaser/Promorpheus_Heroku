@@ -1,12 +1,11 @@
 <div class="consider">
 
-	<% sorted = [] %>
-	<% recent = [] %>
+		<% sorted = [] %>
+		<% recent = [] %>
 
-	<% user_songs = current_user.songs %>
-	<% user_tracks = current_user.tracks %>
+		<% user_songs = current_user.songs %>
+		<% user_tracks = current_user.tracks %>
 
-<!--  -->
 	<% if Song.all.empty? %>
 
 		<h5>FOR YOUR CONSIDERATION</h5>
@@ -25,7 +24,7 @@
 		</div>
 
 		<div id="related">
-		We picked these at random for you:
+			We picked these at random for you:
 			<ul>
 			<% random = [] %>
 			<% Song.where('LENGTH(title) > 18').each do |x| %>
@@ -43,7 +42,6 @@
 			</ul>
 		</div>
 
-<!--  -->
 	<% else %>
 
 	<% user_tracks.each do |t| %>
@@ -132,7 +130,6 @@
 
 		<% end %>
 
-<!--  -->
 	<% end %>
 
 </div>

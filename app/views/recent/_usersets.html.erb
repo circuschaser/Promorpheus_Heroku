@@ -1,9 +1,10 @@
 <div class="recent_user">
 
-	<% set_sorted = [] %>
 	<% set_soon = [] %>
-	<% sets_updated = current_user.setlists.where("updated_at > ?", 15.days.ago) %> 
 	<% sets_upcoming = current_user.setlists.where("performance_date > ?", Time.now) %>
+
+	<% set_sorted = [] %>
+	<% sets_updated = current_user.setlists.where("updated_at > ?", 15.days.ago) %> 
 
 	<% sets_upcoming.each do |s| %>
 		<% set_soon.push(s) %>
@@ -16,14 +17,15 @@
 	<% set_soon.sort! {|x,y| x.performance_date <=> y.performance_date } %>
 	<% set_sorted.sort! {|x,y| y.updated_at <=> x.updated_at } %>
 
-
 	<h5>UPCOMING PERFORMANCES</h5>
+
 	<% if set_soon.empty? %>
 		<div class="op_content">
 		<p>
 			You don't have any upcoming performances.
 		</p>
 	</div>
+
 	<% else %>
 	<ul>
 		<% set_soon[0..2].each do |x| %>
@@ -34,9 +36,10 @@
 		<% end %>
 	</ul>
 	<% end %>
+	
 </br>
 
-		<h5>RECENT SETLISTS</h5>
+	<h5>RECENT SETLISTS</h5>
 	<% set_sorted[0..4].uniq { |p| p.id }.each do |x| %>
 		<ul>
 			<% if x.created_at == x.updated_at %>

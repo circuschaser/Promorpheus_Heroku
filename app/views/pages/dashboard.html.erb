@@ -1,41 +1,6 @@
 <% if !signed_in? %>
 
-	<% provide(:title, "SIGN IN") %>
-
-	<div class="container">
-		<div class="formbox span8 offset2">
-
-			<h3>WELCOME</h3>
-
-			<div id="signin">
-				<div id="user">
-					SIGN IN TO YOUR EXISTING ACCOUNT
-				</div>
-				<div id="session_form">
-					<%= form_for(:session, url: sessions_path) do |f| %>
-
-						<%= f.label :email %>
-						<%= f.text_field :email %>
-
-						<%= f.label :password %>
-						<%= f.password_field :password %>
-
-						<%= f.submit "SIGN IN", class: "btn btn-small" %>
-					<% end %>
-				</div>
-			</div>
-
-			<div id="signup">
-				<div id="user">
-					CREATE A NEW ACCOUNT
-				</div>
-				<div class="btn btn-large signup_btn">
-					<%= link_to "SIGN UP IMMEDIATELY", signup_path %>
-				</div>
-			</div>
-
-		</div>
-	</div>
+	<%= render 'sessions/new' %>
 
 <% else %>
 
@@ -56,12 +21,12 @@
   </div>
 
 	<div class="greywrap">
+
+	<!-- USER                            -->
 	
 		<div class="content_head">
 			<h3>Your recent activity...</h3>
 		</div>
-
-		<% tracks = Track.where(current_user.setlists.include?(:tracker)) %>
 
 		<% if current_user.setlists.empty? %>
 		
@@ -73,13 +38,8 @@
 			<%= render 'recent/consider' %>
 		</div>
 
-		<div class="content_head">
-			<h3>Activity around the community...</h3>
-		</div>
-
 		<% else %>
 
-	<!-- USER                            -->
 		<div class="ucon_left">
 			<%= render 'recent/usersongs' %>
 		</div>
@@ -90,13 +50,14 @@
 			<%= render 'recent/consider' %>
 		</div>
 
+		<% end %>
+
+	<!-- COMMUNITY                       -->
+
 		<div class="content_head">
 			<h3>Activity around the community...</h3>
 		</div>
 
-		<% end %>
-
-	<!-- COMMUNITY                       -->
 		<div class="comcon_left">
 			<%= render 'recent/comsongs' %>
 		</div>	

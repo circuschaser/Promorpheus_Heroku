@@ -1,14 +1,13 @@
 <div class="recent_com">
 
-	<% sorted = [] %>
+		<% sorted = [] %>
+		<% songs = Song.where("created_at > ?", 15.days.ago) %> 
 
-	<% songs = Song.where("created_at > ?", 15.days.ago) %> 
+		<% songs.each do |t| %>
+			<% sorted.push(t) %>
+		<% end %>
 
-	<% songs.each do |t| %>
-		<% sorted.push(t) %>
-	<% end %>
-
-	<% sorted.sort! {|x,y| y.created_at <=> x.created_at } %>
+		<% sorted.sort! {|x,y| y.created_at <=> x.created_at } %>
 
 	<h5>NEW SONGS</h5>
 
@@ -21,14 +20,14 @@
 
 	<% else %>
 
-	<% sorted[0..7].each do |x| %>
-		<ul>
-			<li>
-				<%= link_to "#{truncate(x.title, length: 40)}", 
-						"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %>
-			</li>
-		</ul>
-	<% end %>
+		<% sorted[0..7].each do |x| %>
+			<ul>
+				<li>
+					<%= link_to "#{truncate(x.title, length: 40)}", 
+							"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %>
+				</li>
+			</ul>
+		<% end %>
 
 	<% end %>
 

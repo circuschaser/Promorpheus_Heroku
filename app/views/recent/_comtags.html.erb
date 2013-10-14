@@ -2,7 +2,6 @@
 
 	<h5>POPULAR TAGS</h5>
 
-
 	<div class="tag_cloud">
 	  <ul>
 	  <% tag_cloud Song.tag_counts.limit(24).sort_by! {rand}, %w{s m l} do |tag, css_class| %>
