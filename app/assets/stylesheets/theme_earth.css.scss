@@ -114,16 +114,20 @@
   }
 
   #footer_links span {
-    color: $liteBrown;
+    color: $grayGreen;
   }
 
-  #footer_links span a:hover {
+  #footer_links span a,
+  #footer_links span a:visited {
+    color: $liteBrown;
     text-decoration: none;
   }
 
-  #footer_links span a, #footer_links span a:visited {
-    color: $liteBrown;
-    text-decoration: none;
+  #footer_links {
+    span a:hover {
+      color: white;
+      text-decoration: none;
+    }
   }
 
 /* SIDEBAR                                         */

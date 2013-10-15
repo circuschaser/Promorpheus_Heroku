@@ -870,12 +870,11 @@
     margin-top: 4px;
   }
 
-  #footer_links span {
+  #footer_links {
+    span {
     margin: 6px 0 6px 18px;
-  }
-
-  #footer_links span a, #footer_links span a:visited {
     padding: 0 4px 0 4px;
+    }
   }
 
   #footer_links span img {
