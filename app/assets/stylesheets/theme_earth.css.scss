@@ -296,12 +296,6 @@
   .comcon_right {
     border: 1px solid $grayBorder;
     background-color: $white;
-
-    h5 {
-      border-bottom: 1px solid $grayBorder;
-      color: black;
-      text-align: center;
-    }
     a {
       font-weight: bold;
     }
@@ -335,6 +329,44 @@
         font-size: 110%;
         text-align: center;
       }
+    }
+    span.setsoon {
+      font-weight: bold;
+    }
+  }
+
+  .ucon_left,
+  .ucon_right,
+  .ucon_new,
+  .comcon_left,
+  .comcon_mid,
+  .comcon_right {
+    h5 {
+      border-bottom: 1px solid $grayBorder;
+      color: black;
+      text-align: center;
+    }
+  }
+
+  .ucon_mid {
+    h5 {
+    color: black;
+    text-align: center;
+    }
+  }
+
+  #soonhead {
+    h5 {
+    border: none;
+    }
+  }
+
+  .upcoming {
+    color: $tagOrange;
+    border: 1px solid $grayBorder;
+    background: $grayWrap;
+    a {
+      /*color: black;*/
     }
   }
 

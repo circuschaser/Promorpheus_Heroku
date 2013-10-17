@@ -324,6 +324,22 @@
     span.date {
       float: right;
     }
+    span.setsoon {
+      float: right;
+    }
+  }
+
+  .ucon_mid {
+    h5 {
+      margin-bottom: 0;
+    }
+  }
+
+  .upcoming {
+    /*border: 1px dotted blue;*/
+    border-radius: 4px;
+    margin: 0 0 3px 3px;
+    padding: 0 6px 0 6px;
   }
 
   .consider {

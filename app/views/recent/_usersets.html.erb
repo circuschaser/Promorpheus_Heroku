@@ -17,7 +17,7 @@
 	<% set_soon.sort! {|x,y| x.performance_date <=> y.performance_date } %>
 	<% set_sorted.sort! {|x,y| y.updated_at <=> x.updated_at } %>
 
-	<h5>UPCOMING PERFORMANCES</h5>
+	<div id="setsoon"><h5>UPCOMING PERFORMANCES</h5></div>
 
 	<% if set_soon.empty? %>
 		<div class="op_content">
@@ -27,14 +27,14 @@
 	</div>
 
 	<% else %>
-	<ul>
 		<% set_soon[0..2].each do |x| %>
-		<li>
-			<span class="date"><%= x.performance_date.strftime("%B %d, %Y") %></span>
+		<div class="upcoming">
+			<span class="date">
+			<%= x.performance_date.strftime("%B %d, %Y") %>
+			</span>
 			<%= link_to "#{truncate(x.title, length: 50, separator: ' ')}", setlist_path(x) %>
-		</li>
+		</div>
 		<% end %>
-	</ul>
 	<% end %>
 	
 </br>
