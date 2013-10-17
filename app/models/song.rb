@@ -10,6 +10,10 @@ class Song < ActiveRecord::Base
   belongs_to :genre
   belongs_to :composer
 
+  before_save :set_composer
+  before_save :set_album
+  before_save :set_genre
+
   # has_and_belongs_to_many :tags, join_table: "songs_tags"
 
   has_many :tracks, foreign_key: "tracked_id", dependent: :destroy
@@ -40,5 +44,42 @@ class Song < ActiveRecord::Base
   def tracked?(setlist)
     tracks.find_by_tracker_id(setlist.id)
   end
+
+  private
+    def set_composer
+      if !composer_id.nil?
+        self.composer = Composer.find_by_id composer_id
+
+      elsif composer_id.nil? && !composer_name.nil?
+        self.composer = Composer.find_or_create_by_name composer_name
+      
+      else
+        self.composer = Composer.find_or_create_by_name "Unknown Composer"
+      end
+    end
+
+    def set_album
+      if !album_id.nil?
+        self.album = Album.find_by_id album_id
+
+      elsif album_id.nil? && !album_name.nil?
+        self.album = Album.find_or_create_by_album_name album_name
+      
+      else
+        self.album = Album.find_or_create_by_album_name "Unknown Album"
+      end
+    end
+
+    def set_genre
+      if !genre_id.nil?
+        self.genre = Genre.find_by_id genre_id
+
+      elsif genre_id.nil? && !genre_name.nil?
+        self.genre = Genre.find_or_create_by_name genre_name
+      
+      else
+        self.genre = Genre.find_or_create_by_name "Unknown Genre"
+      end
+    end
 
 end

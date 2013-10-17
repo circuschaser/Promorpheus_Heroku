@@ -32,34 +32,33 @@ class SongsController < ApplicationController
     if @song.update_attributes(params[:song])
       s = @song
       if s.composer_name.empty?
-        c = Composer.find_by_name "Unknown Composer"
-        c.songs << s
-        s.update_attribute(:composer_name, c.name)
+        self.composer = Composer.find_or_create_by_name "Unknown Composer"
+        s.update_attribute(:composer_name, s.composer.name)
       else
         c = Composer.find_or_create_by_name s.composer_name
         c.songs << s
+        s.update_attribute(:composer_name, s.composer.name)
       end
 
       if s.album_name.empty?
-        a = Album.find_by_album_name "Unknown Album"
-        a.songs << s
-        s.update_attribute(:album_name, a.album_name)
+        self.album = Album.find_or_create_by_album_name "Unknown Album"
+        s.update_attribute(:album_name, s.album.album_name)
       else
         a = Album.find_or_create_by_album_name s.album_name
         a.songs << s
+        s.update_attribute(:album_name, s.album.album_name)
       end
 
       if s.genre_name.empty?
-        g = Genre.find_by_name "Unknown Genre"
-        g.songs << s
-        s.update_attribute(:genre_name, g.name)
+        self.genre = Genre.find_or_create_by_name "Unknown Genre"
+        s.update_attribute(:genre_name, s.genre.name)
       else
         g = Genre.find_or_create_by_name s.genre_name
         g.songs << s
+        s.update_attribute(:genre_name, s.genre.name)
       end
 
       flash[:success] = "The song: \"#{@song.title.upcase}\" was successfully updated"
-      # redirect_to request.referer
       redirect_to songs_path
     else
       render 'edit'
@@ -68,41 +67,16 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(params[:song])
-
     if @song.save
-
       s = @song
-      if s.composer_id.nil? || s.composer.name.empty?
-        c = Composer.find_by_name "Unknown Composer"
-        c.songs << s
-        s.update_attribute(:composer_name, c.name)
-        z = Composer.find_by_name ""
-        z.destroy unless z.nil?
-      else
-        c = Composer.find_by_id s.composer_id
-        s.update_attribute(:composer_name, c.name)
+      if s.composer_name.nil?
+        s.update_attribute(:composer_name, s.composer.name)
       end
-
-      if s.album_id.nil? || s.album.album_name.empty?
-        a = Album.find_by_album_name "Unknown Album"
-        a.songs << s
-        s.update_attribute(:album_name, a.album_name)
-        z = Album.find_by_album_name ""
-        z.destroy unless z.nil?
-      else
-        a = Album.find_by_id s.album_id
-        s.update_attribute(:album_name, a.album_name)
+      if s.album_name.nil?
+        s.update_attribute(:album_name, s.album.album_name)
       end
-
-      if s.genre_id.nil? || s.genre.name.empty?
-        g = Genre.find_by_name "Unknown Genre"
-        g.songs << s
-        s.update_attribute(:genre_name, g.name)
-        z = Genre.find_by_name ""
-        z.destroy unless z.nil?
-      else
-        g = Genre.find_by_id s.genre_id
-        s.update_attribute(:genre_name, g.name)
+      if s.genre_name.nil?
+        s.update_attribute(:genre_name, s.genre.name)
       end
 
       flash[:success] = "The song: \"#{@song.title.upcase}\" was successfully created"
