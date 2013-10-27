@@ -51,8 +51,8 @@
     background: linear-gradient(to bottom,  $redBrown 0%,$simpleBrown 40%,$deepBrown 100%) fixed; /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$redBrown', endColorstr='$deepBrown',GradientType=0 ) fixed; /* IE6-9 */
 
-    font-family: Lucida Grande, Lucida Sans Unicode, sans-serif;
-    font-size: small;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    /*font-size: small;*/
   }
 
   .container {
@@ -88,7 +88,7 @@
     color: $liteBrown;
     font-size: 10px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
     &:hover {
     color: $cream;
     text-decoration: none;
@@ -102,7 +102,7 @@
 
   #topbar_right p {
     color: $grayBorder;
-    font-weight: bold;
+    font-weight: 500;
     /*background: $sidebar;*/
   }
 
@@ -140,7 +140,8 @@
   #sidebar h4 {
     border-bottom: 2px solid $mgBrown;
     color: $liteBrown;
-    font-family: Arial;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
     text-align: center;
   }
 
@@ -164,7 +165,7 @@
       color: $liteBrown;
       font-size: 10px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
     }
     a:hover {
       color: $cream;
@@ -173,12 +174,12 @@
   }
 
   .navitem {
-    font-size: 10px;
+    font-size: 11px;
     a,
     a:visited {
       color: $liteBrown;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 500;
     }
     a:hover {
       color: $cream;
@@ -189,14 +190,25 @@
   #navmenu .dropdown,
   #navmenu .dropdown a {
     color: $liteBrown;
-    font-size: 10px;
+    font-size: 11px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
     &:hover {
       color: $cream;
       text-decoration: none;
       background: none;
+    }
+  }
 
+  #navmenu .dropdown li a {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    text-decoration: none;
+    font-weight: 400;
+    &:hover {
+      color: $cream;
+      text-decoration: none;
+      background: none;
     }
   }
 
@@ -223,7 +235,7 @@
 
   #search_form {
     color: $liteBrown;
-    font-weight: bold;
+    font-weight: 500;
     text-decoration: none;
   }
 
@@ -238,7 +250,7 @@
   .welcome h3 {
     span {
       color: $linkGray;
-      font-family: Georgia, serif;
+      font-family: 'Georgia', serif;
       font-size: 70%;
       font-weight: normal;
     }
@@ -246,7 +258,7 @@
 
   .welcome_notice h3 {
     color: $grayWrap;
-    font-family: Georgia, serif;
+    font-family: 'Georgia', serif;
     /*text-align: right;*/
     font-weight: normal;
     text-decoration: none;
@@ -267,14 +279,14 @@
     }
     span {
       color: $liteBrown;
-      font-weight: bold;
+      font-weight: 500;
     }
   }
 
   .numeral {
     color: $grayBorder;
     font-size: 20px;
-    font-family: Georgia, serif;
+    font-family: 'Georgia', serif;
   }  
 
   .ucon_left,
@@ -297,7 +309,7 @@
     border: 1px solid $grayBorder;
     background-color: $white;
     a {
-      font-weight: bold;
+      font-weight: 500;
     }
     ul {
       list-style-type: none;
@@ -331,7 +343,7 @@
       }
     }
     span.setsoon {
-      font-weight: bold;
+      font-weight: 500;
     }
   }
 
@@ -400,7 +412,7 @@
       text-align: left;
       line-height: 180%;
       font-size: 16px;
-      font-family: Georgia, serif;
+      font-family: 'Georgia', serif;
       text-decoration: none;
     }
   }
@@ -431,12 +443,12 @@
   .content_head h3,
   .content_head h4 {
     color: $linkGray;
-    font-family: Georgia, serif;
+    font-family: 'Georgia', serif;
     font-weight: normal;
   }
 
   .colorbox_head h4 {
-    font-family: Georgia, serif;
+    font-family: 'Georgia', serif;
     font-weight: normal;
     /*text-align: center;*/
   }
@@ -479,7 +491,7 @@
 
   form {
     color: $linkGray;
-    font-family: Georgia, serif;
+    font-family: 'Georgia', serif;
     /*font-size: 80%;*/
   }
 
@@ -488,7 +500,7 @@
   }
 
   .formbox h3 {
-    font-family: Georgia, serif;
+    font-family: 'Georgia', serif;
     font-weight: normal;
   }
 
@@ -500,7 +512,7 @@
 
   .songlist_title h3, .songlist_title a {
     color: $grayWrap;
-    font-family: Georgia, serif;
+    font-family: 'Georgia', serif;
     font-weight: normal;
     text-decoration: none;
   }
@@ -516,16 +528,16 @@
 
   .songlist_title span {
     color: $liteBrown;
-    font-family: Georgia, serif;
+    font-family: 'Georgia', serif;
     font-size: 90%;
   }
 
   .song_title {
-    font-weight: bold;
+    font-weight: 500;
   }
 
   .song_title_locked {
-    font-weight: bold;
+    font-weight: 500;
     color: $linkGray;    
   }
 
@@ -582,7 +594,7 @@
   .setlist_title {
     h3, h4, a {
     color: $grayWrap;
-    font-family: Georgia, serif;
+    font-family: 'Georgia', serif;
     font-weight: normal;
     text-decoration: none;
     }
@@ -607,7 +619,7 @@
 
   .setlist_title span, .setlist_trail span {
     color: $liteBrown;
-    font-family: Georgia, serif;
+    font-family: 'Georgia', serif;
     font-size: 90%;
   }
 
@@ -618,7 +630,7 @@
   }
 
   .set_title {
-    font-weight: bold;
+    font-weight: 500;
   }
 
   .sort_highlight {
@@ -643,7 +655,7 @@
     text-align: left;
     padding-left: 100px;
     #jabberwock {
-      font-family: Courier;
+      font-family: Courier, monospace;
       text-align: left;
       /*padding-left: 75px;*/
       padding-right: 75px;
@@ -654,8 +666,8 @@
     border: 1px solid $grayWrap;
     box-shadow: inset 1px 2px 3px $linkLight;
     text-align: center;
-    font-family: Lucida Grande, Lucida Sans Unicode, sans-serif;
-    font-size: 12px;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    /*font-size: 12px;*/
     color: $linkGray;
     &.track_pos_locked {
       box-shadow: none;
@@ -1008,7 +1020,7 @@
     background: $lgBrown;
     border: 1px solid $linkGray;
     color: $white;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 10px;
     cursor: default;
   }

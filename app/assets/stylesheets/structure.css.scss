@@ -75,7 +75,7 @@
 
   #navmenu {
     float: left;
-    margin-top: 4px;
+    /*margin-top: 4px;*/
     margin-left: 4px;
     padding-left: 18px;
     span a,
@@ -114,13 +114,13 @@
   
   #topbar span a,
   #topbar span a:visited {
-    margin: 4px 12px 0 0;
+    margin: 0 12px 0 0;
     float: right;
   }
 
   #topbar_right {
     float: right;
-    margin-top: 4px;
+    /*margin-top: 4px;*/
   }
 
   #topbar_right p {
