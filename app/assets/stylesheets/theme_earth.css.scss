@@ -51,8 +51,8 @@
     background: linear-gradient(to bottom,  $redBrown 0%,$simpleBrown 40%,$deepBrown 100%) fixed; /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$redBrown', endColorstr='$deepBrown',GradientType=0 ) fixed; /* IE6-9 */
 
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    /*font-size: small;*/
+    font-family: helvetica, arial, sans-serif;
+    font-size: small;
   }
 
   .container {
@@ -88,7 +88,7 @@
     color: $liteBrown;
     font-size: 10px;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: bold;
     &:hover {
     color: $cream;
     text-decoration: none;
@@ -102,7 +102,7 @@
 
   #topbar_right p {
     color: $grayBorder;
-    font-weight: 500;
+    font-weight: bold;
     /*background: $sidebar;*/
   }
 
@@ -140,8 +140,7 @@
   #sidebar h4 {
     border-bottom: 2px solid $mgBrown;
     color: $liteBrown;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
+    font-family: 'Georgia';
     text-align: center;
   }
 
@@ -165,7 +164,7 @@
       color: $liteBrown;
       font-size: 10px;
       text-decoration: none;
-      font-weight: 700;
+      font-weight: bold;
     }
     a:hover {
       color: $cream;
@@ -179,7 +178,7 @@
     a:visited {
       color: $liteBrown;
       text-decoration: none;
-      font-weight: 500;
+      /*font-weight: bold;*/
     }
     a:hover {
       color: $cream;
@@ -192,7 +191,7 @@
     color: $liteBrown;
     font-size: 11px;
     text-decoration: none;
-    font-weight: 500;
+    /*font-weight: bold;*/
     &:hover {
       color: $cream;
       text-decoration: none;
@@ -201,10 +200,9 @@
   }
 
   #navmenu .dropdown li a {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    font-size: 11px;
+    font-family: helvetica, arial, sans-serif;
+    font-size: 12px;
     text-decoration: none;
-    font-weight: 400;
     &:hover {
       color: $cream;
       text-decoration: none;
@@ -235,7 +233,7 @@
 
   #search_form {
     color: $liteBrown;
-    font-weight: 500;
+    font-weight: bold;
     text-decoration: none;
   }
 
@@ -279,7 +277,7 @@
     }
     span {
       color: $liteBrown;
-      font-weight: 500;
+      font-weight: bold;
     }
   }
 
@@ -309,7 +307,7 @@
     border: 1px solid $grayBorder;
     background-color: $white;
     a {
-      font-weight: 500;
+      font-weight: bold;
     }
     ul {
       list-style-type: none;
@@ -343,7 +341,7 @@
       }
     }
     span.setsoon {
-      font-weight: 500;
+      font-weight: bold;
     }
   }
 
@@ -533,11 +531,11 @@
   }
 
   .song_title {
-    font-weight: 500;
+    font-weight: bold;
   }
 
   .song_title_locked {
-    font-weight: 500;
+    font-weight: bold;
     color: $linkGray;    
   }
 
@@ -630,7 +628,7 @@
   }
 
   .set_title {
-    font-weight: 500;
+    font-weight: bold;
   }
 
   .sort_highlight {
@@ -666,7 +664,7 @@
     border: 1px solid $grayWrap;
     box-shadow: inset 1px 2px 3px $linkLight;
     text-align: center;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-family: Lucida Grande, sans-serif;
     /*font-size: 12px;*/
     color: $linkGray;
     &.track_pos_locked {
@@ -1020,7 +1018,7 @@
     background: $lgBrown;
     border: 1px solid $linkGray;
     color: $white;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 10px;
     cursor: default;
   }
