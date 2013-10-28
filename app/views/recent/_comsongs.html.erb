@@ -1,4 +1,4 @@
-<div id="pop_songs"">
+<div id="pop_songs">
 
 	<% sorted = [] %>
 	<% tracks = Track.all %>
@@ -11,7 +11,7 @@
 
 	<h5>RECENT POPULAR SONGS</h5>
 	<% sorted.uniq { |p| p.tracked_id }.each do |x| %>
-		<table>
+		<table id="popular">
 			<tr>
 				<td class="pop_title">
 				<%= link_to "#{truncate(x.tracked.title, length: 36)}", 

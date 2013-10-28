@@ -241,6 +241,7 @@
 
   #search_form form input {
     font-size: 12px;
+    line-height: 85%;
   }
 
 /* DASHBOARD                                         */
@@ -316,10 +317,6 @@
       color: white;
       background-color: $tagForest;
       font-size: 90%;
-      a {
-        color: white;
-        font-size: 110%;
-      }
     }
     span.blue {
       color: white;
@@ -362,6 +359,19 @@
     h5 {
     color: black;
     text-align: center;
+    }
+  }
+
+  #recent {
+      margin-left: 6px;
+    td {
+      line-height: 150%;      
+    }
+  }
+
+  #popular {
+    td {
+      line-height: 150%;
     }
   }
 
