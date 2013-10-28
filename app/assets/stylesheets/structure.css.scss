@@ -94,6 +94,7 @@
   #navmenu div.dropdown a {
     display: inline;
     margin: 0 12px 0 6px;
+    z-index:1000;
   }
 
   #navmenu div.hovering div {
@@ -259,16 +260,21 @@
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 12px;
+    overflow: hidden;
     h5 {
       margin-top: -3px;
       padding-bottom: 3px;
     }
   }
 
-  .comcon_left li {
-      width: 320;
+  #pop_songs {
+    height: 190px;
+    overflow: hidden;
   }
 
+  .pop_title {
+    width: 224px;
+  }
 
   .tag_cloud {
     padding-right: 28px;
@@ -304,6 +310,7 @@
   .comcon_mid,
   .comcon_right {
     border-radius: 20px;
+    overflow: hidden;
     h5 {
     }
     a {
@@ -318,15 +325,15 @@
     span.green,
     span.blue,
     span.orange {
-      margin: 0 3px 0 0;
-      padding: 1px 6px 1px 4px;
+      margin: 0 1px 0 0;
+      padding: 2px 6px 1px 4px;
       border-radius: 4px;
     }
     span.green {
       text-align: right;
     }
     span.gray {
-      padding: 2px 10px 1px 8px;
+      padding: 3px 10px 1px 8px;
       border-radius: 4px;
     }
     span.date {
@@ -770,6 +777,7 @@
     float: right;
     font-size: 80%;
     margin-bottom: 3px;
+    z-index:1000;
   }
 
 /* BUTTONS                                                */
@@ -974,7 +982,7 @@
     top: 40px;
     margin-left: -17px;
     position:absolute;
-    z-index:10000;
+    z-index:999;
     width:854px;
   }
 
@@ -982,7 +990,7 @@
     top: 66px;
     margin-left: -17px;
     position:absolute;
-    z-index:10000;
+    z-index:999;
     width:854px;
   }
 
@@ -990,7 +998,7 @@
     top: 90px;
     margin-left: -17px;
     position:absolute;
-    z-index:10000;
+    z-index:999;
     width:854px;
   }
 
@@ -998,7 +1006,7 @@
     top: 18px;
     margin-left: 184px;
     position:absolute;
-    z-index:10000;
+    z-index:999;
     width:680px;
   }
 
@@ -1006,7 +1014,7 @@
     top: 15px;
     margin-left: 420px;
     position:absolute;
-    z-index:10000;
+    z-index:999;
     width:400px;
     font-size: 120%;
   }
@@ -1015,7 +1023,7 @@
     top: 8px;
     margin-left: 200px;
     position:absolute;
-    z-index:10000;
+    z-index:999;
     width:660px;
   }
 

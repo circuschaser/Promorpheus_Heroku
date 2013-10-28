@@ -32,7 +32,7 @@
 			<span class="date">
 			<%= x.performance_date.strftime("%B %d, %Y") %>
 			</span>
-			<%= link_to "#{truncate(x.title, length: 46)}", setlist_path(x) %>
+			<%= link_to "#{truncate(x.title, length: 42)}", setlist_path(x) %>
 		</div>
 		<% end %>
 	<% end %>

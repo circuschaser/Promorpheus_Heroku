@@ -1,4 +1,4 @@
-<div class="recent_com">
+<div id="pop_songs"">
 
 	<% sorted = [] %>
 	<% tracks = Track.all %>
@@ -7,20 +7,24 @@
 		<% sorted.push(t) %>
 	<% end %>
 
-	<% sorted.sort! {|x,y| y.created_at <=> x.created_at } %>
+	<% sorted.sort! {|x,y| y.tracked.setlists.uniq.count <=> x.tracked.setlists.uniq.count } %>
 
 	<h5>RECENT POPULAR SONGS</h5>
-	<% sorted[0..7].uniq { |p| p.tracked_id }.each do |x| %>
-		<ul>
-			<li>
-				<%= link_to "#{truncate(x.tracked.title, length: 39, separator: ' ')}", 
+	<% sorted.uniq { |p| p.tracked_id }.each do |x| %>
+		<table>
+			<tr>
+				<td class="pop_title">
+				<%= link_to "#{truncate(x.tracked.title, length: 36)}", 
 						"#{songs_path}" + "?utf8=✓&search=" + "#{x.tracked.title}" %>				
-				appears in 
+				</td>
+				<td>
+				appears in
 				<span class="green">
 					<%= pluralize(x.tracked.setlists.uniq.count, "SETLIST").upcase %>
 				</span>
-			</li>
-		</ul>
+				</td>
+			</tr>
+		</table>
 	<% end %>
 
 </div>
