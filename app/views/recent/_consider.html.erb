@@ -120,7 +120,7 @@
 			<% songs[0..5].each do |s| %>
 				<li>
 					<span>
-						<%= link_to "#{truncate(s.title, length: 42, separator: ' ')}", 
+						<%= link_to "#{truncate(s.title, length: 44)}", 
 						"#{songs_path}" + "?utf8=✓&search=" + "#{s.title}" %>
 					</span>
 					<% end %>

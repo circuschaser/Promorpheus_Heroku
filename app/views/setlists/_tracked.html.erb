@@ -54,9 +54,6 @@
                 </td>
 
                 <td class="song_button_block">
-                  <div class="icon_edit">
-                    <%= link_to image_tag("icon_edit.png"), edit_song_path(song) %>
-                  </div>
                   <div class="icon">
                     <% if @setlist.active? %>
                       <%= link_to image_tag("icon_delete.png"), track, method: :delete,
@@ -212,9 +209,7 @@
                 </td>
 
                 <td class="song_button_block">
-                  <div class="icon_edit">
-                    <%= link_to image_tag("icon_edit.png"), edit_song_path(song) %>
-                  </div>
+
                   <div class="icon">
                     <% if @setlist.active? %>
                       <%= link_to image_tag("icon_delete.png"), track, method: :delete,

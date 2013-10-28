@@ -382,7 +382,7 @@
   }
 
   .upcoming {
-    color: $tagOrange;
+    color: black;
     border: 1px solid $grayBorder;
     background: $grayWrap;
     a {
@@ -639,6 +639,9 @@
 
   .set_title {
     font-weight: bold;
+    a {
+      color: black;
+    }
   }
 
   .sort_highlight {
@@ -688,6 +691,9 @@
   .arc_set {
     border-top: 1px solid $grayBorder;
     color: $linkLight;
+    a {
+      color: $linkLight;
+    }
   }
 
   #arc_notice {

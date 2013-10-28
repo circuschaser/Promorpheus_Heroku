@@ -24,9 +24,8 @@
 		<% sorted.uniq { |p| p.tracked_id }.each do |x| %>
 		<table id="recent">
 			<tr>
-				<td class="pop_title">
-					<%= link_to "#{truncate(x.tracked.title, length: 42, separator: ' ')}", 
-							"#{songs_path}" + "?utf8=✓&search=" + "#{x.tracked.title}" %>
+				<td>
+					<%= link_to "#{truncate(x.tracked.title, length: 44)}", x.tracker %>
 				</td>
 			</tr>
 		</table>

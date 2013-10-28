@@ -23,7 +23,7 @@
 		<% sorted[0..6].each do |x| %>
 			<ul>
 				<li>
-					<%= link_to "#{truncate(x.title, length: 38)}", 
+					<%= link_to "#{truncate(x.title, length: 40)}", 
 							"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %>
 				</li>
 			</ul>
