@@ -35,12 +35,6 @@ ActiveRecord::Schema.define(:version => 20130817022239) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "people", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "setlists", :force => true do |t|
     t.string   "title"
     t.text     "description"
