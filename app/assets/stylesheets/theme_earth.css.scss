@@ -293,7 +293,7 @@
   .comcon_left,
   .comcon_mid,
   .comcon_right {
-    font-size: 85%;
+    font-size: 90%;
     color: $linkGray;
   }
 
@@ -307,7 +307,7 @@
     border: 1px solid $grayBorder;
     background-color: $white;
     a {
-      font-weight: bold;
+      /*font-weight: bold;*/
     }
     ul {
       list-style-type: none;
@@ -665,7 +665,7 @@
     box-shadow: inset 1px 2px 3px $linkLight;
     text-align: center;
     font-family: Lucida Grande, sans-serif;
-    /*font-size: 12px;*/
+    font-size: 12px;
     color: $linkGray;
     &.track_pos_locked {
       box-shadow: none;

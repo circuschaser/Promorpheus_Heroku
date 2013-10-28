@@ -1,24 +1,23 @@
 <div class="recent_com">
 
 	<% sorted = [] %>
-	<% tracks = Track.where("updated_at > ?", 15.days.ago) %>
+	<% tracks = Track.all %>
 
 	<% tracks.each do |t| %>
-		<% sorted.push(t.tracked) %>
+		<% sorted.push(t) %>
 	<% end %>
 
-	<% sorted.sort! {|x,y| y.updated_at <=> x.updated_at } %>
-	<% sorted.uniq! { |p| p.id } %>
+	<% sorted.sort! {|x,y| y.created_at <=> x.created_at } %>
 
 	<h5>RECENT POPULAR SONGS</h5>
-	<% sorted[0..7].each do |x| %>
+	<% sorted[0..7].uniq { |p| p.tracked_id }.each do |x| %>
 		<ul>
 			<li>
-				<%= link_to "#{truncate(x.title, length: 39, separator: ' ')}", 
-						"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %>				
+				<%= link_to "#{truncate(x.tracked.title, length: 39, separator: ' ')}", 
+						"#{songs_path}" + "?utf8=✓&search=" + "#{x.tracked.title}" %>				
 				appears in 
 				<span class="green">
-					<%= pluralize(x.setlists.uniq.count, "SETLIST").upcase %>
+					<%= pluralize(x.tracked.setlists.uniq.count, "SETLIST").upcase %>
 				</span>
 			</li>
 		</ul>

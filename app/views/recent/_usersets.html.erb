@@ -32,7 +32,7 @@
 			<span class="date">
 			<%= x.performance_date.strftime("%B %d, %Y") %>
 			</span>
-			<%= link_to "#{truncate(x.title, length: 50, separator: ' ')}", setlist_path(x) %>
+			<%= link_to "#{truncate(x.title, length: 46)}", setlist_path(x) %>
 		</div>
 		<% end %>
 	<% end %>
@@ -45,12 +45,12 @@
 			<% if x.created_at == x.updated_at %>
 			<li>
 				<span class="date"><%= x.created_at.strftime("%B %d, %Y") %></span>
-				<span class="orange">CREATED</span> <%= link_to "#{truncate(x.title)}", setlist_path(x) %>
+				<span class="orange">CREATED</span> <%= link_to "#{truncate(x.title, length: 40)}", setlist_path(x) %>
 			</li>
 			<% else %>
 			<li>
 				<span class="date"><%= x.updated_at.strftime("%B %d, %Y") %></span>
-				<span class="blue">EDITED</span> <%= link_to "#{truncate(x.title)}", setlist_path(x) %>
+				<span class="blue">EDITED</span> <%= link_to "#{truncate(x.title, length: 40)}", setlist_path(x) %>
 			</li>
 			<% end %>
 		</ul>

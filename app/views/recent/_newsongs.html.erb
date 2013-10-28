@@ -20,10 +20,10 @@
 
 	<% else %>
 
-		<% sorted[0..7].each do |x| %>
+		<% sorted[0..6].each do |x| %>
 			<ul>
 				<li>
-					<%= link_to "#{truncate(x.title, length: 40)}", 
+					<%= link_to "#{truncate(x.title, length: 38)}", 
 							"#{songs_path}" + "?utf8=✓&search=" + "#{x.title}" %>
 				</li>
 			</ul>
