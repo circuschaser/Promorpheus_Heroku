@@ -824,20 +824,20 @@
   .tags,
   .tags_inset {
     margin:6px;
-    margin-top: -3px;
+    margin-top: -6px;
     padding:-2px;
     list-style:none;
     width: 650px;
     &.tags {
-      margin-left: 36px;
+      margin-left: 31px;
     }
     &.tags_inset {
-      margin-left: 46px;
+      margin-left: 41px;
     }
   }
 
   .tag_cloud {
-    /*margin:6px;*/
+    margin:6px;
     margin-top: -3px;
     padding:-2px;
     list-style:none;
@@ -851,7 +851,7 @@
   .tag_cloud a {
     /*float:left;*/
     margin-bottom: -3px;
-    margin-top: -5px;
+    margin-top: -7px;
     line-height:20px;
     position:relative;
     font-size:10px;
@@ -865,14 +865,16 @@
   .comtags p {
     margin-left: -3px;
   }
-    
+  
+  /* tag main shape */
   .tags a,
   .tags_inset a,
   .tag_cloud a {
-    border-top-left-radius:5px;
-    border-top-right-radius:7px;
-    border-bottom-left-radius:18px;
-    margin-left:-4px;
+    border-top-left-radius:8px;
+    border-top-right-radius:10px;
+    border-bottom-left-radius:24px;
+    border-bottom-right-radius:1px;
+    margin-left: 1px;
     padding:2px 6px 2px 11px;
     background:$tagPine;
     color:white;
@@ -883,16 +885,17 @@
     margin-left: 1px;
   }
 
+  /* tag punch hole */
   .tags a:after, 
   .tags_inset a:after,
   .tag_cloud a:after
   {
     content:"";
     position:absolute;
-    top:4px;
-    left:4px;
+    top:3px;
+    left:3px;
     /*float:left;*/
-    width:3px;
+    width:4px;
     height:3px;
     -moz-border-radius:2px;
     -webkit-border-radius:2px;
