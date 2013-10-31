@@ -12,7 +12,7 @@ $(document).ready(function(){
     $('.alert-udel').remove();
   }
 
-  window.setTimeout(fadeAlert,5000);
-  window.setTimeout(removeAlert,6000);
+  window.setTimeout(fadeAlert,2500);
+  window.setTimeout(removeAlert,3500);
 
 });

@@ -1,7 +1,7 @@
 <div class="recent_user">
 
 	<% set_soon = [] %>
-	<% sets_upcoming = current_user.setlists.where("performance_date > ?", Time.now) %>
+	<% sets_upcoming = current_user.setlists.where("performance_date > ?", 1.days.ago) %>
 
 	<% set_sorted = [] %>
 	<% sets_updated = current_user.setlists.where("updated_at > ?", 15.days.ago) %> 
