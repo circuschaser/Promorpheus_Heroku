@@ -6,20 +6,15 @@
   <% end %>
 </div>
 
-<div id="sidebar">
-  <%= render "sidebar/side_songs" %>
-</div>
-
 <div id="content_main">
 
+  <div id="addbutton">
+    <%= link_to "NEW SONG", new_song_path, id: 'addtrack', :class => 'btn-small btn-small-grn' %>
+  </div>
+
   <div class="songlist_title">
-    <div id="search_form">
-      <%= form_tag songs_path, method: 'get' do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search all songs" %>
-      <% end %>
-    </div>
     <div class="mainlink">
-      <h3><%= link_to "ALL MUSIC", songs_path %></h3>
+      <h4><%= link_to "ALL MUSIC", songs_path %></h4>
     </div>
   </div>
 
@@ -42,4 +37,8 @@
     </div>
 
   </div>
+</div>
+
+<div id="sidebar">
+  <%= render "sidebar/side_songs" %>
 </div>

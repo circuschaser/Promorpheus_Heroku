@@ -31,7 +31,7 @@ class SetlistsController < ApplicationController
 			render 'show'
 			# redirect_to setlists_path
 		else
-	      flash.now[:error] = "Whoops. SOMETHING WENT WRONG.\nCheck the form again."
+	      flash.now[:error] = "Whoops. SOMETHING WENT WRONG.\nYou're probably missing a TITLE. Check the form again."
 			render 'show'
 		end
 	end

@@ -1,34 +1,10 @@
 <% provide(:title, "Edit Setlist") %>
 
-<% if @setlist.description.empty? %>
-  <div class="notice_br">
+  <div class="notice_set">
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "alert-temp alert fade in alert-#{key}") %>
     <% end %>
   </div>
-<% else %>
-  <div class="notice_desc">
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "alert-temp alert fade in alert-#{key}") %>
-    <% end %>
-  </div>
-<% end %>
-
-<div id="sidebar">
-  <h4>The Sidebar Headline</h4>
-    <p>
-      Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod.
-    </p>
-    <ul>
-      <li>Lorem ipsum Veniam sunt</li>
-      <li>velit in nisi incididunt</li>
-      <li>eu id minim dolore</li>
-      <li>aliqua commodo officia.</li>
-    </ul>
-    <p>
-      Lorem ipsum Dolore pariatur mollit et ullamco et esse velit.
-    </p>
-</div>
 
 <div id="content_main">
   <% if @setlist.active? %>
@@ -37,23 +13,34 @@
       <%= image_tag("breadcrumb.png", id: "breadcrumb-sm") %>
       <%= link_to "ACTIVE SETLISTS", active_setlists_path, id: "active" %>
     </div>
+    <div id="addbutton_br_set">
+      <%= link_to "ADD A SONG", "#", id: 'addtrack', :class => 'btn btn-small-grn' %>
+    </div>
   <% else %>
     <div class="setlist_trail">
       <%= link_to "ALL MY SETLISTS", setlists_path %>
       <%= image_tag("breadcrumb.png", id: "breadcrumb-sm") %>
       <%= link_to "ARCHIVED SETLISTS", archived_setlists_path, id: "active" %>
     </div>
+    <div id="addbutton_br_set">
+      <%= link_to "ADD A SONG", "#", id: 'addtrack', :class => 'btn btn-small-gy' %>
+    </div>
   <% end %>
 
+
+
   <div class="setlist_title">
-    <h3><%= link_to "#{truncate(@setlist.title.titleize, length: 68)}", @setlist %>
+    <h4><%= link_to "#{@setlist.title.titleize}", @setlist %>
       <span><%= link_to image_tag("icon_edit_b.png", id: "icon_edit_sm"), "#", id: "editset" %></span>
       <span><%=link_to_function(image_tag("icon_print.png", id: "icon_print"), "javascript:print()")%></span>
-    </h3>
+    </h4>
   </div>
 
   <div class="setdesc">
+    <span class="pdate_act"><%= @setlist.performance_date.strftime("%B %d, %Y") %></span>
+
     <%= @setlist.description %>
+
   </div>
   <div class="pdate">
     Performance Date: <%= @setlist.performance_date.strftime("%B %d, %Y") %>
@@ -71,10 +58,10 @@
             <%= simple_form_for @setlist do |f| %>
             <%= render 'shared/error_messages', object: f.object %>
 
-            <p>max 66 characters<p>
+            <p>max 74 characters<p>
             <%= f.input :title %>
 
-            <p>max 120 characters<p>
+            <p>max 94 characters<p>
             <%= f.input :description, as: :string %>
             
             <%= f.input :performance_date, as: :date,
@@ -116,4 +103,20 @@
 
     </div>
 
+</div>
+
+<div id="sidebar">
+  <h4>The Sidebar Headline</h4>
+    <p>
+      Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod.
+    </p>
+    <ul>
+      <li>Lorem ipsum Veniam sunt</li>
+      <li>velit in nisi incididunt</li>
+      <li>eu id minim dolore</li>
+      <li>aliqua commodo officia.</li>
+    </ul>
+    <p>
+      Lorem ipsum Dolore pariatur mollit et ullamco et esse velit.
+    </p>
 </div>

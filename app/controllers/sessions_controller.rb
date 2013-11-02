@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 			redirect_to "/home"
 		else
 			# create an error message and re-render signin form
-			flash.now[:error] = "That email/password combination does not exist"
+			flash.now[:error] = "Sorry. We couldn't find an account with that info."
 			render "new"
 		end
 	end

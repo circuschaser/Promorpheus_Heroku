@@ -11,6 +11,12 @@
 
     <% if signed_in? %>
 
+      <div id="search_form">
+        <%= form_tag songs_path, method: 'get' do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search all songs" %>
+        <% end %>
+      </div>
+
     <div id="topbar">
 
       <div id="navmenu">
@@ -59,12 +65,12 @@
       <span><%= link_to "SIGN OUT", signout_path, method: "delete" %></span>
       <div id="topbar_right" class="navitem">You are signed in as
         <p><%= "#{current_user.name}" %></p>
-      </div>      
+      </div>             
     </div>
 
     <% else %>
 
-    <div id="topbar">
+    <div id="topbar_blank">
       <div id="topbar_right"
         <%= link_to "SIGN IN HELP", "https://en.wikipedia.org/wiki/Login", :class => "btn-mini" %>
       </div>

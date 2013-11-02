@@ -13,7 +13,7 @@ $(document).ready(function() {
   });
 
 // add setlist track
-	$(document).on("click","#new",function() {
+	$(document).on("click","#addtrack",function() {
     $("#setlist_info").slideUp(250);
     $("#newtrack").delay(250).slideToggle(250);
   });

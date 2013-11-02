@@ -1,10 +1,6 @@
 <div id="item_counter">
   This composer has <%= pluralize(@composer.songs.count, "song") %>
-    <p id="new">
-      <label><%= link_to "NEW SONG", new_song_path %></label>
-      <%= link_to image_tag("icon_add.png"), new_song_path, class: "icon_add" %>
-    </p><br/>
-  </div>
+</div>
 
 <% if @songs.size == 0 %>
 

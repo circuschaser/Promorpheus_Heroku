@@ -7,13 +7,9 @@
 <% provide(:title, "Dashboard") %>
 
 	<div class="songlist_title">
-    <div id="search_form">
-      <%= form_tag songs_path, method: 'get' do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search all songs" %>
-      <% end %>
-    </div>
+
     <div class="mainlink">
-      <h3><%= link_to "DASHBOARD", '/home' %></h3>
+      <h4><%= link_to "DASHBOARD", '/home' %></h4>
     </div>
   </div>
 

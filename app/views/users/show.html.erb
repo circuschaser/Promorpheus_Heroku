@@ -1,52 +1,44 @@
 <%= provide(:title, @user.name) %>
 
-<div class="container">
+  <div class="notice_greet">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "alert-greet alert fade in alert-#{key}") %>
+    <% end %>
+  </div>
+  <div id="content_main">
 
-<div class="notice_greet">
-  <% flash.each do |key, value| %>
-    <%= content_tag(:div, value, class: "alert-greet alert fade in alert-#{key}") %>
-  <% end %>
-</div>
-
-    <div id="sidebar">
-      <h4>The Sidebar Headline</h4>
-        <p>
-            Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod. 
-        </p>
-        <ul>
-            <li>Lorem ipsum Veniam sunt</li>
-            <li>velit in nisi incididunt</li>
-            <li>eu id minim dolore</li>
-            <li>aliqua commodo officia.</li>
-        </ul>
-        <p>
-            Lorem ipsum Dolore pariatur mollit et ullamco et esse velit.
-        </p>
-    </div>
-
-    <div id="content_main">
-
-	  <div class="greywrap_top">
-	  </div>
-        <div class="greywrap">
-	        <div class="content_head">
-
-						<h3>
-							<%= @user.name %>
-						</h3>
-					</div>
-
-					<div class="content_body">
-						<p>This is your Account page.</p></br>
-							<p>
-								Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod.
-							</p><br>
-							<p id="link_button">
-								Go to your <%= link_to "DASHBOARD", "/home" %>
-							</p>
-					</div>
-				
+      <div class="greywrap_form">
+        <div class="content_head">
+					<h3>
+						<%= @user.name %>
+					</h3>
 				</div>
-		</div>
-</div>
 
+				<div class="content_body">
+					<p>This is your Account page.</p></br>
+					<p>
+						Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod.
+					</p><br>
+					<p id="link_button">
+						Go to your <%= link_to "DASHBOARD", "/home" %>
+					</p>
+				</div>
+				
+			</div>
+		</div>
+
+  <div id="sidebar">
+    <h4>The Sidebar Headline</h4>
+      <p>
+          Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod. 
+      </p>
+      <ul>
+          <li>Lorem ipsum Veniam sunt</li>
+          <li>velit in nisi incididunt</li>
+          <li>eu id minim dolore</li>
+          <li>aliqua commodo officia.</li>
+      </ul>
+      <p>
+          Lorem ipsum Dolore pariatur mollit et ullamco et esse velit.
+      </p>
+  </div>

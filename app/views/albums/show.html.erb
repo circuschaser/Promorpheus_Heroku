@@ -6,22 +6,6 @@
   <% end %>
 </div>
 
-<div id="sidebar">
-  <h4>The Sidebar Headline</h4>
-    <p>
-      Lorem ipsum Esse nisi proident in in cupidatat proident est culpa laborum. Lorem ipsum Aliqua exercitation ad adipisicing deserunt eu sit in non. Lorem ipsum Proident laboris enim ea id consectetur in eiusmod. 
-    </p>
-    <ul>
-      <li>Lorem ipsum Veniam sunt</li>
-      <li>velit in nisi incididunt</li>
-      <li>eu id minim dolore</li>
-      <li>aliqua commodo officia.</li>
-    </ul>
-    <p>
-      Lorem ipsum Dolore pariatur mollit et ullamco et esse velit.
-    </p>
-</div>
-
 <div id="content_main">
 
   <div class="setlist_trail">
@@ -30,14 +14,13 @@
     <span>ALBUM</span>
   </div>
 
-  <div class="setlist_title">
-    <div id="search_form">
-      <%= form_tag songs_path, method: 'get' do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search all songs" %>
-      <% end %>
-    </div>      
+  <div id="addbutton_br">
+    <%= link_to "NEW SONG", new_song_path, id: 'addtrack', :class => 'btn-small btn-small-grn' %>
+  </div>
+
+  <div class="setlist_title">    
     <div class="mainlink">
-      <h3><%= @album.album_name %></h3>
+      <h4><%= @album.album_name %></h4>
     </div>
   </div>
 
@@ -61,5 +44,8 @@
   </div>
 </div>
 
+<div id="sidebar">
+  <%= render "sidebar/side_songs" %>
+</div>
 
 
