@@ -87,13 +87,13 @@
 
   .navitem {
     display: inline;
-    margin: 0 15px 0 2px;
+    margin: 0 8px 0 2px;
   }
 
   #navmenu div.dropdown,
   #navmenu div.dropdown a {
     display: inline;
-    margin: 0 10px 0 5px;
+    margin: 0 5px 0 2px;
     z-index:1000;
   }
 
@@ -121,7 +121,7 @@
   
   #topbar span a,
   #topbar span a:visited {
-    margin: 0 12px 0 0;
+    margin: 0 6px 0 0;
     float: right;
   }
 
@@ -190,6 +190,39 @@
     padding-left: 12px;
     padding-right: 10px;
     box-shadow: inset 2px 2px 5px gray;
+  }
+
+  .ui-helper-hidden-accessible {
+    display: none;
+    }
+
+  ul.ui-autocomplete {
+    position: absolute;
+    top: 36px!important;
+    left: 862px!important;
+    border-radius: 6px;
+    z-index: 1000;
+    padding: 6px 6px 8px 8px;
+
+    max-height: 600px;
+    width: 360px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .ui-menu-item {
+    padding: 1px 3px 0 3px;
+  }
+
+  .ui-menu-item a {
+    display: block;
+    padding: 2px 3px 0 5px;
+  }
+
+  .ui-state-focus {
+    width: 95%;
+    border-radius: 5px;
+    padding-left: 4px;
   }
 
 /* DASHBOARD                                              */
