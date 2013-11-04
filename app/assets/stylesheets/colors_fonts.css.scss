@@ -246,6 +246,25 @@
     border: none;
   }
 
+  .ui-autocomplete {
+    background: white;
+    opacity: 0.9;
+    border: 1px solid $grayBorder;
+    list-style-type: none;
+    box-shadow: -2px 2px 20px $sidebar;
+  }
+
+  .ui-menu-item a {
+    color: $sidebar;
+    text-decoration: none;
+    display: block;
+    line-height: 1.5;
+  }
+
+  .ui-state-focus {
+    background: $tagLime;
+  }
+
 /* DASHBOARD                                         */
 
   .welcome h3 {

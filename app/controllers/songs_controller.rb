@@ -11,6 +11,9 @@ class SongsController < ApplicationController
   def index
     if params[:tag]
       @songs = Song.tagged_with(params[:tag]).paginate(per_page: 10, page: params[:page])
+    elsif params[:term]
+      @songs = Song.find(:all, conditions: ['title ILIKE ? OR composer_name ILIKE ? OR album_name ILIKE ? OR genre_name ILIKE ?', 
+        "%#{params[:term]}%", "%#{params[:term]}%", "%#{params[:term]}%", "%#{params[:term]}%"])
     else
       @songs = Song.search(params[:search]).paginate(per_page: 10, page: params[:page])
     end

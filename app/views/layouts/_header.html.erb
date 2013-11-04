@@ -13,7 +13,7 @@
 
       <div id="search_form">
         <%= form_tag songs_path, method: 'get' do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search all songs" %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search all songs", autocomplete: "off" %>
         <% end %>
       </div>
 
@@ -80,3 +80,26 @@
 
   </div>
 </div>
+
+<script>
+$('#search').autocomplete({
+    source: function (request, response) {
+        $.ajax({
+            url: "<%= songs_path %>",
+            dataType: 'json',
+            data: request,
+            success: function (data) {
+                response(data.map(function (value) {
+                    return {
+                        'label': value.title
+                    };  
+                }));
+            }   
+        }); 
+    },  
+    minLength: 2
+})
+
+
+
+</script>
