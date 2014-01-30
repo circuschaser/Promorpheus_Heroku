@@ -38,8 +38,7 @@ class SongsController < ApplicationController
         self.composer = Composer.find_or_create_by_name "Unknown Composer"
         s.update_attribute(:composer_name, s.composer.name)
       else
-        c = Composer.find_or_create_by_name s.composer_name
-        c.songs << s
+        c = s.composer
         s.update_attribute(:composer_name, s.composer.name)
       end
 
@@ -47,8 +46,7 @@ class SongsController < ApplicationController
         self.album = Album.find_or_create_by_album_name "Unknown Album"
         s.update_attribute(:album_name, s.album.album_name)
       else
-        a = Album.find_or_create_by_album_name s.album_name
-        a.songs << s
+        a = s.album
         s.update_attribute(:album_name, s.album.album_name)
       end
 
@@ -56,8 +54,7 @@ class SongsController < ApplicationController
         self.genre = Genre.find_or_create_by_name "Unknown Genre"
         s.update_attribute(:genre_name, s.genre.name)
       else
-        g = Genre.find_or_create_by_name s.genre_name
-        g.songs << s
+        g = s.genre
         s.update_attribute(:genre_name, s.genre.name)
       end
 

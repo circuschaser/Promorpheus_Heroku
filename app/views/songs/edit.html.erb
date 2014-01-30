@@ -12,6 +12,9 @@
       <div class="content_form">
         <div id="editsong">
             <% @song = Song.find(params[:id]) %>
+            <% @com = Composer.find_by_name @song.composer_name %>
+            <% @alb = Album.find_by_album_name @song.album_name %>
+            <% @gen = Genre.find_by_name @song.genre_name %>
             <%= simple_form_for @song do |f| %>
             <%= render 'shared/error_messages', object: f.object %>
 
@@ -21,23 +24,26 @@
                 </div>
             </div>
 
-            <div id="editcomposer">
-                <div id="editcomposer_from_list">
-                    <%= f.input :composer_name, label: "Composer" %>
-                </div>
-            </div>
+          <div id="composer">
+              <%= link_to_add_association "Add a new Composer", f, :composer %>
+              <div id="composer_from_list">
+                  <%= f.association :composer, collection: Composer.all(order: "name"), prompt: "#{@com.name}" %>
+              </div>
+          </div>
 
-            <div id="editalbum">
-                <div id="editalbum_from_list">
-                    <%= f.input :album_name, label: "Album" %>
-                </div>
-            </div>
+          <div id="album">
+              <%= link_to_add_association "Add a new Album", f, :album %>
+              <div id="album_from_list">
+                  <%= f.association :album, collection: Album.all(order: "album_name"), prompt: "#{@alb.album_name}" %>
+              </div>
+          </div>
 
-            <div id="editgenre">
-                <div id="editgenre_from_list">
-                    <%= f.input :genre_name, label: "Genre" %>
-                </div>
-            </div>
+          <div id="genre">
+              <%= link_to_add_association "Add a new Genre", f, :genre %>
+              <div id="genre_from_list">
+                  <%= f.association :genre, collection: Genre.all(order: "name"), prompt: "#{@gen.name}" %>
+              </div>
+          </div>
 
             <!-- TAGS                            -->
             <div class="field">
