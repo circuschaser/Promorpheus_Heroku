@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130817022239) do
+ActiveRecord::Schema.define(:version => 20131108232910) do
 
   create_table "albums", :force => true do |t|
     t.string   "album_name"
@@ -33,6 +33,20 @@ ActiveRecord::Schema.define(:version => 20130817022239) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "people", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pg_search_documents", :force => true do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "setlists", :force => true do |t|
@@ -78,6 +92,26 @@ ActiveRecord::Schema.define(:version => 20130817022239) do
     t.string "name"
   end
 
+  create_table "theme_prefs", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "theme_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "themefaces", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "theme_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "themes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "tracks", :force => true do |t|
     t.integer  "tracker_id"
     t.integer  "tracked_id"
@@ -92,10 +126,13 @@ ActiveRecord::Schema.define(:version => 20130817022239) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.boolean  "admin",           :default => false
+    t.boolean  "admin",                  :default => false
     t.string   "remember_token"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.string   "theme"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

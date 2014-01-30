@@ -12,7 +12,6 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'cocoon'
 gem 'acts-as-taggable-on'
-gem 'acts_as_list'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

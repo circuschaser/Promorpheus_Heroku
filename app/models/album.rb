@@ -6,6 +6,8 @@ class Album < ActiveRecord::Base
 
   accepts_nested_attributes_for :songs
 
+
+
   def to_label
   	"#{album_name}"
   end

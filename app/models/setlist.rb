@@ -18,6 +18,8 @@ class Setlist < ActiveRecord::Base
   scope :active, where(active: true)
   scope :archived, where(active: false)
 
+
+
   def self.search(search)
   	if search
 

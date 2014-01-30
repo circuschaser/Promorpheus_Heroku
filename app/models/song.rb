@@ -30,6 +30,7 @@ class Song < ActiveRecord::Base
 
   default_scope order: 'title ASC'
 
+
   def self.search(search)
   	if search
   		select('distinct songs.*').joins("LEFT JOIN taggings on songs.id = taggings.taggable_id")

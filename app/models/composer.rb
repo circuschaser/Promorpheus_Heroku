@@ -9,6 +9,8 @@ class Composer < ActiveRecord::Base
   validates :name, uniqueness: { case_sensitive: false }
   # validates :name, presence: true
 
+
+
   def self.search(search)
   	if search
       Composer.where("name ILIKE ?", "%#{search}%")
