@@ -3,23 +3,24 @@
 
 
 
-# Composer.delete_all
+Composer.delete_all
 
-# Album.delete_all
+Album.delete_all
 
-# Genre.delete_all
+Genre.delete_all
 
-# Song.destroy_all
-# CSV.foreach("doc/Songs.csv", headers: true) do |row|
-# 	Song.create! row.to_hash
-# end
+Song.destroy_all
 
-# songs = Song.all
-# songs.each do |s|
-	# s.update_attribute(:tag_list, [])
-# end
+CSV.foreach("doc/Songs.csv", headers: true) do |row|
+	Song.create! row.to_hash
+end
 
-3.times do
+songs = Song.all
+songs.each do |s|
+	s.update_attribute(:tag_list, [])
+end
+
+5.times do
 	CSV.foreach("doc/Tags.csv", headers: false) do |row|
 		s = Song.all.shuffle.pop
 		s.update_attribute(:tag_list, row)

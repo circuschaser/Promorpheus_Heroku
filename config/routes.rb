@@ -12,6 +12,9 @@ PromorpheusHeroku::Application.routes.draw do
   resources :songs do
     member do
       get :trackers
+      get :composer
+      get :album
+      get :genre
     end
   end
 
