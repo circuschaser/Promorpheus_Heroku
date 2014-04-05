@@ -58,7 +58,7 @@
             </td>
 
             <td class="song_content_right">
-              <p><span>COMPOSER: </span><%= link_to truncate(com.name, length: 32, separator: ' '), composer_path(com) %>
+              <p><span>COMPOSER: </span><%= link_to truncate(com.name, length: 30, separator: ' '), composer_path(com) %>
               </p>
               <p class="meta">
                 <span>GENRE: </span><%= link_to gen.name, genre_path(gen) %>
